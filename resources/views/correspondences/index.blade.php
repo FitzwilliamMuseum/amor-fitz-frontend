@@ -11,7 +11,6 @@
     {!! $page['text'] !!}
 
   </section>
-<section class="bg-creme">
   <section class="mw3 mw8-ns center bg-creme pa3 ph5-ns">
   @foreach($records as $item)
     @php
@@ -72,8 +71,7 @@
 
 </section>
 
-</section>
-<section class="mw9 mw9-ns center bg-creme pa3 ph5-ns cf">
+<section class="mw3 mw8-ns center bg-creme pa3 ph5-ns">
   {{ $paginate->links('paginator.default') }}
 </section>
 @endsection

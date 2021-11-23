@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="{{ mix('/css/fitzwilliam.css') }}" />
   <link rel="stylesheet" href="{{ mix('/css/global-styles.css') }}" />
 </head>
-<body class="w-100"  >
+<body class="w-100 bg-creme">
   <div class="" id="app">
     <the-header></the-header>
     <section class="mw9 mw9-ns center pa3 ph5-ns">
