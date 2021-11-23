@@ -35,7 +35,7 @@ class correspondencesController extends Controller
 
     public function letter($id){
 
-      $data = Items::find($id);
+      $data = Items::letter($id);
       return view('correspondences.letter', compact('data'));
     }
 }

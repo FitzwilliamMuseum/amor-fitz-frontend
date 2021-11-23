@@ -7,7 +7,7 @@
       <h2 class="serif f2 mb2">
         {{ title }}
       </h2>
-      <div v-if="type === 'person'">
+      <div v-if="type === 'Person'">
         <div v-if="metadataHead['Nickname']" class="f4 mb2">
           ({{ metadataHead["Nickname"] }})
         </div>
@@ -60,7 +60,7 @@ import AccordionLink from "./AccordionLink";
 import AvatarItem from "./AvatarItem";
 
 export default {
-  name: "CorrespondenceHeader",
+  name: "EntityHeader",
   props: {
     type: { type: String, default: "" },
     title: { type: String, default: "" },

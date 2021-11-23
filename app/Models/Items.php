@@ -23,7 +23,6 @@ class Items
     $api = new OmekaApi;
     $api->setEndpoint('items');
     $api->setid($id);
-    dd($api->getData());
     return self::expander(array($api->getData()));
   }
 
@@ -48,6 +47,72 @@ class Items
   }
 
   public static function expander(array $items){
+    $records = array();
+    foreach($items as $item) {
+      foreach($item['element_texts'] as $element){
+        $data[$element['element']['name']] = str_replace(array("\r", "\n"), ' ', $element['text']);
+      }
+      $data['id'] = $item['id'];
+      $data['created'] = $item['added'];
+      $data['modified'] = $item['modified'];
+      $data['type'] = $item['item_type']['name'];
+      if(array_key_exists('url', $item['files'])){
+        $response = Http::get($item['files']['url']);
+        $data['images'] = $response->json();
+      }
+      // dd($item);
+      if(array_key_exists('itemrelations', $item['extended_resources'])){
+          $response = Http::get('http://hayleypapers.fitzmuseum.cam.ac.uk/api/itemrelations/?object_item_id=' . $item['id']);
+          $data['relations'] = $response->json();
+          $data['expanded'] = array();
+          if(!empty($data['relations'])){
+          if(array_key_exists(0,$data['relations'])){
+          foreach($data['relations'] as $relation){
+            if(isset($relation['object_item_url'])){
+              $object = $relation['object_item_url'];
+              $response = Http::get($object);
+            }
+            $expanded = array();
+            foreach($response['element_texts'] as $element){
+              $expanded[$element['element']['name']] = str_replace(array("\r", "\n"), ' ', $element['text']);
+            }
+            if (isset($relation['subject_item_url'])){
+              $subject = $relation['subject_item_url'];
+              $responses = Http::get($subject);
+              // dd($responses->json());
+
+              $refs = array();
+              $refs['id'] = $responses['id'];
+              foreach($responses['element_texts'] as $element){
+                $refs[$element['element']['name']] = str_replace(array("\r", "\n"), ' ', $element['text']);
+              }
+              $expanded['refs'] = $refs;
+            }
+            $expanded['property_label'] = $relation['property_label'];
+            $expanded['object_item_id'] = $relation['object_item_id'];
+            $expanded['entityType'] = $response['item_type']['name'];
+            $data['expanded'][] = $expanded;
+
+        }
+      }
+      }
+    }
+      $records[] = $data;
+    }
+    return $records;
+  }
+
+
+  public static function letter(int $id)
+  {
+    $api = new OmekaApi;
+    $api->setEndpoint('items');
+    $api->setid($id);
+    return self::letterExpand(array($api->getData()));
+  }
+
+
+  public static function letterExpand(array $items){
     $records = array();
     foreach($items as $item) {
       foreach($item['element_texts'] as $element){

@@ -941,7 +941,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "CorrespondenceHeader",
+  name: "EntityHeader",
   props: {
     type: {
       type: String,
@@ -72647,7 +72647,7 @@ var render = function () {
           _vm._v("\n      " + _vm._s(_vm.title) + "\n    "),
         ]),
         _vm._v(" "),
-        _vm.type === "person"
+        _vm.type === "Person"
           ? _c("div", [
               _vm.metadataHead["Nickname"]
                 ? _c("div", { staticClass: "f4 mb2" }, [

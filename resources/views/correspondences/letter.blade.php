@@ -1,5 +1,10 @@
 @extends('layouts.default')
+
+@if(array_key_exists('Letter Title',$data[0]))
 @section('title', $data[0]['Letter Title'] . ' ' . $data[0]['Classmark'])
+@else
+  @section('title', $data[0]['Classmark'])
+@endif
 @php
 $people = array_filter($data[0]['expanded'], function($arr)
 {
