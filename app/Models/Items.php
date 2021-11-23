@@ -113,6 +113,14 @@ class Items
     return $records;
   }
 
+  public static function array_sort_by_column(&$arr, $col, $dir = SORT_ASC) {
+    $sort_col = array();
+    foreach ($arr as $key => $row) {
+        $sort_col[$key] = $row[$col];
+    }
+
+    array_multisort($sort_col, $dir, $arr);
+}
 
   public static function letter(int $id)
   {
@@ -135,7 +143,9 @@ class Items
       $data['type'] = $item['item_type']['name'];
       if(array_key_exists('url', $item['files'])){
         $response = Http::get($item['files']['url']);
-        $data['images'] = $response->json();
+        $images = $response->json();
+        self::array_sort_by_column($images, 'order');
+        $data['images'] = $images;
       }
       if(array_key_exists('itemrelations', $item['extended_resources'])){
         $response = Http::get($item['extended_resources']['itemrelations']['url']);
