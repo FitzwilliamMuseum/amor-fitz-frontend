@@ -62,10 +62,10 @@ foreach($data[0]['images'] as $image){
     @endforeach
     ]'
     transcription="{{$data[0]['Transcription']}}"
-    />
+  ></letter-viewer>
 
 </section>
-
+@include('includes.iiif')
 
 <section class="mw9 mw9-ns center pa3 ph5-ns">
   <div class="fl w-100 w-50-ns">
@@ -162,4 +162,10 @@ foreach($data[0]['images'] as $image){
 
   </div>
 </section>
+@endsection
+
+@section('scripts')
+
+  <script type="text/javascript" id="embedUV" src="https://hayleypapers.fitzmuseum.cam.ac.uk/plugins/UniversalViewer/views/shared/javascripts/uv/lib/embed.js"></script>
+  <script type="text/javascript">/* wordpress fix */</script>
 @endsection
