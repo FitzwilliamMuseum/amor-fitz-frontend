@@ -7,7 +7,7 @@
 @if(array_key_exists('Letter Title',$data[0]))
 @section('title', $data[0]['Letter Title'] . ' ' . $data[0]['Classmark'])
 @else
-  @section('title', $data[0]['Classmark'])
+  @section('title', $data[0]['Classmark'] ?? 'A letter from the archives')
 @endif
 @php
 $people = array_filter($data[0]['expanded'], function($arr)
@@ -33,7 +33,9 @@ foreach($data[0]['images'] as $image){
 
     <h1 class="serif ph5-ns">{{ $data[0]['Letter Title'] }}</h1>
     <div class="bg-white  ph5-ns sans-serif">
-      <p >Classmark: {{ $data[0]['Classmark'] }}</p>
+      @if(array_key_exists('Classmark', $data[0]))
+        <p >Classmark: {{ $data[0]['Classmark'] }}</p>
+      @endif
       <p>Sender address: {{  $data[0]['Sender Address'] }}</p>
       <p>Recipient address: {{  $data[0]['Recipient Address'] }}</p>
       <p>Number of Sheets: {{  $data[0]['No. Sheets'] }}</p>
