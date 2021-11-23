@@ -16,7 +16,8 @@
     <div class="" id="app">
       <the-header></the-header>
       <section class="mw9 mw9-ns center bg-white pa3 ph5-ns">
-        <breadcrumbs />
+        {{-- <breadcrumbs /> --}}
+        @yield('breadcrumbs')
       </section>
 
       @yield('content')

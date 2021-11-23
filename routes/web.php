@@ -25,5 +25,4 @@ Route::get('/entities/details/{slug}', 'App\Http\Controllers\entitiesController@
 
 Route::get('/about', 'App\Http\Controllers\aboutController@index')->name('about');
 Route::get('/about/team', 'App\Http\Controllers\aboutController@team')->name('team');
-Route::get('/about/team/{slug}', 'App\Http\Controllers\aboutController@profile')->name('team.profule');
 Route::get('/acknowledgements', 'App\Http\Controllers\aboutController@acknowledgements')->name('acknowledgements');

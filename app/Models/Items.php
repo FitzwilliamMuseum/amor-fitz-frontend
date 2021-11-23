@@ -40,8 +40,9 @@ class Items
       $data['images'] = $response->json();
     }
     if(array_key_exists('itemrelations', $items['extended_resources'])){
-      $response = Http::get('http://hayleypapers.fitzmuseum.cam.ac.uk/api/itemrelations/?object_item_id=' . $items['id']);
-      $data['relations'] = $response->json();
+      $response = new OmekaApi;
+      $response->setEndpoint('itemrelations')->setArguments(array('object_item_id' => $items['id']));
+      $data['relations'] = $response->getData();
     }
     return $data;
   }
@@ -62,41 +63,42 @@ class Items
       }
       // dd($item);
       if(array_key_exists('itemrelations', $item['extended_resources'])){
-          $response = Http::get('http://hayleypapers.fitzmuseum.cam.ac.uk/api/itemrelations/?object_item_id=' . $item['id']);
-          $data['relations'] = $response->json();
-          $data['expanded'] = array();
-          if(!empty($data['relations'])){
+        $response = new OmekaApi;
+        $response->setEndpoint('itemrelations');
+        $response->setArguments(array('object_item_id' => $item['id']));
+        // Http::get('http://hayleypapers.fitzmuseum.cam.ac.uk/api/itemrelations/?object_item_id=' . $items['id']);
+        $data['relations'] = $response->getData();
+        $data['expanded'] = array();
+        if(!empty($data['relations'])){
           if(array_key_exists(0,$data['relations'])){
-          foreach($data['relations'] as $relation){
-            if(isset($relation['object_item_url'])){
-              $object = $relation['object_item_url'];
-              $response = Http::get($object);
-            }
-            $expanded = array();
-            foreach($response['element_texts'] as $element){
-              $expanded[$element['element']['name']] = str_replace(array("\r", "\n"), ' ', $element['text']);
-            }
-            if (isset($relation['subject_item_url'])){
-              $subject = $relation['subject_item_url'];
-              $responses = Http::get($subject);
-              // dd($responses->json());
-
-              $refs = array();
-              $refs['id'] = $responses['id'];
-              foreach($responses['element_texts'] as $element){
-                $refs[$element['element']['name']] = str_replace(array("\r", "\n"), ' ', $element['text']);
+            foreach($data['relations'] as $relation){
+              if(isset($relation['object_item_url'])){
+                $object = $relation['object_item_url'];
+                $response = Http::get($object);
               }
-              $expanded['refs'] = $refs;
-            }
-            $expanded['property_label'] = $relation['property_label'];
-            $expanded['object_item_id'] = $relation['object_item_id'];
-            $expanded['entityType'] = $response['item_type']['name'];
-            $data['expanded'][] = $expanded;
+              $expanded = array();
+              foreach($response['element_texts'] as $element){
+                $expanded[$element['element']['name']] = str_replace(array("\r", "\n"), ' ', $element['text']);
+              }
+              if (isset($relation['subject_item_url'])){
+                $subject = $relation['subject_item_url'];
+                $responses = Http::get($subject);
+                $refs = array();
+                $refs['id'] = $responses['id'];
+                foreach($responses['element_texts'] as $element){
+                  $refs[$element['element']['name']] = str_replace(array("\r", "\n"), ' ', $element['text']);
+                }
+                $expanded['refs'] = $refs;
+              }
+              $expanded['property_label'] = $relation['property_label'];
+              $expanded['object_item_id'] = $relation['object_item_id'];
+              $expanded['entityType'] = $response['item_type']['name'];
+              $data['expanded'][] = $expanded;
 
+            }
+          }
         }
       }
-      }
-    }
       $records[] = $data;
     }
     return $records;
@@ -127,30 +129,30 @@ class Items
         $data['images'] = $response->json();
       }
       if(array_key_exists('itemrelations', $item['extended_resources'])){
-          $response = Http::get($item['extended_resources']['itemrelations']['url']);
-          $data['relations'] = $response->json();
-          $data['expanded'] = array();
-          if(!empty($data['relations'])){
+        $response = Http::get($item['extended_resources']['itemrelations']['url']);
+        $data['relations'] = $response->json();
+        $data['expanded'] = array();
+        if(!empty($data['relations'])){
           if(array_key_exists(0,$data['relations'])){
-          foreach($data['relations'] as $relation){
-            if(isset($relation['object_item_url'])){
-              $resource = $relation['object_item_url'];
-            } else {
-              $resource = $relation['subject_item_url'];
+            foreach($data['relations'] as $relation){
+              if(isset($relation['object_item_url'])){
+                $resource = $relation['object_item_url'];
+              } else {
+                $resource = $relation['subject_item_url'];
+              }
+              $response = Http::get($resource);
+              $expanded = array();
+              foreach($response['element_texts'] as $element){
+                $expanded[$element['element']['name']] = str_replace(array("\r", "\n"), ' ', $element['text']);
+              }
+              $expanded['property_label'] = $relation['property_label'];
+              $expanded['object_item_id'] = $relation['object_item_id'];
+              $expanded['entityType'] = $response['item_type']['name'];
+              $data['expanded'][] = $expanded;
             }
-            $response = Http::get($resource);
-            $expanded = array();
-            foreach($response['element_texts'] as $element){
-              $expanded[$element['element']['name']] = str_replace(array("\r", "\n"), ' ', $element['text']);
-            }
-            $expanded['property_label'] = $relation['property_label'];
-            $expanded['object_item_id'] = $relation['object_item_id'];
-            $expanded['entityType'] = $response['item_type']['name'];
-            $data['expanded'][] = $expanded;
+          }
         }
       }
-      }
-    }
       $records[] = $data;
     }
     return $records;

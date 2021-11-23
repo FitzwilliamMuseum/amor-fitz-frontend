@@ -1,5 +1,9 @@
 @extends('layouts.default')
-
+@section('breadcrumbs')
+<breadcrumbs
+    :path-list='[{"text":"Correspondences","path":"{{ route('correspondences')}}"}]'
+  />
+@endsection
 @if(array_key_exists('Letter Title',$data[0]))
 @section('title', $data[0]['Letter Title'] . ' ' . $data[0]['Classmark'])
 @else
@@ -80,8 +84,8 @@ foreach($data[0]['images'] as $image){
         type="Place"
         title="{{ $place['Title'] }}"
         link-text="Read more"
-        @if(array_key_exists('property_label', $person))
-        role="{{ $person['property_label'] }}"
+        @if(array_key_exists('property_label', $place))
+        role="{{ $place['property_label'] }}"
         @endif
         link-path="{{ route('entity.detail', $place['object_item_id']) }}"
         bg-image-src="http://localhost:8001/images/sussex-place.jpg"

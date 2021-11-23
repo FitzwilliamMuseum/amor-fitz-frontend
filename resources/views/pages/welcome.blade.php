@@ -1,4 +1,10 @@
 @extends('layouts.default')
+@section('breadcrumbs')
+<breadcrumbs
+    :path-list='[]'
+  />
+@endsection
+@section('title', 'Welcome')
 @section('content')
   <article class="pa2 pa5-ns bg-creme">
     <h1 class="f3 f2-m f1-l serif">{{ $page['title']}}</h1>

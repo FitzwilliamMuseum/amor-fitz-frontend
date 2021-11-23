@@ -1,4 +1,9 @@
 @extends('layouts.default')
+@section('breadcrumbs')
+<breadcrumbs
+    :path-list='[{"text":"Correspondences","path":"{{ route('correspondences')}}"}]'
+  />
+@endsection
 @section('title', 'Hayley\'s correspondence')
 @section('content')
   <section class="mw9 mw9-ns center bg-creme pa3 ph5-ns">
@@ -14,9 +19,15 @@
     foreach($item['expanded'] as $expand)
     {
       if($expand['property_label'] == 'Author'){
-        $author['firstname'] = $expand['First Name'];
-        $author['lastname'] = $expand['Last Name'];
-        $author['name'] = $expand['First Name'] . ' ' . $expand['Last Name'];
+        if(array_key_exists('First Name',$expand)){
+          $author['firstname'] = $expand['First Name'];
+        }
+        if(array_key_exists('Last Name',$expand)){
+          $author['lastname'] = $expand['Last Name'];
+        }
+        if(array_key_exists('Last Name',$expand) && array_key_exists('First Name',$expand)){
+          $author['name'] = $expand['First Name'] . ' ' . $expand['Last Name'];
+        }
         $author['id'] = $expand['object_item_id'];
       }
     }
@@ -24,9 +35,15 @@
     foreach($item['expanded'] as $expand)
     {
       if($expand['property_label'] == 'Recipient'){
-        $recipient['firstname'] = $expand['First Name'];
-        $recipient['lastname'] = $expand['Last Name'];
-        $recipient['name'] = $expand['First Name'] . ' ' . $expand['Last Name'];
+        if(array_key_exists('First Name',$expand)){
+          $recipient['firstname'] = $expand['First Name'];
+        }
+        if(array_key_exists('Last Name',$expand)){
+          $recipient['lastname'] = $expand['Last Name'];
+        }
+        if(array_key_exists('Last Name',$expand) && array_key_exists('First Name',$expand)){
+          $recipient['name'] = $expand['First Name'] . ' ' . $expand['Last Name'];
+        }
         $recipient['id'] = $expand['object_item_id'];
       }
     }
