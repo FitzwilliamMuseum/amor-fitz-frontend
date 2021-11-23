@@ -31,7 +31,7 @@ foreach($data[0]['images'] as $image){
 @section('content')
   <section class="mw9 mw9-ns center bg-white ph5-ns">
 
-    <h1 class="serif ph5-ns">{{ $data[0]['Letter Title'] }}</h1>
+    <h1 class="serif ph5-ns">{{ $data[0]['Letter Title'] ?? 'A letter from the archive'}}</h1>
     <div class="bg-white  ph5-ns sans-serif">
       @if(array_key_exists('Classmark', $data[0]))
         <p >Classmark: {{ $data[0]['Classmark'] }}</p>
