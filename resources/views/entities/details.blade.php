@@ -48,7 +48,7 @@ lng="{{ $data['Longitude'] }}"
         @endif
         link-text="Read more"
         link-path="{{ route('letter', $ref['refs']['id']) }}"
-        bg-image-src="http://localhost:8001/images/flaxman.jpg"
+        bg-image-src="{{ route('home')}}/images/flaxman.jpg"
       />
     </div>
     @endforeach

@@ -73,7 +73,7 @@ foreach($data[0]['images'] as $image){
         @endif
         link-text="Read more"
         link-path="{{ route('entity.detail', $person['object_item_id']) }}"
-        bg-image-src="http://localhost:8001/images/flaxman.jpg"
+        bg-image-src="{{ route('home')}}/images/flaxman.jpg"
       />
     </div>
     @endforeach
@@ -90,7 +90,7 @@ foreach($data[0]['images'] as $image){
         role="{{ $place['property_label'] }}"
         @endif
         link-path="{{ route('entity.detail', $place['object_item_id']) }}"
-        bg-image-src="http://localhost:8001/images/sussex-place.jpg"
+        bg-image-src="{{ route('home')}}/images/sussex-place.jpg"
       />
     </div>
     @endforeach
