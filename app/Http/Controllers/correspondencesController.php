@@ -24,7 +24,8 @@ class correspondencesController extends Controller
       );
       $records = Items::findByType($args);
       $page = Pages::find(4);
-      $paginate = new LengthAwarePaginator($records, 83, 4);
+      $counts = Items::counts(array('name' => 'Letter'));
+      $paginate = new LengthAwarePaginator($records, $counts[0]['items']['count'], 4);
       $paginate->setPath($request->getBaseUrl());
       return view('correspondences.index', compact('records', 'page', 'paginate'));
     }

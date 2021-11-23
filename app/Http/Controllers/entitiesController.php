@@ -32,7 +32,7 @@ class entitiesController extends Controller
       $from = ($request->get('page', 1) - 1) * $perPage;
       $overview  = Entities::findEntities(array('name' => $slug));
       $items = Items::findByType(array('item_type' => $slug, 'per_page' => $perPage, 'page' => $request->get('page', 1) ));
-      $paginate = new LengthAwarePaginator($items, 249, 12);
+      $paginate = new LengthAwarePaginator($items, $overview[0]['items']['count'], 12);
       $paginate->setPath($request->getBaseUrl());
       return view('entities.entity', compact('overview','items', 'paginate'));
     }

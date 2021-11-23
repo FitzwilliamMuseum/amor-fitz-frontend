@@ -8,6 +8,15 @@ use Illuminate\Support\Facades\Http;
 
 class Items
 {
+  public static function counts(array $args)
+  {
+    $api = new OmekaApi;
+    $api->setEndpoint('item_types');
+    $api->setArguments(
+      $args
+    );
+    return $api->getData();
+  }
   public static function findByType(array $args)
   {
     $api = new OmekaApi;
