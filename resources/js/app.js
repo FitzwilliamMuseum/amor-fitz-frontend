@@ -27,7 +27,7 @@ Vue.component('colour-palette', require('./components/ColourPalette.vue').defaul
 Vue.component('correspondence-card', require('./components/CorrespondenceCard.vue').default);
 Vue.component('correspondence-header', require('./components/CorrespondenceHeader.vue').default);
 Vue.component('correspondence-list', require('./components/CorrespondenceList.vue').default);
-Vue.component('cta-card', require('./components/CTAcard.vue').default);
+Vue.component('cta-card', require('./components/CTACard.vue').default);
 Vue.component('dropdown-selector', require('./components/DropdownSelector.vue').default);
 Vue.component('entity-card', require('./components/EntityCard.vue').default);
 Vue.component('entity-header', require('./components/EntityHeader.vue').default);
