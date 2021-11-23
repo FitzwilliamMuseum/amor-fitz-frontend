@@ -18,11 +18,13 @@ class correspondencesController extends Controller
       $perPage = 4;
       $args =  array(
         // 'hasImage' => 1,
-        'per_page' => $perPage, 'page' => $request->get('page', 1)
+        'per_page' => $perPage,
+        'page' => $request->get('page', 1),
+        'item_type' => 'Letter'
       );
       $records = Items::findByType($args);
       $page = Pages::find(4);
-      $paginate = new LengthAwarePaginator($records, 249, 12);
+      $paginate = new LengthAwarePaginator($records, 83, 4);
       $paginate->setPath($request->getBaseUrl());
       return view('correspondences.index', compact('records', 'page', 'paginate'));
     }
