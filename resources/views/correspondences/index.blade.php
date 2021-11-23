@@ -2,7 +2,7 @@
 @section('breadcrumbs')
 <breadcrumbs
     :path-list='[{"text":"Correspondences","path":"{{ route('correspondences')}}"}]'
-  />
+/>
 @endsection
 @section('title', 'Hayley\'s correspondence')
 @section('content')
@@ -14,6 +14,29 @@
   <section class="mw3 mw8-ns center bg-creme pa3 ph5-ns">
   @foreach($records as $item)
     @php
+    $people = count(array_filter($item['expanded'], function($arr)
+    {
+        return $arr['entityType'] == 'Person';
+    }));
+
+    $places = count(array_filter($item['expanded'], function($arr)
+    {
+        return $arr['entityType'] == 'Place';
+    }));
+    $object = count(array_filter($item['expanded'], function($arr)
+    {
+        return $arr['entityType'] == 'Physical Object';
+    }));
+    $events = count(array_filter($item['expanded'], function($arr)
+    {
+        return $arr['entityType'] == 'Event';
+    }));
+    $images = array();
+    foreach($item['images'] as $image){
+      $images[] = $image['filename'];
+    }
+
+
     $author = array();
     foreach($item['expanded'] as $expand)
     {
@@ -60,7 +83,7 @@
        @if(array_key_exists('name', $recipient))
        :recipient='{"name":"{{ $recipient['name'] }}","link":"{{ route('entity.detail',$recipient['id']) }}"}'
        @endif
-       :entity-count='{"people":5,"places":3,"events":7}'
+       :entity-count='{"people": "{{ $people ?? 0}}","places":"{{ $places ?? 0 }}","events": "{{ $events ?? 0 }}"}'
        link="{{ route('letter', $item['id']) }}"
        @if(array_key_exists(0, $item['images']))
        :letter-bg-src="'https://hayleypapers.fitzmuseum.cam.ac.uk/files/fullsize/{{ $item['images'][0]['filename']}}'"

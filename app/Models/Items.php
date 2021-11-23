@@ -15,7 +15,7 @@ class Items
     $api->setArguments(
       $args
     );
-    return self::expander($api->getData());
+    return self::letterExpand($api->getData());
   }
 
   public static function find(int $id)

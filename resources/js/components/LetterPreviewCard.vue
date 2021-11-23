@@ -25,7 +25,7 @@
       </div>
       <div class="db">
         <ButtonLink :link="link"
-          >Read letter<span class="sans-serif ml2 mt-2">☛</span></ButtonLink
+          >Read letter<span class="sans-serif ml2 mt-2">&#9758;</span></ButtonLink
         >
       </div>
     </div>

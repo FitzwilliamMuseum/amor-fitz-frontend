@@ -29,7 +29,7 @@ foreach($data[0]['images'] as $image){
 }
 @endphp
 @section('content')
-  <section class="mw9 mw9-ns center bg-white ph5-ns">
+  <section class="mw9 mw9-ns center bg-creme ph5-ns">
 
     <h1 class="serif ph5-ns">{{ $data[0]['Letter Title'] ?? 'A letter from the archive'}}</h1>
     <div class="bg-white  ph5-ns sans-serif">
@@ -38,11 +38,11 @@ foreach($data[0]['images'] as $image){
       @endif
       <p>Sender address: {{  $data[0]['Sender Address']  ?? ' Not recorded'}}</p>
       <p>Recipient address: {{  $data[0]['Recipient Address'] ?? 'Not recorded'}}</p>
-      <p>Number of Sheets: {{  $data[0]['No. Sheets'] ?? 'Not recorded'}}</p>
+      <p>Number of Sheets: {{  $data[0]['No. Sheets'] ?? 'Not recorded  '}}</p>
     </div>
   </section>
 
-<section class="mw9 mw9-ns center bg-white pa3 ph5-ns">
+<section class="mw9 mw9-ns center bg-creme pa3 ph5-ns">
 
   <letter-viewer
     :manuscript-page-images='[
