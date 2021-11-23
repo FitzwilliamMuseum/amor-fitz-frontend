@@ -17,8 +17,8 @@
       :metadata-head='{"Latitude":"{{ $data['Latitude'] }}","Longitude":"{{ $data['Longitude'] }}","Address Today":"{{  $data['Address today'] }}"}'
       @endif
       @if($data['type'] === 'Person')
-      :metadata-head='{"Birth Date":"1755-07-06","Death Date":"1826-12-07","Birth Place":"{{$data['Birthplace'] ?? 'Unknown birthplace' }}","Death Place":"{{$data['Deathplace'] ?? 'Unknown death place' }}","Occupation":"{{$data['Occupation'] ?? '' }}","Nickname":"{{ $data['Nickname'] ?? 'None recorded'}}","Relation To Hayley":"{{$data['Relation to Hayley']}}"}'
-    @endif
+      :metadata-head='{"Birth Date":"{{ $data['Birth Date'] ?? ''}}","Death Date":"{{ $data['Death Date'] ?? ''}}","Birth Place":"{{$data['Birthplace'] ?? 'Unknown birthplace' }}","Death Place":"{{$data['Deathplace'] ?? 'Unknown death place' }}","Occupation":"{{$data['Occupation'] ?? '' }}","Nickname":"{{ $data['Nickname'] ?? 'None recorded'}}","Relation To Hayley":"{{$data['Relation to Hayley'] ?? ''}}"}'
+      @endif
       :metadata-tail="{}"
       :number-letters="{{ count($data['relations']) }}"
       @if(Arr::exists( $data, 'Description'))

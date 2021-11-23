@@ -36,9 +36,9 @@ foreach($data[0]['images'] as $image){
       @if(array_key_exists('Classmark', $data[0]))
         <p >Classmark: {{ $data[0]['Classmark'] }}</p>
       @endif
-      <p>Sender address: {{  $data[0]['Sender Address'] }}</p>
-      <p>Recipient address: {{  $data[0]['Recipient Address'] }}</p>
-      <p>Number of Sheets: {{  $data[0]['No. Sheets'] }}</p>
+      <p>Sender address: {{  $data[0]['Sender Address']  ?? ' Not recorded'}}</p>
+      <p>Recipient address: {{  $data[0]['Recipient Address'] ?? 'Not recorded'}}</p>
+      <p>Number of Sheets: {{  $data[0]['No. Sheets'] ?? 'Not recorded'}}</p>
     </div>
   </section>
 
