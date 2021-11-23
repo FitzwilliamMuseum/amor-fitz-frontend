@@ -12,7 +12,7 @@ use Cache;
 
 class OmekaApi {
 
-  public $_apiUrl = 'http://hayleypapers.fitzmuseum.cam.ac.uk/api/';
+  public $_apiUrl = 'https://hayleypapers.fitzmuseum.cam.ac.uk/api/';
 
   public $_endpoint = '';
 

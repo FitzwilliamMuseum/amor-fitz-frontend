@@ -64,7 +64,7 @@
        :entity-count='{"people":5,"places":3,"events":7}'
        link="{{ route('letter', $item['id']) }}"
        @if(array_key_exists(0, $item['images']))
-       :letter-bg-src="'http://hayleypapers.fitzmuseum.cam.ac.uk/files/fullsize/{{ $item['images'][0]['filename']}}'"
+       :letter-bg-src="'https://hayleypapers.fitzmuseum.cam.ac.uk/files/fullsize/{{ $item['images'][0]['filename']}}'"
        @endif
     />
   </section>

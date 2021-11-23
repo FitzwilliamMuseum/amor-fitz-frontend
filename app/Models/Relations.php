@@ -30,7 +30,7 @@ class Relations
       $data['images'] = $response->json();
     }
     if(array_key_exists('itemrelations', $items['extended_resources'])){
-      $response = Http::get('http://hayleypapers.fitzmuseum.cam.ac.uk/api/itemrelations/?object_item_id=' . $items['id']);
+      $response = Http::get('https://hayleypapers.fitzmuseum.cam.ac.uk/api/itemrelations/?object_item_id=' . $items['id']);
       $data['relations'] = $response->json();
     }
     return $data;

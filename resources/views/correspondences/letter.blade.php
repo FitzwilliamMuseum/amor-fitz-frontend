@@ -47,7 +47,7 @@ foreach($data[0]['images'] as $image){
   <letter-viewer
     :manuscript-page-images='[
     @foreach($images as $image)
-    "http://hayleypapers.fitzmuseum.cam.ac.uk/files/fullsize/{{ $image}}",
+      "https://hayleypapers.fitzmuseum.cam.ac.uk/files/fullsize/{{ $image}}",
     @endforeach
     ]'
     transcription="{{$data[0]['Transcription']}}"
