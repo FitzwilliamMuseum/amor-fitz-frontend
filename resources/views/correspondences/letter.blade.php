@@ -18,7 +18,10 @@ $people = array_filter($data[0]['expanded'], function($arr)
 {
     return $arr['entityType'] == 'Person';
 });
-
+$families = array_filter($data[0]['expanded'], function($arr)
+{
+    return $arr['entityType'] == 'Family';
+});
 $places = array_filter($data[0]['expanded'], function($arr)
 {
     return $arr['entityType'] == 'Place';
@@ -133,6 +136,24 @@ foreach($data[0]['images'] as $image){
         role="{{ $object['property_label'] }}"
         @endif
         link-path="{{ route('entity.detail', $object['object_item_id']) }}"
+        bg-image-src="{{ route('home')}}/images/sussex-place.jpg"
+      />
+    </div>
+    @endforeach
+    @endif
+
+    @if(!empty($families))
+    <h1 class="serif">Families</h1>
+    @foreach($families as $family)
+    <div class="pa2">
+      <entity-card
+        type="Event"
+        title="{{ $family['Title'] }}"
+        link-text="Read more"
+        @if(array_key_exists('property_label', $family))
+        role="{{ $family['property_label'] }}"
+        @endif
+        link-path="{{ route('entity.detail', $family['object_item_id']) }}"
         bg-image-src="{{ route('home')}}/images/sussex-place.jpg"
       />
     </div>
