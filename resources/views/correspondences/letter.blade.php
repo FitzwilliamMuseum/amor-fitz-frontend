@@ -1,7 +1,11 @@
 @extends('layouts.default')
 @section('breadcrumbs')
 <breadcrumbs
-    :path-list='[{"text":"Correspondences","path":"{{ route('correspondences')}}"}]'
+    :path-list='[
+    {"text":"Correspondences","path":"{{ route('correspondences')}}"},
+    {"text":"Letter","path":"#"},
+
+    ]'
   />
 @endsection
 @if(array_key_exists('Letter Title',$data[0]))
@@ -19,10 +23,14 @@ $places = array_filter($data[0]['expanded'], function($arr)
 {
     return $arr['entityType'] == 'Place';
 });
-$object = count(array_filter($data[0]['expanded'], function($arr)
+$events = array_filter($data[0]['expanded'], function($arr)
+{
+    return $arr['entityType'] == 'Event';
+});
+$objects = array_filter($data[0]['expanded'], function($arr)
 {
     return $arr['entityType'] == 'Physical Object';
-}));
+});
 $images = array();
 foreach($data[0]['images'] as $image){
   $images[] = $image['filename'];
@@ -32,7 +40,7 @@ foreach($data[0]['images'] as $image){
   <section class="mw9 mw9-ns center bg-creme ph5-ns">
 
     <h1 class="serif ph5-ns">{{ $data[0]['Letter Title'] ?? 'A letter from the archive'}}</h1>
-    <div class="bg-white  ph5-ns sans-serif">
+    <div class="ph5-ns sans-serif">
       @if(array_key_exists('Classmark', $data[0]))
         <p >Classmark: {{ $data[0]['Classmark'] }}</p>
       @endif
@@ -79,7 +87,7 @@ foreach($data[0]['images'] as $image){
     @endforeach
   </div>
   <div class="fl w-100 w-50-ns">
-      <h1 class="serif">Places</h1>
+    <h1 class="serif">Places</h1>
     @foreach($places as $place)
     <div class="pa2">
       <entity-card
@@ -94,6 +102,43 @@ foreach($data[0]['images'] as $image){
       />
     </div>
     @endforeach
+
+    @if(!empty($events))
+    <h1 class="serif">Events</h1>
+    @foreach($events as $event)
+    <div class="pa2">
+      <entity-card
+        type="Event"
+        title="{{ $event['Title'] }}"
+        link-text="Read more"
+        @if(array_key_exists('property_label', $event))
+        role="{{ $event['property_label'] }}"
+        @endif
+        link-path="{{ route('entity.detail', $event['object_item_id']) }}"
+        bg-image-src="{{ route('home')}}/images/sussex-place.jpg"
+      />
+    </div>
+    @endforeach
+    @endif
+
+    @if(!empty($objects))
+    <h1 class="serif">Physical objects</h1>
+    @foreach($objects as $object)
+    <div class="pa2">
+      <entity-card
+        type="Event"
+        title="{{ $object['Title'] }}"
+        link-text="Read more"
+        @if(array_key_exists('property_label', $object))
+        role="{{ $object['property_label'] }}"
+        @endif
+        link-path="{{ route('entity.detail', $object['object_item_id']) }}"
+        bg-image-src="{{ route('home')}}/images/sussex-place.jpg"
+      />
+    </div>
+    @endforeach
+    @endif
+
   </div>
 </section>
 @endsection

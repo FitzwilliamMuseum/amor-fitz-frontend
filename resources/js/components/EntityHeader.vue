@@ -33,9 +33,7 @@
         </div>
       </div>
       <div class="mb2">
-          <p>
-            {{ bodyText }}
-          </p>
+          <span v-html="bodyText"></span>
       </div>
       <NumberBullet :number="numberLetters" class="mb2 mr2" />letters referenced
       <AccordionLink

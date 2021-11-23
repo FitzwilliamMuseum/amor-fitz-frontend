@@ -1,7 +1,10 @@
 @extends('layouts.default')
 @section('breadcrumbs')
 <breadcrumbs
-    :path-list='[{"text":"Entities","path":"{{ route('entities')}}"}]'
+    :path-list='[
+    {"text":"Entities","path":"{{ route('entities')}}"},
+    {"text":"Details","path":"#"}
+    ]'
   />
 @endsection
 @section('title', $data['Title'])

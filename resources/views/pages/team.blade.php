@@ -1,5 +1,12 @@
 @extends('layouts.default')
 @section('title', 'Our team')
+@section('breadcrumbs')
+<breadcrumbs
+    :path-list='[
+    {"text":"About","path":"{{ route('about')}}"},
+    ]'
+  />
+@endsection
 @section('content')
 
 <div class="mw9 center ph3-ns bg-creme">

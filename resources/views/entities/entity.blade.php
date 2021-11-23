@@ -1,4 +1,12 @@
 @extends('layouts.default')
+@section('breadcrumbs')
+<breadcrumbs
+    :path-list='[
+    {"text":"Entities","path":"{{ route('entities')}}"},
+    {"text":"{{ ucfirst(Request::segment(2))}}","path":"#"}
+    ]'
+  />
+@endsection
 @php
   $paginator = $paginate->links();
   $paginate = $paginator->getData()['paginator'];

@@ -1,4 +1,11 @@
 @extends('layouts.default')
+@section('breadcrumbs')
+<breadcrumbs
+    :path-list='[
+    {"text":"Entities","path":"{{ route('entities')}}"}
+    ]'
+  />
+@endsection
 @section('title',  $page['title'])
 @section('content')
   <section class="mw9 mw9-ns center bg-creme pa3 ph5-ns">
@@ -28,7 +35,7 @@
         </div>
   </section>
 
-    
+
 
       <section class="mw9 mw9-ns center bg-creme pa3 ph5-ns cf">
         <div class="fl w-50  tc">

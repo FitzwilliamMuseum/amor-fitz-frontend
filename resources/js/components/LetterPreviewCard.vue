@@ -19,8 +19,8 @@
           class="mr3 mb2 dib"
           v-for="entityKey in Object.keys(entityCount)"
           :key="entityKey"
-          ><NumberBullet :number="entityCount[entityKey]" />
-          <span class="ml2">{{ entityKey }}</span>
+          ><span v-if="entityCount[entityKey] > 0"><NumberBullet :number="entityCount[entityKey]" />
+          <span class="ml2">{{ entityKey }}</span></span>
         </span>
       </div>
       <div class="db">

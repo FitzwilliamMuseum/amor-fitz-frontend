@@ -935,8 +935,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
@@ -72710,9 +72708,7 @@ var render = function () {
             ),
         _vm._v(" "),
         _c("div", { staticClass: "mb2" }, [
-          _c("p", [
-            _vm._v("\n          " + _vm._s(_vm.bodyText) + "\n        "),
-          ]),
+          _c("span", { domProps: { innerHTML: _vm._s(_vm.bodyText) } }),
         ]),
         _vm._v(" "),
         _c("NumberBullet", {
@@ -73118,15 +73114,22 @@ var render = function () {
                   "span",
                   { key: entityKey, staticClass: "mr3 mb2 dib" },
                   [
-                    _c("NumberBullet", {
-                      attrs: { number: _vm.entityCount[entityKey] },
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "ml2" }, [
-                      _vm._v(_vm._s(entityKey)),
-                    ]),
-                  ],
-                  1
+                    _vm.entityCount[entityKey] > 0
+                      ? _c(
+                          "span",
+                          [
+                            _c("NumberBullet", {
+                              attrs: { number: _vm.entityCount[entityKey] },
+                            }),
+                            _vm._v(" "),
+                            _c("span", { staticClass: "ml2" }, [
+                              _vm._v(_vm._s(entityKey)),
+                            ]),
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                  ]
                 )
               }),
               0

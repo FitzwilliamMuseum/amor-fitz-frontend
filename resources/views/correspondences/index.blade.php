@@ -23,7 +23,7 @@
     {
         return $arr['entityType'] == 'Place';
     }));
-    $object = count(array_filter($item['expanded'], function($arr)
+    $objects = count(array_filter($item['expanded'], function($arr)
     {
         return $arr['entityType'] == 'Physical Object';
     }));
@@ -83,7 +83,7 @@
        @if(array_key_exists('name', $recipient))
        :recipient='{"name":"{{ $recipient['name'] }}","link":"{{ route('entity.detail',$recipient['id']) }}"}'
        @endif
-       :entity-count='{"people": "{{ $people ?? 0}}","places":"{{ $places ?? 0 }}","events": "{{ $events ?? 0 }}"}'
+       :entity-count='{"people": {{ $people ?? 0}},"places": {{ $places ?? 0 }},"events": {{ $events ?? 0 }}, "objects": {{ $objects ?? 0 }}}'
        link="{{ route('letter', $item['id']) }}"
        @if(array_key_exists(0, $item['images']))
        :letter-bg-src="'https://hayleypapers.fitzmuseum.cam.ac.uk/files/fullsize/{{ $item['images'][0]['filename']}}'"
