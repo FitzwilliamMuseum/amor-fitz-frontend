@@ -84,4 +84,17 @@ class OmekaApi {
     }
     return $data;
   }
+
+  public function getUrl($url){
+    $key = md5($url);
+    $expiresAt = now()->addMinutes(30);
+    if (Cache::has($key)) {
+      $data = Cache::get($key);
+    } else {
+      $response = Http::get($url);
+      $data = $response->json();
+      Cache::put($key, $data, $expiresAt);
+    }
+    return $data;
+  }
 }

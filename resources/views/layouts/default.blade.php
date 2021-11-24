@@ -8,13 +8,15 @@
   <link rel="stylesheet" href="{{ mix('/css/fitzwilliam.css') }}" />
   <link rel="stylesheet" href="{{ mix('/css/global-styles.css') }}" />
 </head>
-<body class="w-100 bg-creme">
+<body class="w-100 bg-white">
   <div class="" id="app">
     <the-header></the-header>
     <section class="mw9 mw9-ns center pa3 ph5-ns">
       @yield('breadcrumbs')
     </section>
+    <main class="w-100 ">
     @yield('content')
+    </main>
   </div>
   @include('includes.footer')
   @yield('scripts')

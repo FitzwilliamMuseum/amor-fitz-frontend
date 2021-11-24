@@ -45,8 +45,9 @@ class Items
     $data['modified'] = $items['modified'];
     $data['type'] = $items['item_type']['name'];
     if(array_key_exists('url', $items['files'])){
-      $response = Http::get($items['files']['url']);
-      $data['images'] = $response->json();
+      $images = new OmekaApi;
+      // $response = Http::get($items['files']['url']);
+      $data['images'] = $images->getUrl($items['files']['url']);
     }
     if(array_key_exists('itemrelations', $items['extended_resources'])){
       $response = new OmekaApi;
@@ -67,15 +68,13 @@ class Items
       $data['modified'] = $item['modified'];
       $data['type'] = $item['item_type']['name'];
       if(array_key_exists('url', $item['files'])){
-        $response = Http::get($item['files']['url']);
-        $data['images'] = $response->json();
+        $images = new OmekaApi;
+        $data['images'] = $images->getUrl($item['files']['url']);
       }
-      // dd($item);
       if(array_key_exists('itemrelations', $item['extended_resources'])){
         $response = new OmekaApi;
         $response->setEndpoint('itemrelations');
         $response->setArguments(array('object_item_id' => $item['id']));
-        // Http::get('http://hayleypapers.fitzmuseum.cam.ac.uk/api/itemrelations/?object_item_id=' . $items['id']);
         $data['relations'] = $response->getData();
         $data['expanded'] = array();
         if(!empty($data['relations'])){
@@ -83,7 +82,8 @@ class Items
             foreach($data['relations'] as $relation){
               if(isset($relation['object_item_url'])){
                 $object = $relation['object_item_url'];
-                $response = Http::get($object);
+                $objects = new OmekaApi;
+                $response = $images->getUrl($object);
               }
               $expanded = array();
               foreach($response['element_texts'] as $element){
@@ -91,7 +91,8 @@ class Items
               }
               if (isset($relation['subject_item_url'])){
                 $subject = $relation['subject_item_url'];
-                $responses = Http::get($subject);
+                $subjects = new OmekaApi;
+                $responses = $subjects->getUrl($subject);
                 $refs = array();
                 $refs['id'] = $responses['id'];
                 foreach($responses['element_texts'] as $element){
@@ -142,14 +143,14 @@ class Items
       $data['modified'] = $item['modified'];
       $data['type'] = $item['item_type']['name'];
       if(array_key_exists('url', $item['files'])){
-        $response = Http::get($item['files']['url']);
-        $images = $response->json();
+        $image = new OmekaApi;
+        $images = $image->getUrl($item['files']['url']);
         self::array_sort_by_column($images, 'order');
         $data['images'] = $images;
       }
       if(array_key_exists('itemrelations', $item['extended_resources'])){
-        $response = Http::get($item['extended_resources']['itemrelations']['url']);
-        $data['relations'] = $response->json();
+        $relations = new OmekaApi;
+        $data['relations'] = $relations->getUrl($item['extended_resources']['itemrelations']['url']);
         $data['expanded'] = array();
         if(!empty($data['relations'])){
           if(array_key_exists(0,$data['relations'])){
@@ -159,7 +160,8 @@ class Items
               } else {
                 $resource = $relation['subject_item_url'];
               }
-              $response = Http::get($resource);
+              $call =  new OmekaApi;
+              $response = $call->getUrl($resource);
               $expanded = array();
               foreach($response['element_texts'] as $element){
                 $expanded[$element['element']['name']] = str_replace(array("\r", "\n"), ' ', $element['text']);

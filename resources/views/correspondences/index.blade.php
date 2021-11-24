@@ -1,100 +1,102 @@
 @extends('layouts.default')
 @section('breadcrumbs')
-<breadcrumbs
-    :path-list='[{"text":"Correspondences","path":"{{ route('correspondences')}}"}]'
-/>
+  <breadcrumbs
+  :path-list='[{"text":"Correspondences","path":"{{ route('correspondences')}}"}]'
+  />
 @endsection
 @section('title', 'Hayley\'s correspondence')
 @section('content')
-  <section class="mw9 mw9-ns center bg-creme pa3 ph5-ns">
+  <section class="mw9 mw9-ns pb-1 bg-white pa3 ph5-ns">
     <h1 class="serif">{{ $page['title']}}</h1>
     {!! $page['text'] !!}
 
   </section>
-  <section class="mw3 mw8-ns center bg-creme pa3 ph5-ns">
-  @foreach($records as $item)
-    @php
-    $people = count(array_filter($item['expanded'], function($arr)
-    {
-        return $arr['entityType'] == 'Person';
-    }));
 
-    $places = count(array_filter($item['expanded'], function($arr)
-    {
-        return $arr['entityType'] == 'Place';
-    }));
-    $objects = count(array_filter($item['expanded'], function($arr)
-    {
-        return $arr['entityType'] == 'Physical Object';
-    }));
-    $events = count(array_filter($item['expanded'], function($arr)
-    {
-        return $arr['entityType'] == 'Event';
-    }));
-    $images = array();
-    foreach($item['images'] as $image){
-      $images[] = $image['filename'];
-    }
+  <section class="pv5 bg-white">
+    <div class="ph3 ph5-ns">
+      @foreach($records as $item)
+        @php
+        $people = count(array_filter($item['expanded'], function($arr)
+        {
+          return $arr['entityType'] == 'Person';
+        }));
+
+        $places = count(array_filter($item['expanded'], function($arr)
+        {
+          return $arr['entityType'] == 'Place';
+        }));
+        $objects = count(array_filter($item['expanded'], function($arr)
+        {
+          return $arr['entityType'] == 'Physical Object';
+        }));
+        $events = count(array_filter($item['expanded'], function($arr)
+        {
+          return $arr['entityType'] == 'Event';
+        }));
+        $images = array();
+        foreach($item['images'] as $image){
+          $images[] = $image['filename'];
+        }
 
 
-    $author = array();
-    foreach($item['expanded'] as $expand)
-    {
-      if($expand['property_label'] == 'Author'){
-        if(array_key_exists('First Name',$expand)){
-          $author['firstname'] = $expand['First Name'];
+        $author = array();
+        foreach($item['expanded'] as $expand)
+        {
+          if($expand['property_label'] == 'Author'){
+            if(array_key_exists('First Name',$expand)){
+              $author['firstname'] = $expand['First Name'];
+            }
+            if(array_key_exists('Last Name',$expand)){
+              $author['lastname'] = $expand['Last Name'];
+            }
+            if(array_key_exists('Last Name',$expand) && array_key_exists('First Name',$expand)){
+              $author['name'] = $expand['First Name'] . ' ' . $expand['Last Name'];
+            }
+            $author['id'] = $expand['object_item_id'];
+          }
         }
-        if(array_key_exists('Last Name',$expand)){
-          $author['lastname'] = $expand['Last Name'];
+        $recipient = array();
+        foreach($item['expanded'] as $expand)
+        {
+          if($expand['property_label'] == 'Recipient'){
+            if(array_key_exists('First Name',$expand)){
+              $recipient['firstname'] = $expand['First Name'];
+            }
+            if(array_key_exists('Last Name',$expand)){
+              $recipient['lastname'] = $expand['Last Name'];
+            }
+            if(array_key_exists('Last Name',$expand) && array_key_exists('First Name',$expand)){
+              $recipient['name'] = $expand['First Name'] . ' ' . $expand['Last Name'];
+            }
+            $recipient['id'] = $expand['object_item_id'];
+          }
         }
-        if(array_key_exists('Last Name',$expand) && array_key_exists('First Name',$expand)){
-          $author['name'] = $expand['First Name'] . ' ' . $expand['Last Name'];
-        }
-        $author['id'] = $expand['object_item_id'];
-      }
-    }
-    $recipient = array();
-    foreach($item['expanded'] as $expand)
-    {
-      if($expand['property_label'] == 'Recipient'){
-        if(array_key_exists('First Name',$expand)){
-          $recipient['firstname'] = $expand['First Name'];
-        }
-        if(array_key_exists('Last Name',$expand)){
-          $recipient['lastname'] = $expand['Last Name'];
-        }
-        if(array_key_exists('Last Name',$expand) && array_key_exists('First Name',$expand)){
-          $recipient['name'] = $expand['First Name'] . ' ' . $expand['Last Name'];
-        }
-        $recipient['id'] = $expand['object_item_id'];
-      }
-    }
-    @endphp
-      {{-- @dd($item) --}}
-  <section class="mw9 mv3">
-    <letter-preview-card
-       title="{{ $item['Letter Title']}}"
-       @if(array_key_exists('Date 1', $item))
-         date="{{ $item['Date 1'] }}"
-       @endif
-       @if(array_key_exists('name', $author))
-       :author='{"name":"{{ $author['name'] }}","link":"{{ route('entity.detail',$author['id']) }}"}'
-       @endif
-       @if(array_key_exists('name', $recipient))
-       :recipient='{"name":"{{ $recipient['name'] }}","link":"{{ route('entity.detail',$recipient['id']) }}"}'
-       @endif
-       :entity-count='{"people": {{ $people ?? 0}},"places": {{ $places ?? 0 }},"events": {{ $events ?? 0 }}, "objects": {{ $objects ?? 0 }}}'
-       link="{{ route('letter', $item['id']) }}"
-       @if(array_key_exists(0, $item['images']))
-       :letter-bg-src="'https://hayleypapers.fitzmuseum.cam.ac.uk/files/fullsize/{{ $item['images'][0]['filename']}}'"
-       @endif
-    />
+        @endphp
+        <section class="mw9 mv3 ">
+          <letter-preview-card
+          title="{{ $item['Letter Title']}}"
+          @if(array_key_exists('Date 1', $item))
+            date="{{ $item['Date 1'] }}"
+          @endif
+          @if(array_key_exists('name', $author))
+            :author='{"name":"{{ $author['name'] }}","link":"{{ route('entity.detail',$author['id']) }}"}'
+          @endif
+          @if(array_key_exists('name', $recipient))
+            :recipient='{"name":"{{ $recipient['name'] }}","link":"{{ route('entity.detail',$recipient['id']) }}"}'
+          @endif
+          :entity-count='{"people": {{ $people ?? 0}},"places": {{ $places ?? 0 }},"events": {{ $events ?? 0 }}, "objects": {{ $objects ?? 0 }}}'
+          link="{{ route('letter', $item['id']) }}"
+          @if(array_key_exists(0, $item['images']))
+            :letter-bg-src="'https://hayleypapers.fitzmuseum.cam.ac.uk/files/fullsize/{{ $item['images'][0]['filename']}}'"
+          @endif
+          />
+        </section>
+      @endforeach
+    </div>
+    <section class="mw3 mw8-ns center tc bg-white pa3 ph5-ns">
+      {{ $paginate->links('paginator.default') }}
+    </section>
   </section>
-  @endforeach
 
-</section>
 
-<section class="mw3 mw8-ns center bg-creme pa3 ph5-ns">
-  {{ $paginate->links('paginator.default') }}
-</section>
 @endsection

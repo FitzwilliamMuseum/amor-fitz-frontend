@@ -37,25 +37,38 @@ lng="{{ $data['Longitude'] }}"
 @endif
 </div>
 
-<section class="mw9 mw9-ns center pa3 ph5-ns">
-  <div class="fl w-100 w-50-ns">
-    <h1 class="serif b">Referenced</h1>
-    @foreach($data['expanded'] as $ref)
 
-    <div class="pa2">
-      <entity-card
-        type="Person"
-        title="{{ $ref['refs']['Title'] }}"
-        @if(array_key_exists('property_label', $ref))
-        role="{{ $ref['property_label']}} "
-        @endif
-        link-text="Read more"
-        link-path="{{ route('letter', $ref['refs']['id']) }}"
-        bg-image-src="{{ route('home')}}/images/flaxman.jpg"
-      />
-    </div>
-    @endforeach
-  </div>
+<section class="cf ph3 ph5-ns pb5 bg-light-green black-70" id="features">
+            <div class="mw9 center">
 
-</section>
+              <div class="cf">
+                <article class="pv2 fl w-100 w-50-l pr0 pr2-l">
+                  <h1 class="serif b">Referenced</h1>
+                  @foreach($data['expanded'] as $ref)
+
+                  <div class="pa2">
+                    <entity-card
+                      type="Person"
+                      title="{{ $ref['refs']['Title'] }}"
+                      @if(array_key_exists('property_label', $ref))
+                      role="{{ $ref['property_label']}} "
+                      @endif
+                      link-text="Read more"
+                      link-path="{{ route('letter', $ref['refs']['id']) }}"
+                      bg-image-src="{{ route('home')}}/images/flaxman.jpg"
+                    />
+                  </div>
+                  @endforeach
+                </article>
+
+              </div>
+
+
+
+            </div>
+          </section>
+
+
+
+
 @endsection

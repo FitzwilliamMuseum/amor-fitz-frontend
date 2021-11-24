@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\OmekaApi;
+use App\Hypothesis;
+
 use Illuminate\Support\Facades\Http;
 use App\Models\Pages;
 use App\Models\Items;
@@ -37,8 +39,8 @@ class correspondencesController extends Controller
     }
 
     public function letter($id){
-
+      $annotations = Hypothesis::read($id);
       $data = Items::letter($id);
-      return view('correspondences.letter', compact('data'));
+      return view('correspondences.letter', compact('data', 'annotations'));
     }
 }
