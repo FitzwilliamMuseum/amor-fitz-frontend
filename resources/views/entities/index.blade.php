@@ -1,4 +1,5 @@
 @extends('layouts.default')
+@section('title',  $page['title'])
 @section('breadcrumbs')
   <breadcrumbs
   :path-list='[
@@ -6,17 +7,14 @@
   ]'
   />
 @endsection
-@section('title',  $page['title'])
 @section('content')
-  <section class="mw9 mw9-ns center bg-white pa3 ph5-ns">
+  <section class="mw9 mw9-ns center bg-white  ph5-ns">
     <h1 class="serif">{{ $page['title']}}</h1>
-    {!! $page['text'] !!}
+    <div class="pa2">{!! $page['text'] !!}</div>
 
   </section>
 
-
-
-  <section class="cf ph3 ph7-ns pb1 bg-light-green black-70" id="features">
+  <section class="cf ph3 ph7-ns pb1 bg-light-green black-70 pa3">
     <div class="mw9 center">
 
       <div class="cf">
@@ -63,11 +61,4 @@
 
     </div>
   </section>
-
-
-
-
-
-
-
 @endsection

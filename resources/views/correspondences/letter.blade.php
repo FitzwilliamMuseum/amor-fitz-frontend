@@ -83,107 +83,107 @@ foreach($data[0]['images'] as $image){
   </section>
 @endif
 <section class="cf ph3 ph5-ns pb5 bg-light-green black-70" id="features">
-            <div class="mw9 center">
+  <div class="mw9 center">
 
-              <div class="cf">
-                <article class="pv2 fl w-100 w-50-l pr0 pr2-l">
-                  <h1 class="serif b">People</h1>
-                  @foreach($people as $person)
-                  <div class="pa2">
-                    <entity-card
-                      type="Person"
-                      @if(array_key_exists('First_Name', $person))
-                        title="{{ $person['First Name'] }} {{ $person['Last Name'] }}"
-                      @else
-                        title="{{ $person['Title'] }}"
-                      @endif
-                      @if(array_key_exists('property_label', $person))
-                      role="{{ $person['property_label'] }}"
-                      @endif
-                      link-text="Read more"
-                      link-path="{{ route('entity.detail', $person['object_item_id']) }}"
-                      bg-image-src="{{ route('home')}}/images/flaxman.jpg"
-                    />
-                  </div>
-                  @endforeach
-                </article>
-                <article class="pv2 fl w-100 w-50-l pl0 pl2-l">
-                  <h1 class="serif">Places</h1>
-                  @foreach($places as $place)
-                  <div class="pa2">
-                    <entity-card
-                      type="Place"
-                      title="{{ $place['Title'] }}"
-                      link-text="Read more"
-                      @if(array_key_exists('property_label', $place))
-                      role="{{ $place['property_label'] }}"
-                      @endif
-                      link-path="{{ route('entity.detail', $place['object_item_id']) }}"
-                      bg-image-src="{{ route('home')}}/images/sussex-place.jpg"
-                    />
-                  </div>
-                  @endforeach
+    <div class="cf">
+      <article class="pv2 fl w-100 w-50-l pr0 pr2-l">
+        <h1 class="serif b">People</h1>
+        @foreach($people as $person)
+          <div class="pa2">
+            <entity-card
+            type="Person"
+            @if(array_key_exists('First_Name', $person))
+              title="{{ $person['First Name'] }} {{ $person['Last Name'] }}"
+            @else
+              title="{{ $person['Title'] }}"
+            @endif
+            @if(array_key_exists('property_label', $person))
+              role="{{ $person['property_label'] }}"
+            @endif
+            link-text="Read more"
+            link-path="{{ route('entity.detail', $person['object_item_id']) }}"
+            bg-image-src="{{ route('home')}}/images/flaxman.jpg"
+            />
+          </div>
+        @endforeach
+      </article>
+      <article class="pv2 fl w-100 w-50-l pl0 pl2-l">
+        <h1 class="serif">Places</h1>
+        @foreach($places as $place)
+          <div class="pa2">
+            <entity-card
+            type="Place"
+            title="{{ $place['Title'] }}"
+            link-text="Read more"
+            @if(array_key_exists('property_label', $place))
+              role="{{ $place['property_label'] }}"
+            @endif
+            link-path="{{ route('entity.detail', $place['object_item_id']) }}"
+            bg-image-src="{{ route('home')}}/images/sussex-place.jpg"
+            />
+          </div>
+        @endforeach
 
-                  @if(!empty($events))
-                  <h1 class="serif">Events</h1>
-                  @foreach($events as $event)
-                  <div class="pa2">
-                    <entity-card
-                      type="Event"
-                      title="{{ $event['Title'] }}"
-                      link-text="Read more"
-                      @if(array_key_exists('property_label', $event))
-                      role="{{ $event['property_label'] }}"
-                      @endif
-                      link-path="{{ route('entity.detail', $event['object_item_id']) }}"
-                      bg-image-src="{{ route('home')}}/images/sussex-place.jpg"
-                    />
-                  </div>
-                  @endforeach
-                  @endif
-
-                  @if(!empty($objects))
-                  <h1 class="serif">Physical objects</h1>
-                  @foreach($objects as $object)
-                  <div class="pa2">
-                    <entity-card
-                      type="Event"
-                      title="{{ $object['Title'] }}"
-                      link-text="Read more"
-                      @if(array_key_exists('property_label', $object))
-                      role="{{ $object['property_label'] }}"
-                      @endif
-                      link-path="{{ route('entity.detail', $object['object_item_id']) }}"
-                      bg-image-src="{{ route('home')}}/images/sussex-place.jpg"
-                    />
-                  </div>
-                  @endforeach
-                  @endif
-
-                  @if(!empty($families))
-                  <h1 class="serif">Families</h1>
-                  @foreach($families as $family)
-                  <div class="pa2">
-                    <entity-card
-                      type="Event"
-                      title="{{ $family['Title'] }}"
-                      link-text="Read more"
-                      @if(array_key_exists('property_label', $family))
-                      role="{{ $family['property_label'] }}"
-                      @endif
-                      link-path="{{ route('entity.detail', $family['object_item_id']) }}"
-                      bg-image-src="{{ route('home')}}/images/sussex-place.jpg"
-                    />
-                  </div>
-                  @endforeach
-                  @endif
-                </article>
-              </div>
-
-
-
+        @if(!empty($events))
+          <h1 class="serif">Events</h1>
+          @foreach($events as $event)
+            <div class="pa2">
+              <entity-card
+              type="Event"
+              title="{{ $event['Title'] }}"
+              link-text="Read more"
+              @if(array_key_exists('property_label', $event))
+                role="{{ $event['property_label'] }}"
+              @endif
+              link-path="{{ route('entity.detail', $event['object_item_id']) }}"
+              bg-image-src="{{ route('home')}}/images/sussex-place.jpg"
+              />
             </div>
-          </section>
+          @endforeach
+        @endif
+
+        @if(!empty($objects))
+          <h1 class="serif">Physical objects</h1>
+          @foreach($objects as $object)
+            <div class="pa2">
+              <entity-card
+              type="Event"
+              title="{{ $object['Title'] }}"
+              link-text="Read more"
+              @if(array_key_exists('property_label', $object))
+                role="{{ $object['property_label'] }}"
+              @endif
+              link-path="{{ route('entity.detail', $object['object_item_id']) }}"
+              bg-image-src="{{ route('home')}}/images/sussex-place.jpg"
+              />
+            </div>
+          @endforeach
+        @endif
+
+        @if(!empty($families))
+          <h1 class="serif">Families</h1>
+          @foreach($families as $family)
+            <div class="pa2">
+              <entity-card
+              type="Event"
+              title="{{ $family['Title'] }}"
+              link-text="Read more"
+              @if(array_key_exists('property_label', $family))
+                role="{{ $family['property_label'] }}"
+              @endif
+              link-path="{{ route('entity.detail', $family['object_item_id']) }}"
+              bg-image-src="{{ route('home')}}/images/sussex-place.jpg"
+              />
+            </div>
+          @endforeach
+        @endif
+      </article>
+    </div>
+
+
+
+  </div>
+</section>
 
 
 @endsection

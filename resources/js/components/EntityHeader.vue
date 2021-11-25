@@ -8,20 +8,20 @@
         {{ title }}
       </h2>
       <div v-if="type === 'Person'">
-        <div v-if="metadataHead['Nickname']" class="f4 mb2">
+        <div v-if="metadataHead['Nickname'] != ''" class="f4 mb2">
           ({{ metadataHead["Nickname"] }})
         </div>
         <div class="mb2" >
-          <span v-if="metadataHead['Birth Date']" class="mr3">
+          <span v-if="metadataHead['Birth Date'] != ''" class="mr3">
             ✶ {{ metadataHead["Birth Date"] }},
             {{ metadataHead["Birth Place"] }}
           </span>
-          <span v-if="metadataHead['Death Date']" class="mr3">
+          <span v-if="metadataHead['Death Date'] != ''" class="mr3">
             † {{ metadataHead["Death Date"] }},
             {{ metadataHead["Death Place"] }}
           </span>
         </div>
-        <div v-if="metadataHead['Occupation']" class="mb2">
+        <div v-if="metadataHead['Occupation'] != ''" class="mb2">
           {{ metadataHead["Occupation"] }},
           {{ metadataHead["Relation To Hayley"] }}
         </div>
