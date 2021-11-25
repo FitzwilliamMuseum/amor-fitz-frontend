@@ -17,8 +17,8 @@ mix.js('resources/js/app.js', 'public/js')
 mix.styles([
   'resources/css/reset.css',
   'resources/css/tooltips.css',
+  'resources/css/number.css',
   'node_modules/tachyons/css/tachyons.css',
-  // 'node_modules/leaflet/dist/leaflet.css'
 
 ], 'public/css/fitzwilliam.css');
 mix.sass('resources/css/global-styles.scss', 'public/css');
