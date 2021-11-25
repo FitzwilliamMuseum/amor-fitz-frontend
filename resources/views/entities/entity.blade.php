@@ -47,7 +47,7 @@
   </section>
 
 
-<section class="mw3 mw8-ns center tc bg-white pa3 ph5-ns">
+<section class="mw8-ns center tc bg-white pa3 ph5-ns">
 {{ $paginate->links('paginator.default') }}
 </section>
 @endsection

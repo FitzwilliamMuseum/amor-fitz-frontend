@@ -12,7 +12,7 @@
 
   </section>
 
-  <section class="pv5 bg-white">
+  <section class="pv5 bg-white ph7-ns">
     <div class="ph3 ph5-ns">
       @foreach($records as $item)
         @php
@@ -37,8 +37,6 @@
         foreach($item['images'] as $image){
           $images[] = $image['filename'];
         }
-
-
         $author = array();
         foreach($item['expanded'] as $expand)
         {
@@ -93,7 +91,7 @@
         </section>
       @endforeach
     </div>
-    <section class="mw3 mw8-ns center tc bg-white pa3 ph5-ns">
+    <section class="mw8-ns center tc bg-white pa3 ph5-ns">
       {{ $paginate->links('paginator.default') }}
     </section>
   </section>
