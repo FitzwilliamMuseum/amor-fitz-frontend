@@ -20,7 +20,7 @@
       :metadata-head='{"Latitude":"{{ $data['Latitude'] }}","Longitude":"{{ $data['Longitude'] }}","Address Today":"{{  $data['Address today'] }}"}'
       @endif
       @if($data['type'] === 'Person')
-      :metadata-head='{"Birth Date":"{{ $data['Birth Date'] ?? ''}}","Death Date":"{{ $data['Death Date'] ?? ''}}","Birth Place":"{{$data['Birthplace'] ?? '' }}","Death Place":"{{$data['Deathplace'] ?? '' }}","Occupation":"{{$data['Occupation'] ?? '' }}","Nickname":"{{ $data['Nickname'] ?? ''}}","Relation To Hayley":"{{$data['Relation to Hayley'] ?? ''}}"}'
+      :metadata-head='{"Birth Date":"{{ $data['Birth Date'] ?? ''}}","Death Date":"{{ $data['Death Date'] ?? ''}}","Birth Place":"{{$data['Birthplace'] ?? '' }}","Death Place":"{{$data['Deathplace'] ?? '' }}","Occupation":"{{$data['Occupation'] ?? '' }}","Nickname":"{{ htmlentities($data['Nickname']) ?? ''}}","Relation To Hayley":"{{$data['Relation to Hayley'] ?? ''}}"}'
       @endif
       :metadata-tail="{}"
       :number-letters="{{ count($data['relations']) }}"
