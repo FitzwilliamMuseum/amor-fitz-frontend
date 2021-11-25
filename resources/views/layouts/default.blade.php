@@ -20,8 +20,8 @@
   <meta property="og:image" content="@yield('socialImage')" />
   <meta name="twitter:image" content="@yield('socialImage')" />
   @else
-  <meta property="og:image" content="/images/hayley.jpg" />
-  <meta name="twitter:image" content="/images/hayley.jpg" />
+  <meta property="og:image" content="{{ URL::to('/images/hayley.jpg') }}" />
+  <meta name="twitter:image" content="{{ URL::to('/images/hayley.jpg') }}" />
   @endif
 
   <meta name="csrf-token" content="{{ csrf_token() }}">
