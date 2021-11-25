@@ -14,7 +14,8 @@
       {!! $data['text'] !!}
     </article>
   </section>
-  <section class="cf ph3 pa2 ph5-ns  bg-light-green black-70" id="features">
+
+  <section class="cf ph3 ph5-ns pb2 bg-light-green black-70" id="features">
     <div class="mw9 center">
 
       <div class="cf">
@@ -35,6 +36,7 @@
           />
         </article>
       </div>
+
     </div>
   </section>
 
