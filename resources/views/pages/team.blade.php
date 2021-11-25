@@ -10,7 +10,7 @@
 @section('content')
 
   <div class="mw9 center ph3-ns bg-creme">
-    <section class="mw9 mw9-ns center bg-creme pa3 ph5-ns">
+    <section class="mw9 mw9-ns center bg-white pa3 ph5-ns">
       <h1 class="f3 f1-l serif">Our Project Team</h1>
     </section>
     <div class="cf ph2-ns">
