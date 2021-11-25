@@ -8,10 +8,9 @@
   />
 @endsection
 @section('title', $data['Title'])
-{{-- @dd($data) --}}
 @section('content')
 
-<div class="mw9 mw9-ns center bg-creme pa3 ph5-ns cf">
+<div class="mw9 mw9-ns center bg-white pa3 ph5-ns cf">
   <div class="bg-white pa3">
     <entity-header
       type="{{ $data['type']}}"
