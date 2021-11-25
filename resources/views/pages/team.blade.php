@@ -9,7 +9,7 @@
 @endsection
 @section('content')
 
-  <div class="mw9 center ph3-ns bg-creme">
+  <div class="mw9 center ph3-ns bg-white">
     <section class="mw9 mw9-ns center bg-white pa3 ph5-ns">
       <h1 class="f3 f1-l serif">Our Project Team</h1>
     </section>
