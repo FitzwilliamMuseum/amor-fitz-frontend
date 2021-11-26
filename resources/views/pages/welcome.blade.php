@@ -7,11 +7,18 @@
 @section('title', 'Welcome to A Museum of Relationships')
 @section('description', 'A welcome to this digital edition of a Museum of Relationships')
 @section('content')
-  <article class="pa2 pa5-ns bg-creme">
-    <h1 class="f3 f2-m f1-l serif">{{ $page['title']}}</h1>
-    {!! $page['text'] !!}
+  <article class="pa1 pa5-ns bg-white">
+    <h1 class="f3 f2-m f1-l serif tc">{{ $page['title']}}</h1>
+    <div class="center flex flex-row-reverse justify-center">
+      <div data-v-34eb61a6="" class="mb4 w4 correspondence-card__avatar-item br-100 bg-ink avatar-item  avatar-item__bg-hayley avatar-item__bg-person"></div>
+      <div data-v-34eb61a6="" class="mb4 w4 correspondence-card__avatar-item br-100 bg-ink avatar-item  avatar-item__bg-blake avatar-item__bg-person"></div>
+      <div data-v-34eb61a6="" class="mb4 w4 correspondence-card__avatar-item br-100 bg-ink avatar-item  avatar-item__bg-flaxman avatar-item__bg-person"></div>
+
+    </div>
+
+    <div class="pa1 pa5-ns">{!! $page['text'] !!}</div>
   </article>
-  <section class="cf ph3 pa2 ph5-ns  bg-light-green black-70" id="features">
+  <section class="cf ph3 pa4 ph7-ns  bg-light-green black-70" id="features">
     <div class="mw9 center">
       <div class="cf">
         <article class="pv2 fl w-100 w-50-l pr0 pr2-l">

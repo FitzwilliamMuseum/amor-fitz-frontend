@@ -7,13 +7,14 @@
 @section('title', 'Hayley\'s correspondence')
 @section('description', 'An index of Hayley\'s correspondence')
 @section('content')
-  <section class="mw9 mw9-ns pb-1 bg-white pa3 ph5-ns">
-    <h1 class="serif">{{ $page['title']}}</h1>
+  <section class="mw9 mw9-ns bg-white pa3 ph5-ns">
+    <h1 class="f1 serif">{{ $page['title']}}</h1>
+    @if($paginate->onFirstPage())
     {!! $page['text'] !!}
-
+    @endif
   </section>
 
-  <section class="pv5 bg-white ph7-ns">
+  <section class="pv3 bg-white ph7-ns">
     <div class="ph3 ph5-ns">
       @foreach($records as $item)
         @php
