@@ -58,5 +58,7 @@
   </div>
   @include('includes.footer')
   @yield('scripts')
+  <script src="/js/ga.js" type="text/javascript"></script>
+
 </body>
 </html>
