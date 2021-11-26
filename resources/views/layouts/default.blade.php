@@ -39,10 +39,10 @@
   <script type="application/ld+json">
       {"publisher":{"@type":"Organization",
       "logo":{"@type":"ImageObject",
-      "url":"https://fitzmuseum.cam.ac.uk/images/logos/FV.png"}},
-      "headline":"A museum of relationships","@type":"WebSite","url":"{{ route('home')}}
-      "name":"The Fitzwilliam Museum",
-      "description":"The Fitzwilliam Museum is the principal museum of the University of Cambridge",
+      "url":"https://fitz-cms-images.s3.eu-west-2.amazonaws.com/fitz_logo_150.jpg"}},
+      "headline":"A museum of relationships","@type":"WebSite","url":"{{ route('home')}}",
+      "name":"A Museum of Relationships",
+      "description":"The correspondence of William Hayley, housed at the Fitzwilliam Museum, Cambridge",
       "@context":"https://schema.org"}
     </script>
 </head>
