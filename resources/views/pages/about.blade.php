@@ -1,5 +1,6 @@
 @extends('layouts.default')
 @section('title', $data['title'])
+@section('description', 'About a Museum of Relationships, the correspondences of William Hayley')
 @section('breadcrumbs')
   <breadcrumbs
   :path-list='[
@@ -36,8 +37,6 @@
           />
         </article>
       </div>
-
     </div>
   </section>
-
 @endsection

@@ -1,4 +1,6 @@
 @extends('layouts.default')
+@section('title', 'Acknowledgements')
+@section('description', 'Acknowledgements for the Museum of Relationships')
 @section('breadcrumbs')
 <breadcrumbs
     :path-list='[

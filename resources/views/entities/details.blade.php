@@ -8,6 +8,7 @@
   />
 @endsection
 @section('title', $data['Title'])
+@section('description', 'An overview of information from Hayley\'s correspondence about ' . $data['Title'] )
 @section('content')
   <div class="mw9 mw9-ns center bg-white pa3 ph5-ns cf">
     <div class="bg-white pa3">

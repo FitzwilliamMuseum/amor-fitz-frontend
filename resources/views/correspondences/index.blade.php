@@ -5,6 +5,7 @@
   />
 @endsection
 @section('title', 'Hayley\'s correspondence')
+@section('description', 'An index of Hayley\'s correspondence')
 @section('content')
   <section class="mw9 mw9-ns pb-1 bg-white pa3 ph5-ns">
     <h1 class="serif">{{ $page['title']}}</h1>

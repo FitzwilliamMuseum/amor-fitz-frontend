@@ -15,9 +15,8 @@
             </p>
           </blockquote>
           <p class="f6">{{ $annotation['text'] }}</p>
-      </article>
-    @endforeach  </accordion-link>
-
-
-  </section>
-@endif
+        </article>
+      @endforeach
+    </accordion-link>  
+    </section>
+  @endif

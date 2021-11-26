@@ -10,6 +10,7 @@
 @endsection
 @if(array_key_exists('Letter Title',$data[0]))
 @section('title', $data[0]['Letter Title'] . ' ' . $data[0]['Classmark'])
+@section('description', $data[0]['Letter Title'] ?? 'A letter from the archive')
 @else
   @section('title', $data[0]['Classmark'] ?? 'A letter from the archives')
 @endif

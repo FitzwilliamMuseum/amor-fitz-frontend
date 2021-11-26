@@ -1,7 +1,6 @@
 @extends('layouts.default')
 @section('title', 'Page not found')
-
-@endsection
+@section('description', 'An error page for a Museum of Relationships')
 @section('breadcrumbs')
   <breadcrumbs
   :path-list='[

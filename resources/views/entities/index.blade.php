@@ -1,5 +1,6 @@
 @extends('layouts.default')
 @section('title',  $page['title'])
+@section('description', 'A paginated listing of entities found in Hayley\'s correspondence')
 @section('breadcrumbs')
   <breadcrumbs
   :path-list='[

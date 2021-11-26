@@ -4,13 +4,13 @@
   :path-list='[]'
   />
 @endsection
-@section('title', 'Welcome')
+@section('title', 'Welcome to A Museum of Relationships')
+@section('description', 'A welcome to this digital edition of a Museum of Relationships')
 @section('content')
   <article class="pa2 pa5-ns bg-creme">
     <h1 class="f3 f2-m f1-l serif">{{ $page['title']}}</h1>
     {!! $page['text'] !!}
   </article>
-
   <section class="cf ph3 pa2 ph5-ns  bg-light-green black-70" id="features">
     <div class="mw9 center">
       <div class="cf">
@@ -31,7 +31,6 @@
           />
         </article>
       </div>
-
     </div>
   </section>
 @endsection
