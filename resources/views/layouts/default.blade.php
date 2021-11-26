@@ -58,6 +58,8 @@
   </div>
   @include('includes.footer')
   @yield('scripts')
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8H7LKK1CKC"></script>
+
   <script src="/js/ga.js" type="text/javascript"></script>
 
 </body>
