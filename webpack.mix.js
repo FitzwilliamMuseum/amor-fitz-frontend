@@ -11,14 +11,15 @@ const mix = require('laravel-mix');
 |
 */
 
-mix.js('resources/js/app.js', 'public/js')
-.vue() // <- Add this
-;
+mix.js([
+  'resources/js/app.js',
+  'resources/js/ga.js'
+], 'public/js')
+.vue();
 mix.styles([
   'resources/css/reset.css',
   'resources/css/tooltips.css',
   'resources/css/number.css',
   'node_modules/tachyons/css/tachyons.css',
-
 ], 'public/css/fitzwilliam.css');
 mix.sass('resources/css/global-styles.scss', 'public/css');
