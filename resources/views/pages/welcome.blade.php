@@ -9,12 +9,7 @@
 @section('content')
   <article class="pa1 pa5-ns bg-white">
     <h1 class="f3 f2-m f1-l helvetica tc">{{ $page['title']}}</h1>
-    <div class="center flex flex-row-reverse justify-center">
-      <div data-v-34eb61a6="" class="mb4 w4 correspondence-card__avatar-item br-100 bg-ink avatar-item  avatar-item__bg-william-hayley avatar-item__bg-person"></div>
-      <div data-v-34eb61a6="" class="mb4 w4 correspondence-card__avatar-item br-100 bg-ink avatar-item  avatar-item__bg-eliza-hayley avatar-item__bg-person"></div>
-      <div data-v-34eb61a6="" class="mb4 w4 correspondence-card__avatar-item br-100 bg-ink avatar-item  avatar-item__bg-john-flaxman avatar-item__bg-person"></div>
-
-    </div>
+  <div class="center flex flex-row-reverse justify-center"><div data-v-535822b7="" class="mb4 w4 correspondence-card__avatar-item br-100 bg-ink avatar-item  avatar-item__bg-william-hayley avatar-item__bg-person"></div> <div data-v-535822b7="" class="mb4 w4 correspondence-card__avatar-item br-100 bg-ink avatar-item  avatar-item__bg-john-flaxman avatar-item__bg-person"></div><div data-v-535822b7="" class="mb4 w4 correspondence-card__avatar-item br-100 bg-ink avatar-item  avatar-item__bg-anne-nancy-flaxman avatar-item__bg-person"></div><div data-v-535822b7="" class="mb4 w4 correspondence-card__avatar-item br-100 bg-ink avatar-item  avatar-item__bg-thomas-alphonso-hayley avatar-item__bg-person"></div></div>
 
     <div class="pa1 pa5-ns">{!! $page['text'] !!}</div>
   </article>
