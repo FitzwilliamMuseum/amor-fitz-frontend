@@ -15,7 +15,7 @@
 @section('description', 'A list of entities associated with ' . Request::segment(2))
 @section('content')
   <section class="cf ph3 ph5-ns pb5 bg-light-white black-70">
-    <h1 class="f1 helvetica">All records attributed to {{Request::segment(2)}}</h1>
+    <h1 class="f1 helvetica fw4 tc">All records attributed to {{Request::segment(2)}}</h1>
     <div class="mw9 center">
       @foreach($items as $item)
         <div class="cf">

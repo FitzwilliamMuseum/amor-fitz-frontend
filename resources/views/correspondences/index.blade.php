@@ -8,13 +8,13 @@
 @section('description', 'An index of Hayley\'s correspondence')
 @section('content')
   <section class="mw9 mw9-ns bg-white pa3 ph5-ns">
-    <h1 class="f1 helvetica">{{ $page['title']}}</h1>
+    <h1 class="f1 helvetica tc fw4">{{ $page['title']}}</h1>
     @if($paginate->onFirstPage())
       {!! $page['text'] !!}
     @endif
   </section>
 @if($paginate->onFirstPage())
-  <section class="pv3 bg-white">
+  <section class="pv3 bg-white ph5-ns">
     <correspondence-list
     :correspondences='[
     @foreach($convos as $con)

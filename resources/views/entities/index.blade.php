@@ -10,7 +10,7 @@
 @endsection
 @section('content')
   <section class="mw9 mw9-ns center bg-white  ph5-ns">
-    <h1 class="helvetica f1">{{ $page['title']}}</h1>
+    <h1 class="helvetica f1 fw4 tc">{{ $page['title']}}</h1>
     <div class="pa2">{!! $page['text'] !!}</div>
 
   </section>
