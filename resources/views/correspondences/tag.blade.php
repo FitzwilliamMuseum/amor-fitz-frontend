@@ -8,12 +8,12 @@
 @section('description', 'An index of Hayley\'s correspondence')
 @section('content')
   <section class="mw9 mw9-ns bg-white pa3 ph5-ns">
-    <h1 class="f1 helvetica">{{ $page['title']}} tagged <span class="purple">{{ implode(' / ', $tag) }}</span></h1>
+    <h1 class="f1 helvetica fw3">{{ $page['title']}} tagged <span class="purple">{{ implode(' / ', $tag) }}</span></h1>
 
   </section>
 
   <section class="pv3 cf bg-white ph5-ns">
-    <h2>Who was corresponding with whom for this tag?</h2>
+    <h2 class="fw3">Who was corresponding with whom for this tag?</h2>
 
       <article>
       <correspondence-list
