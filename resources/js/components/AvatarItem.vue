@@ -79,7 +79,7 @@ export default {
   background-image: url("../images/seward.jpg");
 }
 .avatar-item__bg-anne-nancy-flaxman {
-  background-image: url("../images/anne-flaxman.png");
+  background-image: url("../images/anne-flaxman.jpg");
 }
 .avatar-item__bg-eliza-hayley {
   background-image: url("../images/eliza-hayley.jpg");

@@ -3,8 +3,8 @@
     class="letter-preview-card bg-white w-100 sans-serif f5 shadow-4 flex  flex-column-reverse flex-row-l"
   >
     <div class="letter-preview-card__left-side pa3 w-40-l">
-      <h2 class="f3 helvetica mb2">{{ title }}</h2>
-      <h3 v-if="date" class="f4 mb2">{{ date | moment }}</h3>
+      <h2 class="f3 helvetica mb2 fw4">{{ title }}</h2>
+      <h3 v-if="date" class="f4 mb2 fw4">{{ date | moment }}</h3>
       <div class="mb3">
         <p v-if="author">
           From <a :href="author.link" class="berry dim">{{ author.name }}</a>
