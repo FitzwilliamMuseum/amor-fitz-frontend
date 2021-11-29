@@ -13,7 +13,7 @@
       {!! $page['text'] !!}
     @endif
   </section>
-
+@if($paginate->onFirstPage())
   <section class="pv3 bg-white">
     <correspondence-list
     :correspondences='[
@@ -37,14 +37,14 @@
       $backgrounds = '"'.  implode('","',$bgs) . '"';
       @endphp
     {"names":[{!! $names !!}],"backgrounds":[{{$backgrounds}}],"numberletters":{!! $count !!},"curatorial-statement":"", "buttonLink": "{{ route('tag', $idList) }}"},
-  
+
     @endforeach
     ]'
     />
 
 
   </section>
-
+@endif
   <section class="pv3 bg-white ph7-ns">
     <div class="ph3 ph5-ns">
       @foreach($records as $item)
