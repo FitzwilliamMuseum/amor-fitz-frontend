@@ -1,1 +1,202 @@
-:root{--creme:#fff9eb;--green:#00470e;--berry:#7b2542;--ink:#2b2b2e;--light-green:#e0ebe2;--light-berry:#ebe0e4;--white:#fff}.creme,.creme:visited{color:#fff9eb}.bg-creme{background-color:#fff9eb}.b--creme{border-color:#fff9eb}.hover-bg-creme:active,.hover-bg-creme:focus,.hover-bg-creme:hover{background-color:#fff9eb}.hover-creme:hover,.hover-creme:visited:hover{color:#fff9eb}.green,.green:visited{color:#00470e}.bg-green{background-color:#00470e}.b--green{border-color:#00470e}.hover-bg-green:active,.hover-bg-green:focus,.hover-bg-green:hover{background-color:#00470e}.hover-green:hover,.hover-green:visited:hover{color:#00470e}.berry,.berry:visited{color:#7b2542}.bg-berry{background-color:#7b2542}.b--berry{border-color:#7b2542}.hover-bg-berry:active,.hover-bg-berry:focus,.hover-bg-berry:hover{background-color:#7b2542}.hover-berry:hover,.hover-berry:visited:hover{color:#7b2542}.ink,.ink:visited{color:#2b2b2e}.bg-ink{background-color:#2b2b2e}.b--ink{border-color:#2b2b2e}.hover-bg-ink:active,.hover-bg-ink:focus,.hover-bg-ink:hover{background-color:#2b2b2e}.hover-ink:hover,.hover-ink:visited:hover{color:#2b2b2e}.light-green,.light-green:visited{color:#e0ebe2}.bg-light-green{background-color:#e0ebe2}.b--light-green{border-color:#e0ebe2}.hover-bg-light-green:active,.hover-bg-light-green:focus,.hover-bg-light-green:hover{background-color:#e0ebe2}.hover-light-green:hover,.hover-light-green:visited:hover{color:#e0ebe2}.light-berry,.light-berry:visited{color:#ebe0e4}.bg-light-berry{background-color:#ebe0e4}.b--light-berry{border-color:#ebe0e4}.hover-bg-light-berry:active,.hover-bg-light-berry:focus,.hover-bg-light-berry:hover{background-color:#ebe0e4}.hover-light-berry:hover,.hover-light-berry:visited:hover{color:#ebe0e4}.white,.white:visited{color:#fff}.bg-white{background-color:#fff}.b--white{border-color:#fff}.hover-bg-white:active,.hover-bg-white:focus,.hover-bg-white:hover{background-color:#fff}.hover-white:hover,.hover-white:visited:hover{color:#fff}body,html{font-family:Open Sans,sans-serif}.serif{font-family:Libre Baskerville,serif;font-weight:300}.sans-serif{font-family:Open Sans,sans-serif}a{color:#00470e}.mt-2{margin-top:-.5rem}
+/******************************** TACHYONS Customization *******************************/
+:root {
+  --creme: #FFF9EB;
+  --green: #00470E;
+  --berry: #7B2542;
+  --ink: #2B2B2E;
+  --light-green: #E0EBE2;
+  --light-berry: #EBE0E4;
+  --white: #FFF;
+}
+
+/* Generate atomic classes based on custom colors,
+   Credits to James Chambers https://jameschambers.co/writing/tachyons-custom-colours/
+*/
+.creme {
+  color: #FFF9EB;
+}
+.creme:visited {
+  color: #FFF9EB;
+}
+
+.bg-creme {
+  background-color: #FFF9EB;
+}
+
+.b--creme {
+  border-color: #FFF9EB;
+}
+
+.hover-bg-creme:focus, .hover-bg-creme:active, .hover-bg-creme:hover {
+  background-color: #FFF9EB;
+}
+
+.hover-creme:hover,
+.hover-creme:visited:hover {
+  color: #FFF9EB;
+}
+
+.green {
+  color: #00470E;
+}
+.green:visited {
+  color: #00470E;
+}
+
+.bg-green {
+  background-color: #00470E;
+}
+
+.b--green {
+  border-color: #00470E;
+}
+
+.hover-bg-green:focus, .hover-bg-green:active, .hover-bg-green:hover {
+  background-color: #00470E;
+}
+
+.hover-green:hover,
+.hover-green:visited:hover {
+  color: #00470E;
+}
+
+.berry {
+  color: #7B2542;
+}
+.berry:visited {
+  color: #7B2542;
+}
+
+.bg-berry {
+  background-color: #7B2542;
+}
+
+.b--berry {
+  border-color: #7B2542;
+}
+
+.hover-bg-berry:focus, .hover-bg-berry:active, .hover-bg-berry:hover {
+  background-color: #7B2542;
+}
+
+.hover-berry:hover,
+.hover-berry:visited:hover {
+  color: #7B2542;
+}
+
+.ink {
+  color: #2B2B2E;
+}
+.ink:visited {
+  color: #2B2B2E;
+}
+
+.bg-ink {
+  background-color: #2B2B2E;
+}
+
+.b--ink {
+  border-color: #2B2B2E;
+}
+
+.hover-bg-ink:focus, .hover-bg-ink:active, .hover-bg-ink:hover {
+  background-color: #2B2B2E;
+}
+
+.hover-ink:hover,
+.hover-ink:visited:hover {
+  color: #2B2B2E;
+}
+
+.light-green {
+  color: #E0EBE2;
+}
+.light-green:visited {
+  color: #E0EBE2;
+}
+
+.bg-light-green {
+  background-color: #E0EBE2;
+}
+
+.b--light-green {
+  border-color: #E0EBE2;
+}
+
+.hover-bg-light-green:focus, .hover-bg-light-green:active, .hover-bg-light-green:hover {
+  background-color: #E0EBE2;
+}
+
+.hover-light-green:hover,
+.hover-light-green:visited:hover {
+  color: #E0EBE2;
+}
+
+.light-berry {
+  color: #EBE0E4;
+}
+.light-berry:visited {
+  color: #EBE0E4;
+}
+
+.bg-light-berry {
+  background-color: #EBE0E4;
+}
+
+.b--light-berry {
+  border-color: #EBE0E4;
+}
+
+.hover-bg-light-berry:focus, .hover-bg-light-berry:active, .hover-bg-light-berry:hover {
+  background-color: #EBE0E4;
+}
+
+.hover-light-berry:hover,
+.hover-light-berry:visited:hover {
+  color: #EBE0E4;
+}
+
+.white {
+  color: #FFF;
+}
+.white:visited {
+  color: #FFF;
+}
+
+.bg-white {
+  background-color: #FFF;
+}
+
+.b--white {
+  border-color: #FFF;
+}
+
+.hover-bg-white:focus, .hover-bg-white:active, .hover-bg-white:hover {
+  background-color: #FFF;
+}
+
+.hover-white:hover,
+.hover-white:visited:hover {
+  color: #FFF;
+}
+
+html, body {
+  font-family: "Open Sans", sans-serif;
+}
+
+.serif {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 300;
+}
+
+.sans-serif {
+  font-family: "Open Sans", sans-serif;
+}
+
+a {
+  color: #00470E;
+}
+
+.mt-2 {
+  margin-top: -0.5rem;
+}

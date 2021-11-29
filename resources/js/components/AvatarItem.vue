@@ -61,15 +61,27 @@ export default {
 }
 
 /* Specific people. Classes being generated based on backgroundId prop  */
-.avatar-item__bg-hayley {
+.avatar-item__bg-william-hayley {
   background-image: url("../images/hayley.jpg");
 }
 
-.avatar-item__bg-flaxman {
+.avatar-item__bg-john-flaxman {
   background-image: url("../images/flaxman.jpg");
 }
 
 .avatar-item__bg-blake {
   background-image: url("../images/blake.jpg");
+}
+.avatar-item__bg-thomas-alphonso-hayley {
+  background-image: url("../images/alphonso.jpg");
+}
+.avatar-item__bg-anna-seward {
+  background-image: url("../images/seward.jpg");
+}
+.avatar-item__bg-anne-nancy-flaxman {
+  background-image: url("../images/anne-flaxman.png");
+}
+.avatar-item__bg-eliza-hayley {
+  background-image: url("../images/eliza-hayley.jpg");
 }
 </style>

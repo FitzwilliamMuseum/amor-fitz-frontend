@@ -5,9 +5,9 @@
   >
     <h1
       :class="wide ? 'mb4 f2-m f1-l' : 'dtc-l w-40-l tl-l mb0-l f2-ns'"
-      class="db v-mid link w-100 tc mb2 serif f3"
+      class="db v-mid link w-100 tc mb2 helvetica f3"
     >
-    <a class="link dim creme" href="/" title="Home"
+    <a class="link dim creme fw3" href="/" title="Home"
       >Most Sacred Things</a>
     </h1>
     <div

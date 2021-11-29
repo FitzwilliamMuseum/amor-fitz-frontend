@@ -7,7 +7,7 @@
   @endif
   <div class="dib mr3">
     <a href="{{ $paginator->previousPageUrl() }}">
-      <div class="button--square serif flex justify-center items-center bg-green creme f4 fw7 pa2 button dim">
+      <div class="button--square helvetica flex justify-center items-center bg-green creme f4 fw7 pa2 button dim">
         <span class="flip-h">➺</span>
       </div>
     </a>
@@ -23,7 +23,7 @@
   <span class="dib mr3">of {{ $paginator->lastPage() }}</span>
   <div data-v-e0422746="" class="dib dib mr3">
     <a href="{{ $paginator->nextPageUrl() }}">
-      <div data-v-e0422746="" class="button--square serif flex justify-center items-center bg-green creme f4 fw7 pa2 button dim">➻</div>
+      <div data-v-e0422746="" class="button--square hel flex justify-center items-center bg-green creme f4 fw7 pa2 button dim">➻</div>
     </a>
   </div>
   <a href="{{ \Request::url() .'?page='.$paginator->lastPage() }}">

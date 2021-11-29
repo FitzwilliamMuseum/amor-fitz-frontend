@@ -18,6 +18,8 @@ Route::get('/', 'App\Http\Controllers\aboutController@home')->name('home');
 
 Route::get('/correspondences', 'App\Http\Controllers\correspondencesController@index')->name('correspondences');
 Route::get('/correspondences/letter/{id}', 'App\Http\Controllers\correspondencesController@letter')->name('letter');
+Route::get('/correspondences/tags/{id}', 'App\Http\Controllers\correspondencesController@tag')->name('tag');
+
 
 Route::get('/entities', 'App\Http\Controllers\entitiesController@index')->name('entities');
 Route::get('/entities/{slug}', 'App\Http\Controllers\entitiesController@entity')->name('entity');

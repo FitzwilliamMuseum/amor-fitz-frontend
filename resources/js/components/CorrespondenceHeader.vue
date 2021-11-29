@@ -21,7 +21,7 @@
         :key="correspondent.name"
         class="mb2"
       >
-        <h2 class="serif f2">
+        <h2 class="helvetica f2">
           {{ correspondent.name }}
         </h2>
         <div>

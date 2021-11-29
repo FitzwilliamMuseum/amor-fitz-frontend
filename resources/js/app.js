@@ -43,6 +43,8 @@ Vue.component('pagination', require('./components/Pagination.vue').default);
 Vue.component('breadcrumbs', require('./components/TheBreadcrumbs.vue').default);
 Vue.component('the-header', require('./components/TheHeader.vue').default);
 Vue.component('leaflet-map', require('./components/Map.vue').default);
+Vue.component('tag', require('./components/Tag.vue').default);
+Vue.component('tag-list', require('./components/TagList.vue').default);
 
 
 /**

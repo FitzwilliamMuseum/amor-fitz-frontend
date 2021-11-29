@@ -4,7 +4,7 @@
       <AvatarItem :type="type" :bgImageSrc="bgImageSrc" class="w4" />
     </div>
     <div>
-      <h2 class="serif f2 mb2">
+      <h2 class="helvetica f2 mb2">
         {{ title }}
       </h2>
       <div v-if="type === 'Person'">
@@ -22,7 +22,7 @@
           </span>
         </div>
         <div v-if="metadataHead['Occupation'] != ''" class="mb2">
-          {{ metadataHead["Occupation"] }} 
+          {{ metadataHead["Occupation"] }}
           {{ metadataHead["Relation To Hayley"] }}
         </div>
       </div>

@@ -11,8 +11,10 @@
         "laravel/framework": "^8.65",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
+        "michelf/php-markdown": "^1.9",
         "spatie/laravel-responsecache": "^7.1",
-        "upthemedia/xss-protection": "^0.0.8"
+        "upthemedia/xss-protection": "^0.0.8",
+        "buzzylab/laradown": "~0.2"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

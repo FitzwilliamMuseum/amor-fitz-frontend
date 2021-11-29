@@ -4,9 +4,11 @@
       v-for="correspondence in correspondences"
       :key="correspondence.names.join()"
       :names="correspondence.names"
-      :backgroundIds="correspondence.backgroundIds"
-      :numberLetters="correspondence.numberLetters"
+      :backgrounds="correspondence.backgrounds"
+      :numberletters="correspondence.numberletters"
       :curatorialStatement="correspondence.curatorialStatement"
+      :buttonText="correspondence.buttonText"
+      :buttonLink="correspondence.buttonLink"
       class="ma3 dib v-top"
     />
   </section>

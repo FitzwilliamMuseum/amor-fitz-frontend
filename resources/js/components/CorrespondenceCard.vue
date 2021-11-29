@@ -1,9 +1,9 @@
 <template>
-  <div class="correspondence-card bg-white mw6 pa3 tc sans-serif shadow-4">
+  <div class="correspondence-card bg-white mw6 pa3 tc helevtica shadow-4">
     <div class="center flex flex-row-reverse justify-center">
       <AvatarItem
         type="Person"
-        backgroundId="hayley"
+        backgroundId="william-hayley"
         class="mb4 w4 correspondence-card__avatar-item"
       />
       <AvatarItem
@@ -14,10 +14,11 @@
         class="mb4 w4 correspondence-card__avatar-item"
       />
     </div>
+    <div v-for="(name, index) in names" :key="name" class="helvetica f4">
+    <div v-if="index != names.length - 1">{{ name }} &#9758;</div>
+    <div v-if="index == names.length - 1">{{ name }}</div>
+    </div>
 
-    <h2 v-for="name in names" :key="name" class="serif f2">
-      {{ name }}
-    </h2>
     <div class="mt3">
       <NumberBullet :number="numberletters" class="mr2" />letters
     </div>

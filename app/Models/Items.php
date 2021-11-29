@@ -8,10 +8,27 @@ use Illuminate\Support\Facades\Http;
 
 class Items
 {
+
+  public static function getTags()
+  {
+    $api = new OmekaApi;
+    $api->setEndpoint('tags');
+    return $api->getData();
+  }
+
   public static function counts(array $args)
   {
     $api = new OmekaApi;
-    $api->setEndpoint('item_types');
+    $api->setEndpoint('items');
+    if(array_key_exists('tags', $args)){
+      $tagList = self::getTags();
+      foreach($tagList as $key => $rep)
+        {
+            if (in_array($args['tags'], $rep)) {
+                $args['tags'] = $rep['name'];
+            }
+        }
+    }
     $api->setArguments(
       $args
     );
@@ -21,6 +38,15 @@ class Items
   {
     $api = new OmekaApi;
     $api->setEndpoint('items');
+    if(array_key_exists('tags', $args)){
+      $tagList = self::getTags();
+      foreach($tagList as $key => $rep)
+        {
+            if (in_array($args['tags'], $rep)) {
+                $args['tags'] = $rep['name'];
+            }
+        }
+    }
     $api->setArguments(
       $args
     );
@@ -44,6 +70,7 @@ class Items
     $data['created'] = $items['added'];
     $data['modified'] = $items['modified'];
     $data['type'] = $items['item_type']['name'];
+
     if(array_key_exists('url', $items['files'])){
       $images = new OmekaApi;
       // $response = Http::get($items['files']['url']);
@@ -119,7 +146,6 @@ class Items
     foreach ($arr as $key => $row) {
         $sort_col[$key] = $row[$col];
     }
-
     array_multisort($sort_col, $dir, $arr);
 }
 
@@ -142,6 +168,8 @@ class Items
       $data['created'] = $item['added'];
       $data['modified'] = $item['modified'];
       $data['type'] = $item['item_type']['name'];
+      $data['tags'] = $item['tags'];
+
       if(array_key_exists('url', $item['files'])){
         $image = new OmekaApi;
         $images = $image->getUrl($item['files']['url']);

@@ -3,7 +3,7 @@
     <div class="flex items-center">
       <AvatarItem :type="type" small :bgImageSrc="bgImageSrc" class="mr3" />
       <div>
-        <h2 class="serif f3">{{ title }}</h2>
+        <h2 class="helvetica f3 fw4">{{ title }}</h2>
         <span v-if="role">
         <h3 class="f6 lh-copy">{{ role }}</h3>
         </span>

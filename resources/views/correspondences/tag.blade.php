@@ -8,14 +8,15 @@
 @section('description', 'An index of Hayley\'s correspondence')
 @section('content')
   <section class="mw9 mw9-ns bg-white pa3 ph5-ns">
-    <h1 class="f1 helvetica">{{ $page['title']}}</h1>
-    @if($paginate->onFirstPage())
-      {!! $page['text'] !!}
-    @endif
+    <h1 class="f1 helvetica">{{ $page['title']}} tagged <span class="purple">{{ implode(' / ', $tag) }}</span></h1>
+
   </section>
 
-  <section class="pv3 bg-white">
-    <correspondence-list
+  <section class="pv3 cf bg-white ph5-ns">
+    <h2>Who was corresponding with whom for this tag?</h2>
+
+      <article>
+      <correspondence-list
     :correspondences='[
     @foreach($convos as $con)
       @php
@@ -37,16 +38,17 @@
       $backgrounds = '"'.  implode('","',$bgs) . '"';
       @endphp
     {"names":[{!! $names !!}],"backgrounds":[{{$backgrounds}}],"numberletters":{!! $count !!},"curatorial-statement":"", "buttonLink": "{{ route('tag', $idList) }}"},
-  
     @endforeach
     ]'
-    />
+  />
 
+</article>
 
   </section>
 
   <section class="pv3 bg-white ph7-ns">
     <div class="ph3 ph5-ns">
+      <h2>Letters tagged with <span class="purple">{{ implode('/',$tag) }}</span></h2>
       @foreach($records as $item)
         @php
         $people = count(array_filter($item['expanded'], function($arr)

@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white sans-serif pv5 letter-viewer">
+  <div class="bg-white sans-serif pv3 letter-viewer">
     <div v-if="$mq !== 'l'" class="w-100 mb4">
       <agile
         ref="carousel"
@@ -62,7 +62,7 @@
       >
         <div class="pa4 letter-viewer__transcript-container__inner">
           <span v-html="transcription"></span>
-          <!--
+
           <component
             v-if="transcriptPageComponents"
             v-bind:is="transcriptPageComponents[currentIndex]"
@@ -71,8 +71,7 @@
             v-else-if="transcriptComponent"
             v-bind:is="transcriptComponent"
           ></div>
-          <div v-else>No transcript available</div>
-          -->
+
         </div>
       </div>
     </div>

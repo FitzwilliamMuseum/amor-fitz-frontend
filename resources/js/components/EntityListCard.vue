@@ -15,7 +15,7 @@
       />
     </div>
 
-    <h2 v-for="name in names" :key="name" class="serif f2">
+    <h2 v-for="name in names" :key="name" class="helvetica f2 fw4">
       {{ name }}
     </h2>
     <div class="mt3">
