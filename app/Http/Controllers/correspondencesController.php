@@ -81,4 +81,10 @@ class correspondencesController extends Controller
       $tag = Tags::findByTags(request()->segment(4));
       return view('correspondences.tag', compact('convos', 'records', 'page', 'paginate', 'tag'));
     }
+
+    public function tags()
+    {
+      $tags = Tags::getTags();
+      return view('correspondences.tags', compact('tags'));
+    }
 }
