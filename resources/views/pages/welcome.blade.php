@@ -5,7 +5,7 @@
   />
 @endsection
 @section('title', 'Welcome to A Museum of Relationships')
-@section('description', 'A welcome to this digital edition of a Museum of Relationships')
+@section('description', 'A welcome to this digital edition of a Museum of Relationships held in the Fitzwilliam Museum')
 @section('content')
   <article class="pa1 pa5-ns bg-white">
     <h1 class="f3 f2-m f1-l helvetica tc fw4">{{ $page['title']}}</h1>
