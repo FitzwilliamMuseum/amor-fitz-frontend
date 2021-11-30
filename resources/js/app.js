@@ -25,6 +25,7 @@ Vue.component('button-hayley', require('./components/Button.vue').default);
 Vue.component('button-link', require('./components/ButtonLink.vue').default);
 Vue.component('colour-palette', require('./components/ColourPalette.vue').default);
 Vue.component('correspondence-card', require('./components/CorrespondenceCard.vue').default);
+Vue.component('correspondence-card-front', require('./components/CorrespondenceCardFront.vue').default);
 Vue.component('correspondence-header', require('./components/CorrespondenceHeader.vue').default);
 Vue.component('correspondence-list', require('./components/CorrespondenceList.vue').default);
 Vue.component('cta-card', require('./components/CTACard.vue').default);
