@@ -1,7 +1,11 @@
 @extends('layouts.default')
 @section('breadcrumbs')
   <breadcrumbs
-  :path-list='[{"text":"Correspondences","path":"{{ route('correspondences')}}"}]'
+  :path-list='[
+  {"text":"Correspondences","path":"{{ route('correspondences')}}"},
+  {"text":"Letters","path":"{{ route('letters')}}"},
+  {"text":"Tags","path":"{{ route('tags')}}"},
+  ]'
   />
 @endsection
 @section('title', 'Hayley\'s correspondence')
