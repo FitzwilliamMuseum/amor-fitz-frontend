@@ -24,7 +24,7 @@
           :names="['People']"
           :backgrounds="['blake']"
           :numberletters='{{$people[0]['items']['count']}}'
-          button-text="Discover colourful characters"
+          button-text="Discover correspondents"
           button-link="{{ route('entity', ['person']) }}"
           />
         </article>
@@ -33,7 +33,7 @@
           :names="['Locations']"
           :backgrounds="['blake']"
           :numberletters='{{$places[0]['items']['count']}}'
-          button-text="Visit disparate locations"
+          button-text="Locations mentioned"
           button-link="{{ route('entity', ['place']) }}"
           />
         </article>
@@ -45,7 +45,7 @@
           :names="['Families']"
           :backgrounds="['blake']"
           :numberletters='{{$family[0]['items']['count']}}'
-          button-text="Uncover family connections"
+          button-text="Uncover families"
           button-link="{{ route('entity', ['family']) }}"
           />
         </article>

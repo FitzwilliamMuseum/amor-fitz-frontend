@@ -23,13 +23,6 @@ class Correspondences
     $api->setEndpoint('items');
 
     if(array_key_exists('tags', $args)){
-      // $tagList = self::getTags();
-      // foreach($tagList as $key => $rep)
-      //   {
-      //       if (in_array($args['tags'], $rep)) {
-      //           $args['tags'] = $rep['name'];
-      //       }
-      //   }
       $args['tags'] = Tags::findByTags($args['tags']);
     }
     $api->setArguments(
@@ -47,8 +40,7 @@ class Correspondences
       $people['slug'] = array();
       $people['tags'] = $letter['tags'];
 
-      foreach($letter['expanded'] as $rels )
-      {
+      foreach($letter['expanded'] as $rels){
         if($rels['entityType']   === 'Person'){
           if($rels['property_label'] === 'Author'){
             $protaganists['author'] = array(
@@ -75,14 +67,12 @@ class Correspondences
       $ids = array();
       foreach($fromto as $con){
         $t = array();
-        // dd($con['tags']);
         foreach($con['tags'] as $tag){
           if( substr($tag['name'], 0, 14) === 'Correspondence'){
             $t[] = $tag['id'];
             $ids = $t;
           }
         }
-        // dd($ids);
         $new[] = array(
           'slug' => implode('-', $con['slug']),
           'names' =>  implode('/', $con['names']),
@@ -93,11 +83,6 @@ class Correspondences
       $conversations[] = $protaganists;
     }
 
-    foreach($fromto as $f){
-      if(empty($f['names'])){
-        // dump($f['id']);
-      }
-    }
     $crushed = self::group_assoc($new, 'slug');
     return $crushed;
   }

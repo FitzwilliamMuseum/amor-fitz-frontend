@@ -1,6 +1,6 @@
 <template>
   <Button>
-    <a :href="link" class="no-underline white"><slot /></a>
+    <a :href="link" class="no-underline white fw3"><slot /></a>
   </Button>
 </template>
 

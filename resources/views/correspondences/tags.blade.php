@@ -13,7 +13,8 @@
   </section>
 
   <section class="pv3 cf bg-white ph5-ns">
-    <h2 class="fw3 tc f4">Who was corresponding with whom for this tag?</h2>
+    <h2 class="fw3">Who was corresponding with whom for this tag?</h2>
+
     <article>
       <correspondence-list
       :correspondences='[
@@ -47,18 +48,7 @@
 
   <section class="pv3 bg-white ph7-ns">
     <div class="ph3 ph5-ns">
-      <h2 class="fw4">Letters tagged with</h2>
-       <span class="purple">
-        <p>
-          @foreach($tag as $t)
-           @if (!$loop->last)
-             {{ $t }}<br>
-          @else
-            {{  $t }}
-          @endif
-         @endforeach
-        </p>
-       </span>
+      <h2>Letters tagged with <span class="purple">{{ implode('/',$tag) }}</span></h2>
       @foreach($records as $item)
         @php
         $people = count(array_filter($item['expanded'], function($arr)

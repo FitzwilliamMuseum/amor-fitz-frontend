@@ -21,6 +21,14 @@ class correspondencesController extends Controller
     {
       $args = array('item_type' => 'Letter');
       $convos = Correspondences::find($args);
+
+      $page = Pages::find(4);
+
+      return view('correspondences.index', compact('convos', 'page'));
+    }
+
+    public function letters(Request $request)
+    {
       $perPage = 4;
       $args =  array(
         'hasImage' => 1,
@@ -33,7 +41,7 @@ class correspondencesController extends Controller
       $counts = Items::counts(array('item_type' => 'Letter'));
       $paginate = new LengthAwarePaginator($records, count($counts), 4);
       $paginate->setPath($request->getBaseUrl());
-      return view('correspondences.index', compact('convos', 'records', 'page', 'paginate'));
+      return view('correspondences.letters', compact('records', 'page', 'paginate'));
     }
 
     public function getImages($url){
@@ -50,7 +58,7 @@ class correspondencesController extends Controller
 
     public function tag(Request $request)
     {
-      $args = array('item_type' => 'Letter', 'tags' => request()->segment(3));
+      $args = array('item_type' => 'Letter', 'tags' => request()->segment(4));
       $convos = Correspondences::find($args);
       $perPage = 4;
       $args =  array(
@@ -60,8 +68,8 @@ class correspondencesController extends Controller
         'item_type' => 'Letter',
       );
       $countArgs = array('item_type' => 'Letter');
-      if(!is_null(request()->segment(3))){
-        $params = Tags::findByTags(request()->segment(3));
+      if(!is_null(request()->segment(4))){
+        $params = Tags::findByTags(request()->segment(4));
         $args['tags'] = implode(',', $params);
         $countArgs['tags'] = implode(',', $params);
       }
@@ -70,8 +78,7 @@ class correspondencesController extends Controller
       $counts = Items::counts($countArgs);
       $paginate = new LengthAwarePaginator($records, count($counts), 4);
       $paginate->setPath($request->getBaseUrl());
-      $tag = Tags::findByTags(request()->segment(3));
-      // dd($tag);
+      $tag = Tags::findByTags(request()->segment(4));
       return view('correspondences.tag', compact('convos', 'records', 'page', 'paginate', 'tag'));
     }
 }

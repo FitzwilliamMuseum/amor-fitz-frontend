@@ -8,57 +8,11 @@
 @section('description', 'An index of Hayley\'s correspondence')
 @section('content')
   <section class="mw9 mw9-ns bg-white pa3 ph5-ns">
-    <h1 class="f1 helvetica fw4 tc">{{ $page['title']}} tagged:<br/> <span class="purple">{{ implode(' / ', $tag) }}</span></h1>
-
-  </section>
-
-  <section class="pv3 cf bg-white ph5-ns">
-    <h2 class="fw3 tc f4">Who was corresponding with whom for this tag?</h2>
-    <article>
-      <correspondence-list
-      :correspondences='[
-      @foreach($convos as $con)
-        @php
-        $names = '"'. str_replace('/', '","',$con[0]['names']) . '"';
-        $count = count($con);
-        $tags = array();
-        $ids = array();
-        foreach ($con as $c) {
-          $ids =  $c['tags'];
-        }
-        $idList =  implode(',', array_unique($ids));
-        $bgs = array();
-        $bg = explode('/', $con[0]['names']);
-        foreach($bg as $b){
-          if($b != 'William Hayley'){
-            $bgs[] = Str::slug($b);
-          }
-        }
-        $backgrounds = '"'.  implode('","',$bgs) . '"';
-        @endphp
-        {"names":[{!! $names !!}],"backgrounds":[{{$backgrounds}}],"numberletters":{!! $count !!},"curatorial-statement":"", "buttonLink": "{{ route('tag', $idList) }}"},
-      @endforeach
-      ]'
-      />
-
-    </article>
-
+    <h1 class="f1 helvetica tc fw4">Browse the letters</h1>
   </section>
 
   <section class="pv3 bg-white ph7-ns">
     <div class="ph3 ph5-ns">
-      <h2 class="fw4">Letters tagged with</h2>
-       <span class="purple">
-        <p>
-          @foreach($tag as $t)
-           @if (!$loop->last)
-             {{ $t }}<br>
-          @else
-            {{  $t }}
-          @endif
-         @endforeach
-        </p>
-       </span>
       @foreach($records as $item)
         @php
         $people = count(array_filter($item['expanded'], function($arr)

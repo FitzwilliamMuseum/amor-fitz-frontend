@@ -17,8 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'App\Http\Controllers\aboutController@home')->name('home');
 
 Route::get('/correspondences', 'App\Http\Controllers\correspondencesController@index')->name('correspondences');
-Route::get('/correspondences/letter/{id}', 'App\Http\Controllers\correspondencesController@letter')->name('letter');
-Route::get('/correspondences/tags/{id}', 'App\Http\Controllers\correspondencesController@tag')->name('tag');
+Route::get('/correspondences/letters', 'App\Http\Controllers\correspondencesController@letters')->name('letters');
+Route::get('/correspondences/letters/{id}', 'App\Http\Controllers\correspondencesController@letter')->name('letter');
+Route::get('/correspondences/letters/tags/', 'App\Http\Controllers\correspondencesController@tags')->name('tags');
+Route::get('/correspondences/letters/tags/{id}', 'App\Http\Controllers\correspondencesController@tag')->name('tag');
 
 
 Route::get('/entities', 'App\Http\Controllers\entitiesController@index')->name('entities');
