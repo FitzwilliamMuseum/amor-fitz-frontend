@@ -3,7 +3,7 @@
   <breadcrumbs
   :path-list='[
   {"text":"Correspondences","path":"{{ route('correspondences')}}"},
-  {"text":"Letter","path":"#"},
+  {"text":"Letter","path":"{{ route('letters')}}"},
 
   ]'
   />
