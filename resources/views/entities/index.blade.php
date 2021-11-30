@@ -11,8 +11,6 @@
 @section('content')
   <section class="mw9 mw9-ns center bg-white  ph5-ns">
     <h1 class="helvetica f1 fw4 tc">{{ $page['title']}}</h1>
-    <div class="pa2">{!! $page['text'] !!}</div>
-
   </section>
 
   <section class="cf ph3 ph7-ns pb1 bg-light-green black-70 pa3">
