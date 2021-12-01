@@ -6,7 +6,6 @@
 @section('content')
   <section class="mw9 mw9-ns center bg-white pa3 ph5-ns">
   @foreach($records as $record)
-    {{  $record['itemtype']  }}
     @php
     switch($record['itemtype']){
       case 'Letter':
