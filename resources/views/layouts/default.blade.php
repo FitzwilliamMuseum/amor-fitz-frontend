@@ -52,6 +52,12 @@
     <section class="mw9 mw9-ns center pa3 ph5-ns">
       @yield('breadcrumbs')
     </section>
+    @if(request()->is('search*'))
+    <section class="w-100">
+      @include('includes.searchForm')
+
+    </section>
+    @endif
     <main class="w-100 ">
       @yield('content')
     </main>
