@@ -15,7 +15,7 @@
       case 'Place':
       case 'Family':
       case 'Event':
-      case 'Book':
+      case 'Text':
         $route = 'entity.detail';
         break;
       case 'Team':
