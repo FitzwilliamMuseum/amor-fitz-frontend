@@ -6,6 +6,7 @@
 @section('content')
   <section class="mw9 mw9-ns center bg-white pa3 ph5-ns">
   @foreach($records as $record)
+    {{  $record['itemtype']  }}
     @php
     switch($record['itemtype']){
       case 'Letter':
@@ -16,6 +17,7 @@
       case 'Family':
       case 'Event':
       case 'Text':
+      case 'Still Image':
         $route = 'entity.detail';
         break;
       case 'Team':
@@ -25,8 +27,8 @@
         $route = 'letter';
         break;
     }
-    @endphp
 
+    @endphp
     @if($loop->even)
       <article class="pv2 fl w-100 w-50-l pr0 pr2-l">
         <entity-card
