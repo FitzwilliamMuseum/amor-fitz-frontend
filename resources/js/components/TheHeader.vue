@@ -29,6 +29,12 @@
         title="Entities"
         >Entities</a
       >
+      <a
+        class="link dim creme f6 f5-ns dib mr3 mr4-l"
+        href="/search"
+        title="Search"
+        >Search</a
+      >
       <a class="link dim creme f6 f5-ns dib mr3 mr4-l" href="/about" title="About"
         >About</a
       >
