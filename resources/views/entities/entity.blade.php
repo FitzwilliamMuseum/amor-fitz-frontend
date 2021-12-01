@@ -19,24 +19,36 @@
     <div class="mw9 center">
       @foreach($items as $item)
         <div class="cf">
+          @php
+          if(!empty($item['images'])){
+            $bgImageSrc = $item['images'][0]['file_urls']['square_thumbnail'];
+          } else {
+            $bgImageSrc = NULL;
+          }
+          @endphp
           @if($loop->even)
-
             <article class="pv2 fl w-100 w-50-l pr0 pr2-l">
               <entity-card
-              type="Place"
+              type="{{$item['type']}}"
               title="{{ $item['Title'] }}"
               link-text="Discover more"
               link-path="{{ route('entity.detail', $item['id']) }}"
+              @if(!is_null($bgImageSrc))
+              bg-image-src="{{ $bgImageSrc }}"
+              @endif
               />
             </article>
           @endif
           @if($loop->odd)
             <article class="pv2 fl w-100 w-50-l pl0 pl2-l">
               <entity-card
-              type="Place"
+              type="{{$item['type']}}"
               title="{{ $item['Title'] }}"
               link-text="Discover more"
               link-path="{{ route('entity.detail', $item['id']) }}"
+              @if(!is_null($bgImageSrc))
+              bg-image-src="{{ $bgImageSrc }}"
+              @endif
               />
             </article>
           @endif

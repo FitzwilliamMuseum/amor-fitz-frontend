@@ -105,7 +105,7 @@ foreach($data[0]['images'] as $image){
         <article class="pv2 fl w-100 w-50-l pr0 pr2-l">
           <h1 class="helvetica fw4 f3">People</h1>
           @foreach($people as $person)
-            <div >
+            <div>
               <entity-card
               type="Person"
               @if(array_key_exists('First_Name', $person))
