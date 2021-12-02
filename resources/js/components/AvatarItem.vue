@@ -59,16 +59,16 @@ export default {
 .avatar-item__bg-place {
   background-image: url("../images/avatar-placeholder-place.png");
 }
-
+.avatar-item__bg-family {
+  background-image: url("../images/blake-family.jpg");
+}
 /* Specific people. Classes being generated based on backgroundId prop  */
 .avatar-item__bg-william-hayley {
   background-image: url("../images/hayley.jpg");
 }
-
 .avatar-item__bg-john-flaxman {
   background-image: url("../images/flaxman.jpg");
 }
-
 .avatar-item__bg-blake {
   background-image: url("../images/blake.jpg");
 }
@@ -83,5 +83,14 @@ export default {
 }
 .avatar-item__bg-eliza-hayley {
   background-image: url("../images/eliza-hayley.jpg");
+}
+.avatar-item__bg-event {
+  background-image: url("../images/blake-flaxman.jpeg");
+}
+.avatar-item__bg-still-image {
+  background-image: url("../images/blake-flaxman.jpeg");
+}
+.avatar-item__bg-text {
+  background-image: url("../images/letter-page-1.jpg");
 }
 </style>

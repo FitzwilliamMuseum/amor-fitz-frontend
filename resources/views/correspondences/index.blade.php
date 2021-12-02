@@ -11,35 +11,21 @@
     <h1 class="f1 helvetica tc fw4">{{ $page['title']}}</h1>
       {!! $page['text'] !!}
   </section>
-  <section class="pv3 bg-white ph5-ns">
+  <section class="pv3 w-80 center tc bg-white ph5-ns">
     <correspondence-list
     :correspondences='[
-    @foreach($convos as $con)
-      @php
-      $names = '"'. str_replace('/', '","',$con[0]['names']) . '"';
-      $count = count($con);
-      $tags = array();
-      $ids = array();
-      foreach ($con as $c) {
-          $ids =  $c['tags'];
-      }
-      $idList =  implode(',', array_unique($ids));
-      $bgs = array();
-      $bg = explode('/', $con[0]['names']);
-      foreach($bg as $b){
-        if($b != 'William Hayley'){
-          $bgs[] = Str::slug($b);
-        }
-      }
-      $backgrounds = '"'.  implode('","',$bgs) . '"';
-      @endphp
-    {"names":[{!! $names !!}],"backgrounds":[{{$backgrounds}}],"numberletters":{!! $count !!},"curatorial-statement":"", "buttonLink": "{{ route('tag', $idList) }}"},
+    @foreach($convos as $convo)
 
+      @php
+      $names = '"' .  implode('","', $convo['names']) . '"';
+      $backgrounds = '"'.  implode('","',$convo['backgrounds']) . '"';
+      @endphp
+    {"names":[{!! $names !!}],"backgrounds":[{!! $backgrounds !!}], "numberletters": {{ $convo['count'] }}, "buttonLink": "{{ route('tag', $convo['tag']) }}"},
     @endforeach
     ]'
     />
 
 
   </section>
-  
+
 @endsection

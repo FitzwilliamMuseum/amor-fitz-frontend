@@ -20,7 +20,7 @@
     </div>
 
     <div class="mt3">
-      <NumberBullet :number="numberletters" class="mr2" />letters
+      <span v-if="numberletters > 0"><NumberBullet :number="numberletters" class="mr2" />letters</span>
     </div>
     <p class="sans-serif mt3">{{ curatorialStatement }}</p>
     <ButtonLink class="mt4" :link="buttonLink"

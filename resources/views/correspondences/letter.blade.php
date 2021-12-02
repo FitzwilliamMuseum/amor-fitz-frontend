@@ -126,7 +126,7 @@ foreach($data['images'] as $image){
             @endphp
             <div>
               <entity-card
-              type="Person"
+              type="{{$person['entityType']}}"
               @if(array_key_exists('First_Name', $person))
                 title="{{ $person['First Name'] }} {{ $person['Last Name'] }}"
               @else
@@ -154,7 +154,7 @@ foreach($data['images'] as $image){
             @endphp
             <div>
               <entity-card
-              type="Place"
+              type="{{$place['entityType']}}"
               title="{{ $place['Title'] }}"
               link-text="Read more"
               @if(array_key_exists('property_label', $place))
@@ -178,7 +178,7 @@ foreach($data['images'] as $image){
                 }
                 @endphp
                 <entity-card
-                type="Event"
+                type="{{$event['entityType']}}"
                 title="{{ $event['Title'] }}"
                 link-text="Read more"
                 @if(array_key_exists('property_label', $event))
@@ -203,7 +203,7 @@ foreach($data['images'] as $image){
                 }
                 @endphp
                 <entity-card
-                type="Event"
+                type="{{$person['entityType']}}"
                 title="{{ $object['Title'] }}"
                 link-text="Read more"
                 @if(array_key_exists('property_label', $object))
@@ -228,7 +228,7 @@ foreach($data['images'] as $image){
                 }
                 @endphp
                 <entity-card
-                type="Event"
+                type="{{$work['entityType']}}"
                 title="{{ $work['Title'] }}"
                 link-text="Read more"
                 @if(array_key_exists('property_label', $work))
@@ -254,7 +254,7 @@ foreach($data['images'] as $image){
                 @endphp
 
                 <entity-card
-                type="Event"
+                type="{{$text['entityType']}}"
                 title="{{ $text['Title'] }}"
                 link-text="Read more"
                 @if(array_key_exists('property_label', $text))
@@ -279,7 +279,7 @@ foreach($data['images'] as $image){
                 }
                 @endphp
                 <entity-card
-                type="Event"
+                type="{{$family['entityType']}}"
                 title="{{ $family['Title'] }}"
                 link-text="Read more"
                 @if(array_key_exists('property_label', $family))

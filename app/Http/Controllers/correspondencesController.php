@@ -19,8 +19,43 @@ class correspondencesController extends Controller
 {
     public function index(Request $request)
     {
-      $args = array('item_type' => 'Letter');
-      $convos = Correspondences::find($args);
+      $convos = array(
+        array(
+          'title' => 'Correspondence: Anna Seward',
+          'tag' => 57,
+          'backgrounds' => array('anna-seward'),
+          'names' => array('William Hayley', 'Anna Seward'),
+          'count' => 0
+        ),
+        array(
+          'title' => 'Correspondence: Anne Flaxman',
+          'tag' => 58,
+          'backgrounds' => array('anne-flaxman'),
+          'names' => array('William Hayley', 'Anne Flaxman'),
+          'count' => 0
+        ),
+        array(
+          'title' => 'Correspondence: John Flaxman',
+          'tag' => 59,
+          'backgrounds' => array('john-flaxman'),
+          'names' => array('William Hayley', 'John Flaxman'),
+          'count' => 0
+        ),
+        array(
+          'title' => 'Correspondence: Thomas Alphonso Hayley',
+          'tag' => 60,
+          'backgrounds' => array('thomas-alphonso-hayley'),
+          'names' => array('William Hayley', 'Thomas Alphonso Hayley'),
+          'count' => 0
+        ),
+        array(
+          'title' => 'Correspondence: Eliza Hayley (née Ball)',
+          'tag' => 61,
+          'backgrounds' => array('eliza-hayley'),
+          'names' => array('William Hayley', 'Eliza Hayley (née Ball)'),
+          'count' => 0
+        )
+      );
 
       $page = Pages::find(4);
 
