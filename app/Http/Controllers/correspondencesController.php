@@ -30,7 +30,7 @@ class correspondencesController extends Controller
         array(
           'title' => 'Correspondence: Anne Flaxman',
           'tag' => 58,
-          'backgrounds' => array('anne-flaxman'),
+          'backgrounds' => array('anne-nancy-flaxman'),
           'names' => array('William Hayley', 'Anne Flaxman'),
           'count' => 0
         ),
