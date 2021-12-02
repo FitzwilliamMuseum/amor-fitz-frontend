@@ -33,6 +33,9 @@
               title="{{ $item['Title'] }}"
               link-text="Discover more"
               link-path="{{ route('entity.detail', $item['id']) }}"
+              @if(array_key_exists('Relation to Hayley', $item))
+                role="{{ $item['Relation to Hayley'] }}"
+              @endif
               @if(!is_null($bgImageSrc))
               bg-image-src="{{ $bgImageSrc }}"
               @endif
@@ -48,6 +51,9 @@
               link-path="{{ route('entity.detail', $item['id']) }}"
               @if(!is_null($bgImageSrc))
               bg-image-src="{{ $bgImageSrc }}"
+              @endif
+              @if(array_key_exists('Relation to Hayley', $item))
+                role="{{ $item['Relation to Hayley'] }}"
               @endif
               />
             </article>
