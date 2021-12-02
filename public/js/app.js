@@ -73272,11 +73272,15 @@ var render = function () {
           _c("span", { domProps: { innerHTML: _vm._s(_vm.bodyText) } }),
         ]),
         _vm._v(" "),
-        _c("NumberBullet", {
-          staticClass: "mb2 mr2",
-          attrs: { number: _vm.numberLetters },
-        }),
-        _vm._v(" references\n    "),
+        _vm.numberLetters != 0
+          ? _c("NumberBullet", {
+              staticClass: "mb2 mr2",
+              attrs: { number: _vm.numberLetters },
+            })
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.numberLetters != 0 ? _c("span", [_vm._v("references")]) : _vm._e(),
+        _vm._v(" "),
         Object.entries(_vm.metadataTail).length !== 0
           ? _c(
               "AccordionLink",

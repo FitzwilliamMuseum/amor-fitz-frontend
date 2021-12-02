@@ -40,7 +40,7 @@
     @endif
   </div>
 
-
+ @if(!empty($data['linked_items']) || !empty($data['linked_subjects']) )
   <section class="cf ph3 ph5-ns pb5 bg-light-green black-70" id="features">
     <div class="mw9 center">
       <div class="cf">
@@ -136,4 +136,5 @@
     @endif
     </div>
   </section>
+@endif
 @endsection
