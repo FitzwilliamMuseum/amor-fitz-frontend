@@ -2,7 +2,7 @@
   <h1 class="fw3 f1">What do you want to find</h1>
   <p class="measure lh-copy">
     This correspondence project contains a wide array of information about the letters
-    of WIlliamm Hayley. You could search by subject, place or work of art.
+    of WIlliam Hayley. You could search by subject, place or work of art.
   </p>
 </article>
 
