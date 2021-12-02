@@ -11,12 +11,15 @@
     <div class="dtc tc pv4 ph4 bg-white">
       <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 283.46 56.69"><defs><style>.cls-1{fill:#2e2d2c;}</style></defs><path class="cls-1" d="M33.52,28.35V44.68H45.14v2.44H30.67V28.35Zm25.42,0V47.12H73.31V44.68H61.79V38.82H72.7V36.38H61.79V30.79H73.31V28.35Zm42.26,0L94.83,43.87,88.45,28.35H85.34l8.1,18.77h2.78l8.1-18.77Zm15,0V47.12h14.37V44.68H119.1V38.82H130V36.38H119.1V30.79h11.52V28.35Zm45,18.77-5-8.47a5.37,5.37,0,0,0,4.3-5.19c0-3-2.67-5.11-6.34-5.11H145.4V47.12h2.85V38.89h5.18l4.65,8.23Zm-13-16.33h6c1.94,0,3.36,1.11,3.36,2.67a3.09,3.09,0,0,1-3.36,3h-6Zm40-2.44v8H177.91v-8h-2.85V47.12h2.85V38.79h10.37v8.33h2.85V28.35Zm32.07,0V39.43a5.81,5.81,0,0,1-11.59,0V28.35h-2.85v11c0,4.94,4.1,7.89,8.68,7.89s8.61-2.95,8.61-7.89v-11Zm17.63,0V47.12h14.48V44.68H240.83V28.35Zm42.24,0-5.76,7.93-5.76-7.93h-2.45V47.12h2.85v-14l5,6.82h.74l5-6.82v14h2.85V28.35Zm17.22,0V47.12h14.37V44.68H300.29V38.82H311.2V36.38H300.29V30.79h11.52V28.35ZM28.35,65.92v2.45h8.13V84.7h2.85V68.37h8.13V65.92ZM74.05,84.7l-5-8.47A5.37,5.37,0,0,0,73.34,71c0-3-2.68-5.12-6.34-5.12H58.19V84.7H61V76.46h5.18l4.65,8.24ZM61,68.37h6c1.94,0,3.36,1.11,3.36,2.67A3.09,3.09,0,0,1,67,74H61Zm39.58-2.45V77A5.81,5.81,0,0,1,89,77V65.92H86.19V77c0,5,4.1,7.9,8.67,7.9s8.61-3,8.61-7.9v-11ZM124.06,82.6c-3.49,0-5.83-1.56-6-4.65h-3c.1,4.31,3.52,7.09,9,7.09,4.68,0,7.73-2.07,7.73-5.49,0-4.2-4.61-5-7.53-5.6-4.4-.8-5.42-1.69-5.42-3.18,0-1.83,1.59-2.74,4.44-2.74,3.42,0,5.15,1.25,5.25,3.86h3c-.13-4-3.15-6.3-8.2-6.3-4.61,0-7.45,1.89-7.45,5.42s3,4.37,7.66,5.39c3.32.71,5.28,1.12,5.28,3.15s-1.93,3-4.74,3m19.71-16.68v2.45h8.14V84.7h2.85V68.37h8.13V65.92ZM175.06,84.7H311.81V82.26H175.06Z" transform="translate(-28.35 -28.35)"/></svg>
     </div>
+    <div class="dtc tc pv4 ph4 bg-white">
+    <img width="75" class="mw5" src="https://fitz-cms-images.s3.eu-west-2.amazonaws.com/fitz_logo_150.jpg"/>
+    </div>
   </div>
 
   <section class="mw5 mw7-ns center bg-white pa3 ph5-ns">
 
 
-    <a class="link near-black bg-transparent  inline-flex items-center ma2 tc br2 pa2" href="https://github.com/fitzwilliammuseum" title="GitHub">
+    <a class="link near-black bg-transparent  inline-flex items-center ma2 tc br2 pa2" href="https://github.com/FitzwilliamMuseum/amor-fitz-frontend" title="GitHub">
       <svg class="dib h2 w2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.083-.202-.358-1.015.077-2.117 0 0 .672-.215 2.2.82.638-.178 1.323-.266 2.003-.27.68.004 1.364.092 2.003.27 1.527-1.035 2.198-.82 2.198-.82.437 1.102.163 1.915.08 2.117.513.56.823 1.274.823 2.147 0 3.073-1.87 3.75-3.653 3.947.287.246.543.735.543 1.48 0 1.07-.01 1.933-.01 2.195 0 .215.144.463.55.385C13.71 14.53 16 11.534 16 8c0-4.418-3.582-8-8-8"/></svg>
       <span class="f6 ml3 pr2">GitHub</span>
     </a>
@@ -36,18 +39,12 @@
 
   </section>
 
-  <div class="dt mw6 center pv4 ">
-    <div class="dtc v-mid">
-      <img width="75" class="mw5" src="https://fitz-cms-images.s3.eu-west-2.amazonaws.com/fitz_logo_150.jpg"/>
-    </div>
-
-  </div>
   <small class="f6 db tc">
     © {{ now()->year }} The Fitzwilliam Museum<br/>The University of Cambridge</small>
     <div class="tc mt3">
-      <a href="" class="f6 dib ph2 link mid-gray dim">Code GPLv3</a>
-      <a href="" class="f6 dib ph2 link mid-gray dim">Content CC BY</a>
-      <a href="" class="f6 dib ph2 link mid-gray dim">Images CC BY-SA-NC-ND</a>
+      <a href="https://github.com/FitzwilliamMuseum/amor-fitz-frontend" class="f6 dib ph2 link mid-gray dim">Code GPLv3</a>
+      <a href="https://github.com/FitzwilliamMuseum/amor-fitz-frontend/blob/main/LICENSE" class="f6 dib ph2 link mid-gray dim">Content CC BY</a>
+      <a href="https://fitzmuseum.cam.ac.uk/about-us/terms-of-use-of-our-website" class="f6 dib ph2 link mid-gray dim">Images CC BY-SA-NC-ND</a>
       <a href="https://www.fitzmuseum.cam.ac.uk/about-us/terms-of-use-of-our-website" title="Terms" class="f6 dib ph2 link mid-gray dim">Terms of Use</a>
       <a href="https://www.fitzmuseum.cam.ac.uk/about-us/privacy-and-cookies"  title="Privacy" class="f6 dib ph2 link mid-gray dim">Privacy</a>
     </div>
