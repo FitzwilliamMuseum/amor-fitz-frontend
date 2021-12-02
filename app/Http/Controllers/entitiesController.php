@@ -39,7 +39,7 @@ class entitiesController extends Controller
 
     public function details(int $id)
     {
-      $data = Items::find($id)[0];
+      $data = Items::find($id);
       return view('entities.details', compact('data'));
     }
 }

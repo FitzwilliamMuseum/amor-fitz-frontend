@@ -35,7 +35,7 @@
       <div class="mb2">
           <span v-html="bodyText"></span>
       </div>
-      <NumberBullet :number="numberLetters" class="mb2 mr2" />letters referenced
+      <NumberBullet :number="numberLetters" class="mb2 mr2" /> references
       <AccordionLink
         v-if="Object.entries(metadataTail).length !== 0"
         showText="show additional metadata ▾"

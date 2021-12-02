@@ -8,7 +8,10 @@ use Illuminate\Support\Facades\Http;
 
 class Items
 {
-
+  /**
+   * [getTags description]
+   * @return [type] [description]
+   */
   public static function getTags()
   {
     $api = new OmekaApi;
@@ -16,77 +19,49 @@ class Items
     return $api->getData();
   }
 
+  /**
+   * [counts description]
+   * @param  array  $args               [description]
+   * @return [type]       [description]
+   */
   public static function counts(array $args)
   {
     $api = new OmekaApi;
     $api->setEndpoint('items');
     if(array_key_exists('tags', $args)){
       $tagList = self::getTags();
-      foreach($tagList as $key => $rep)
-        {
-            if (in_array($args['tags'], $rep)) {
-                $args['tags'] = $rep['name'];
-            }
+      foreach($tagList as $key => $rep){
+        if (in_array($args['tags'], $rep)) {
+          $args['tags'] = $rep['name'];
         }
+      }
     }
-    $api->setArguments(
-      $args
-    );
+    $api->setArguments($args);
     return $api->getData();
   }
+
+  /**
+   * [findByType description]
+   * @param  array  $args               [description]
+   * @return [type]       [description]
+   */
   public static function findByType(array $args)
   {
     $api = new OmekaApi;
     $api->setEndpoint('items');
     if(array_key_exists('tags', $args)){
       $tagList = self::getTags();
-      foreach($tagList as $key => $rep)
-        {
-            if (in_array($args['tags'], $rep)) {
-                $args['tags'] = $rep['name'];
-            }
+      foreach($tagList as $key => $rep){
+        if (in_array($args['tags'], $rep)) {
+          $args['tags'] = $rep['name'];
         }
+      }
     }
-    $api->setArguments(
-      $args
-    );
-    return self::letterExpand($api->getData());
-  }
-
-  public static function find(int $id)
-  {
-    $api = new OmekaApi;
-    $api->setEndpoint('items');
-    $api->setid($id);
-    return self::expander(array($api->getData()));
-  }
-
-  public static function expand(array $items){
-    $data = array();
-    foreach($items['element_texts'] as $element){
-      $data[$element['element']['name']] = str_replace(array("\r", "\n"), ' ', $element['text']);
-    }
-    $data['id'] = $items['id'];
-    $data['created'] = $items['added'];
-    $data['modified'] = $items['modified'];
-    $data['type'] = $items['item_type']['name'];
-
-    if(array_key_exists('url', $items['files'])){
-      $images = new OmekaApi;
-      // $response = Http::get($items['files']['url']);
-      $data['images'] = $images->getUrl($items['files']['url']);
-    }
-    if(array_key_exists('itemrelations', $items['extended_resources'])){
-      $response = new OmekaApi;
-      $response->setEndpoint('itemrelations')->setArguments(array('object_item_id' => $items['id']));
-      $data['relations'] = $response->getData();
-    }
-    return $data;
-  }
-
-  public static function expander(array $items){
-    $records = array();
-    foreach($items as $item) {
+    $api->setArguments($args);
+    $items = $api->getData();
+    $letters = array();
+    foreach($items as $item){
+      $data = array();
       foreach($item['element_texts'] as $element){
         $data[$element['element']['name']] = str_replace(array("\r", "\n"), ' ', $element['text']);
       }
@@ -94,52 +69,163 @@ class Items
       $data['created'] = $item['added'];
       $data['modified'] = $item['modified'];
       $data['type'] = $item['item_type']['name'];
+      $data['tags'] = $item['tags'];
       if(array_key_exists('url', $item['files'])){
-        $images = new OmekaApi;
-        $data['images'] = $images->getUrl($item['files']['url']);
+        $image = new OmekaApi;
+        $images = $image->getUrl($item['files']['url']);
+        self::array_sort_by_column($images, 'order');
+        $data['images'] = $images;
       }
-      if(array_key_exists('itemrelations', $item['extended_resources'])){
-        $response = new OmekaApi;
-        $response->setEndpoint('itemrelations');
-        $response->setArguments(array('object_item_id' => $item['id']));
-        $data['relations'] = $response->getData();
-        $data['expanded'] = array();
-        if(!empty($data['relations'])){
-          if(array_key_exists(0,$data['relations'])){
-            foreach($data['relations'] as $relation){
-              if(isset($relation['object_item_url'])){
-                $object = $relation['object_item_url'];
-                $objects = new OmekaApi;
-                $response = $images->getUrl($object);
-              }
-              $expanded = array();
-              foreach($response['element_texts'] as $element){
-                $expanded[$element['element']['name']] = str_replace(array("\r", "\n"), ' ', $element['text']);
-              }
-              if (isset($relation['subject_item_url'])){
-                $subject = $relation['subject_item_url'];
-                $subjects = new OmekaApi;
-                $responses = $subjects->getUrl($subject);
-                $refs = array();
-                $refs['id'] = $responses['id'];
-                foreach($responses['element_texts'] as $element){
-                  $refs[$element['element']['name']] = str_replace(array("\r", "\n"), ' ', $element['text']);
-                }
-                $expanded['refs'] = $refs;
-              }
-              $expanded['property_label'] = $relation['property_label'];
-              $expanded['object_item_id'] = $relation['object_item_id'];
-              $expanded['entityType'] = $response['item_type']['name'];
-              $data['expanded'][] = $expanded;
-
-            }
-          }
+      $relations = new OmekaApi;
+      $relations->setEndpoint('itemrelations');
+      $relations->setArguments(array('subject_item_id' => $data['id']));
+      $rels = $relations->getData();
+      $fullData = array();
+      foreach($rels as $rel){
+        $related['property_label'] = $rel['property_label'];
+        $entities = new OmekaApi;
+        $entities->setEndpoint('items');
+        $entities->setid($rel['object_item_id']);
+        $entity = $entities->getData();
+        $related['object_item_id'] = $rel['object_item_id'];
+        $related['entityType'] = $entity['item_type']['name'];
+        foreach($entity['element_texts'] as $element){
+          $related[$element['element']['name']] = str_replace(array("\r", "\n"), ' ', $element['text']);
         }
+        if(array_key_exists('url', $entity['files'])){
+          $image = new OmekaApi;
+          $images = $image->getUrl($entity['files']['url']);
+          self::array_sort_by_column($images, 'order');
+          $related['images'] = $images;
+        }
+        $fullData[] = $related;
       }
-      $records[] = $data;
+      $data['expanded'] = $fullData;
+      $letters[] = $data;
+
     }
-    return $records;
+    return $letters;
   }
+
+  /**
+   * [find description]
+   * @param  int    $id               [description]
+   * @return [type]     [description]
+   */
+  public static function find(int $id)
+  {
+    $api = new OmekaApi;
+    $api->setEndpoint('items');
+    $api->setid($id);
+    $item = $api->getData();
+    $data = array();
+    foreach($item['element_texts'] as $element){
+      $data[$element['element']['name']] = str_replace(array("\r", "\n"), ' ', $element['text']);
+    }
+    $data['id'] = $item['id'];
+    $data['created'] = $item['added'];
+    $data['modified'] = $item['modified'];
+    $data['type'] = $item['item_type']['name'];
+    $data['tags'] = $item['tags'];
+    if(array_key_exists('url', $item['files'])){
+      $image = new OmekaApi;
+      $images = $image->getUrl($item['files']['url']);
+      self::array_sort_by_column($images, 'order');
+      $data['images'] = $images;
+    }
+    $relations = new OmekaApi;
+    $relations->setEndpoint('itemrelations');
+    $relations->setArguments(array('subject_item_id' => $data['id']));
+
+    $rels = $relations->getData();
+
+    $fullData = array();
+    foreach($rels as $rel){
+      $related['property_label'] = $rel['property_label'];
+      $entities = new OmekaApi;
+      $entities->setEndpoint('items');
+      $entities->setid($rel['object_item_id']);
+      $entity = $entities->getData();
+
+
+      $related['object_item_id'] = $rel['object_item_id'];
+      $related['entityType'] = $entity['item_type']['name'];
+      foreach($entity['element_texts'] as $element){
+        $related[$element['element']['name']] = str_replace(array("\r", "\n"), ' ', $element['text']);
+      }
+      if(array_key_exists('url', $entity['files'])){
+        $image = new OmekaApi;
+        $images = $image->getUrl($entity['files']['url']);
+        self::array_sort_by_column($images, 'order');
+        $related['images'] = $images;
+      }
+      $fullData[] = $related;
+    }
+    $data['expanded'] = $fullData;
+
+    $linked = new OmekaApi;
+    $linked->setEndpoint('itemrelations');
+    $linked->setArguments(array('object_item_id' => $item['id']));
+    $links = $linked->getData();
+    $objects = array();
+    foreach($links as $link){
+      // dump($link);
+      $object['property_label'] = $link['property_label'];
+      $entities = new OmekaApi;
+      $entities->setEndpoint('items');
+      $entities->setid($link['subject_item_id']);
+      $entity = $entities->getData();
+      $object['object_item_id'] = $link['subject_item_id'];
+      $object['entityType'] = $entity['item_type']['name'];
+      foreach($entity['element_texts'] as $element){
+        $object[$element['element']['name']] = str_replace(array("\r", "\n"), ' ', $element['text']);
+      }
+      if(array_key_exists('url', $entity['files'])){
+        $image = new OmekaApi;
+        $image->setEndpoint('files');
+        $image->setArguments(array('item' => $entity['id']));
+        $images = $image->getData();
+        self::array_sort_by_column($images, 'order');
+        $object['images'] = $images;
+      }
+      $objects[] = $object;;
+    }
+
+
+    $geog = new OmekaApi;
+    $geog->setEndpoint('itemrelations');
+    $geog->setArguments(array('subject_item_id' => $item['id']));
+    $places = $geog->getData();
+    $domus = array();
+    foreach($places as $place){
+      $object['property_label'] = $place['property_label'];
+      $entities = new OmekaApi;
+      $entities->setEndpoint('items');
+      $entities->setid($place['object_item_id']);
+      $entity = $entities->getData();
+      $object['object_item_id'] = $place['object_item_id'];
+      $object['entityType'] = $entity['item_type']['name'];
+      foreach($entity['element_texts'] as $element){
+        $object[$element['element']['name']] = str_replace(array("\r", "\n"), ' ', $element['text']);
+      }
+      if(array_key_exists('url', $entity['files'])){
+        $image = new OmekaApi;
+        $image->setEndpoint('files');
+        $image->setArguments(array('item' => $entity['id']));
+        $images = $image->getData();
+        self::array_sort_by_column($images, 'order');
+        $object['images'] = $images;
+      }
+      $domus[] = $object;;
+    }
+
+    $data['linked_items'] = $objects;
+    $data['linked_subjects'] = $domus;
+    return $data;
+  }
+
+
+
 
   public static function array_sort_by_column(&$arr, $col, $dir = SORT_ASC) {
     $sort_col = array();
@@ -151,10 +237,56 @@ class Items
 
   public static function letter(int $id)
   {
+    $data = array();
     $api = new OmekaApi;
     $api->setEndpoint('items');
     $api->setid($id);
-    return self::letterExpand(array($api->getData()));
+    $item = $api->getData();
+    $data = array();
+    foreach($item['element_texts'] as $element){
+      $data[$element['element']['name']] = str_replace(array("\r", "\n"), ' ', $element['text']);
+    }
+    $data['id'] = $item['id'];
+    $data['created'] = $item['added'];
+    $data['modified'] = $item['modified'];
+    $data['type'] = $item['item_type']['name'];
+    $data['tags'] = $item['tags'];
+    if(array_key_exists('url', $item['files'])){
+      $image = new OmekaApi;
+      $images = $image->getUrl($item['files']['url']);
+      self::array_sort_by_column($images, 'order');
+      $data['images'] = $images;
+    }
+    $relations = new OmekaApi;
+    $relations->setEndpoint('itemrelations');
+    $relations->setArguments(array('subject_item_id' => $data['id']));
+
+    $rels = $relations->getData();
+
+    $fullData = array();
+    foreach($rels as $rel){
+      $related['property_label'] = $rel['property_label'];
+      $entities = new OmekaApi;
+      $entities->setEndpoint('items');
+      $entities->setid($rel['object_item_id']);
+      $entity = $entities->getData();
+
+
+      $related['object_item_id'] = $rel['object_item_id'];
+      $related['entityType'] = $entity['item_type']['name'];
+      foreach($entity['element_texts'] as $element){
+        $related[$element['element']['name']] = str_replace(array("\r", "\n"), ' ', $element['text']);
+      }
+      if(array_key_exists('url', $entity['files'])){
+        $image = new OmekaApi;
+        $images = $image->getUrl($entity['files']['url']);
+        self::array_sort_by_column($images, 'order');
+        $related['images'] = $images;
+      }
+      $fullData[] = $related;
+    }
+    $data['expanded'] = $fullData;
+    return $data;
   }
 
 

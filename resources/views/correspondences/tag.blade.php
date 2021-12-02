@@ -16,7 +16,7 @@
 
   </section>
 
-  <section class="pv3 cf bg-white ph5-ns">
+  {{-- <section class="pv3 cf bg-white ph5-ns">
     <h2 class="fw3 tc f4">Who was corresponding with whom for this tag?</h2>
     <article>
       <correspondence-list
@@ -47,11 +47,11 @@
 
     </article>
 
-  </section>
+  </section> --}}
 
   <section class="pv3 bg-white ph7-ns">
     <div class="ph3 ph5-ns">
-      <h2 class="fw4">Letters tagged with</h2>
+      {{-- <h2 class="fw4">Letters tagged with</h2>
        <span class="purple">
         <p>
           @foreach($tag as $t)
@@ -62,7 +62,7 @@
           @endif
          @endforeach
         </p>
-       </span>
+       </span> --}}
       @foreach($records as $item)
         @php
         $people = count(array_filter($item['expanded'], function($arr)
@@ -81,6 +81,15 @@
         $events = count(array_filter($item['expanded'], function($arr)
         {
           return $arr['entityType'] == 'Event';
+        }));
+        $texts = count(array_filter($item['expanded'], function($arr)
+        {
+          return $arr['entityType'] == 'Text';
+        }));
+
+        $works = count(array_filter($item['expanded'], function($arr)
+        {
+          return $arr['entityType'] == 'Still Image';
         }));
         $images = array();
         foreach($item['images'] as $image){
@@ -131,7 +140,7 @@
           @if(array_key_exists('name', $recipient))
             :recipient='{"name":"{{ $recipient['name'] }}","link":"{{ route('entity.detail',$recipient['id']) }}"}'
           @endif
-          :entity-count='{"people": {{ $people ?? 0}},"places": {{ $places ?? 0 }},"events": {{ $events ?? 0 }}, "objects": {{ $objects ?? 0 }}}'
+          :entity-count='{"people": {{ $people ?? 0}},"places": {{ $places ?? 0 }},"events": {{ $events ?? 0 }}, "texts": {{ $texts ?? 0 }}, "objects": {{ $objects ?? 0 }}, "families": {{ $families ?? 0 }}, "works of art": {{ $works ?? 0 }}}'
           link="{{ route('letter', $item['id']) }}"
           @if(array_key_exists(0, $item['images']))
             :letter-bg-src="'https://hayleypapers.fitzmuseum.cam.ac.uk/files/fullsize/{{ $item['images'][0]['filename']}}'"

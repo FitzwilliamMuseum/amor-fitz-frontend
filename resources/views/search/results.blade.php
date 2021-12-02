@@ -26,7 +26,9 @@
         $route = 'letter';
         break;
     }
-
+    if($record['model'] == 'SimplePagesPage'){
+      $route = strtolower($record['title'][0]);
+    }
     @endphp
     @if($loop->even)
       <article class="pv2 fl w-100 w-50-l pr0 pr2-l">
@@ -34,8 +36,11 @@
         type="{{ $record['itemtype'] }}"
         title="{{ $record['title'][0]}}"
         link-text="Discover more"
-        link-path="{{ route($route, $record['modelid']) }}"
-        />
+        @if(!in_array($route, array('team','acknowledgements','about')))
+          link-path="{{ route($route, $record['modelid'] ) }}"
+        @else
+          link-path="{{ route($route) }}"
+        @endif        />
       </article>
     @endif
     @if($loop->odd)
@@ -44,7 +49,11 @@
         type="{{ $record['itemtype']  }}"
         title="{{ $record['title'][0]}}"
         link-text="Discover more"
-        link-path="{{ route($route, $record['modelid'] ) }}"
+        @if(!in_array($route, array('team','acknowledgements','about')))
+          link-path="{{ route($route, $record['modelid'] ) }}"
+        @else
+          link-path="{{ route($route) }}"
+        @endif
         />
       </article>
     @endif

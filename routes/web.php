@@ -30,7 +30,7 @@ Route::get('/entities/details/{slug}', 'App\Http\Controllers\entitiesController@
 
 Route::get('/about', 'App\Http\Controllers\aboutController@index')->name('about');
 Route::get('/about/team', 'App\Http\Controllers\aboutController@team')->name('team');
-Route::get('/acknowledgements', 'App\Http\Controllers\aboutController@acknowledgements')->name('acknowledgements');
+Route::get('/about/acknowledgements', 'App\Http\Controllers\aboutController@acknowledgements')->name('acknowledgements');
 Route::get('search', 'App\Http\Controllers\searchController@index');
 Route::match(array('GET', 'POST'), 'search/results', [
     'uses' => 'App\Http\Controllers\searchController@results',
