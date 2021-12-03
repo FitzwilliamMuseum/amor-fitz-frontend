@@ -1,9 +1,16 @@
-<article class="pa3 pa5-ns">
-  <h1 class="fw3 f1">What do you want to find</h1>
-  <p class="measure lh-copy">
-    This correspondence project contains a wide array of information about the letters
-    of WIlliam Hayley. You could search by subject, place or work of art.
-  </p>
+<header class="tc ph4 mb3">
+  <h1 class="f3 f2-m f1-l fw4 black-90 mv3 helvetica">
+    What do you want to discover?
+  </h1>
+  <h2 class="f5 f4-m f3-l fw2 black-50 mt0 lh-copy">
+    What can you learn from Most Sacred Things?
+  </h2>
+</header>
+
+<article class="ph7-ns pl4 pr4 mt3 mb3">
+  <p class="f5 lh-copy measure-wide"></p>
+  <p>This correspondence project contains a wide array of information about the letters
+  of WIlliam Hayley. You could search by subject, place or work of art.</p>
 </article>
 
 {{ \Form::open(['url' => url('search/results'),'method' => 'GET', 'class' => 'bg-light-green mw7 center pa4 br2-ns ba b--black-10']) }}

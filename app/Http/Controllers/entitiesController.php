@@ -19,11 +19,10 @@ class entitiesController extends Controller
       $page    = Pages::find(3);
       $places  = Entities::findEntities(array('name' => 'place'));
       $people  = Entities::findEntities(array('name' => 'person'));
-      $letters = Entities::findEntities(array('name' => 'letter'));
       $texts   = Entities::findEntities(array('name' => 'text'));
       $events  = Entities::findEntities(array('name' => 'event'));
       $family  = Entities::findEntities(array('name' => 'family'));
-      return view('entities.index', compact('places', 'people', 'letters', 'texts', 'events','family', 'page'));
+      return view('entities.index', compact('places', 'people',  'texts', 'events','family', 'page'));
     }
 
     public function entity(string $slug, Request $request)

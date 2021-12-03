@@ -9,12 +9,20 @@
   />
 @endsection
 @section('content')
+  <header class="tc ph4 mb3">
+    <h1 class="f3 f2-m f1-l fw4 black-90 mv3 helvetica">
+      Acknowledgements
+    </h1>
+    <h2 class="f5 f4-m f3-l fw2 black-50 mt0 lh-copy">
+      We would like to express our thanks to
+    </h2>
+  </header>
 
-<section class="mw9 mw9-ns center bg-white pa3 ph5-ns">
-  <article class="pa3 pa5-ns bg-white">
-  <h1 class="f3 f2-m f1-l helvetica tc fw4">Acknowledgements</h1>
-  {!! $data['text'] !!}
-</article>
-</section>
+  <article class="ph7-ns pl4 pr4 mt3 mb3">
+     <p class="f5 lh-copy measure-wide">
+       {!! $data['text'] !!}
+     </p>
+  </article>
+
 
 @endsection

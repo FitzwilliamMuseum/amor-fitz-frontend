@@ -10,54 +10,44 @@
 @endsection
 @section('content')
   <section class="mw9 mw9-ns center bg-white  ph5-ns">
-    <h1 class="helvetica f1 fw4 tc">{{ $page['title']}}</h1>
+    <h1 class="f1 helvetica tc fw4">{{ $page['title']}}</h1>
   </section>
 
-  <section class="cf ph3 ph7-ns pb1 bg-light-green black-70 pa3">
-    <div class="mw9 center">
+  <section class="pv3 w-100 center tc bg-white ph5-ns">
+    <correspondence-list
+   :correspondences='[
+   {
+     "names":["People"],
+     "backgroundIds":["blake"],
+     "curatorialStatement":"Discover the people in Hayley&apos;s life who influenced him.",
+     "buttonLink": "{{ route('entity', ['person']) }}"
+   },
+   {
+     "names":["Locations"],
+     "backgroundIds":["flaxman"],
+     "curatorialStatement":"Find out about geographical locations in Hayley&apos;s world.",
+     "buttonLink": "{{ route('entity', ['place']) }}"
+   },
+   {
+     "names":["Families"],
+     "backgroundIds":["flaxman"],
+     "curatorialStatement":"Hayley mentioned several families in his correspondence. ",
+     "buttonLink": "{{ route('entity', ['family']) }}"
+   },
+   {
+     "names":["Events"],
+     "backgroundIds":["flaxman"],
+     "curatorialStatement":"His letters mention events that affected the correspondents. ",
+     "buttonLink": "{{ route('entity', ['event']) }}"
+   },
+   {
+     "names":["Texts"],
+     "backgroundIds":["flaxman"],
+     "curatorialStatement":"Hayley mentions texts within his writing, written by others.",
+     "buttonLink": "{{ route('entity', ['text']) }}"
+   }
+   ]'
+ />
 
-      <div class="cf">
-        <article class="pv2 fl w-100 w-50-l pr0 pr2-l">
-          <entity-list-card
-          :names="['People']"
-          :backgrounds="['blake']"
-          :numberletters='{{$people[0]['items']['count']}}'
-          button-text="Discover correspondents"
-          button-link="{{ route('entity', ['person']) }}"
-          />
-        </article>
-        <article class="pv2 fl w-100 w-50-l pl0 pl2-l">
-          <entity-list-card
-          :names="['Locations']"
-          :backgrounds="['blake']"
-          :numberletters='{{$places[0]['items']['count']}}'
-          button-text="Locations mentioned"
-          button-link="{{ route('entity', ['place']) }}"
-          />
-        </article>
-      </div>
-
-      <div class="cf">
-        <article class="pv2 fl w-100 w-50-l pr0 pr2-l">
-          <entity-list-card
-          :names="['Families']"
-          :backgrounds="['blake']"
-          :numberletters='{{$family[0]['items']['count']}}'
-          button-text="Uncover families"
-          button-link="{{ route('entity', ['family']) }}"
-          />
-        </article>
-        <article class="pv2 fl w-100 w-50-l pl0 pl2-l">
-          <entity-list-card
-          :names="['Events mentioned']"
-          :backgrounds="['blake']"
-          :numberletters='{{$events[0]['items']['count']}}'
-          button-text="Relive events"
-          button-link="{{ route('entity', ['event']) }}"
-          />
-        </article>
-      </div>
-
-    </div>
   </section>
 @endsection

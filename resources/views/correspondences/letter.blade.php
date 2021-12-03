@@ -42,33 +42,36 @@ foreach($data['images'] as $image){
 }
 @endphp
 @section('content')
-  <section class="cf ph1 ph5-ns pb1 bg-white black-70">
-    <div class="mw9 center">
-      <h1 class="helvetica f1 fw4 tc">{{ $data['Letter Title'] ?? 'A letter from the archive'}}</h1>
-      <article class="pv2 fl w-100 ">
-        <div class="sans-serif">
-          @if(array_key_exists('Classmark', $data))
-            <p >Classmark: {{ $data['Classmark'] }}</p>
-          @endif
-          <p>Sender address: {{  $data['Sender Address']  ?? ' Not recorded'}}</p>
-          <p>Recipient address: {{  $data['Recipient Address'] ?? 'Not recorded'}}</p>
-          <p>Number of Sheets: {{  $data['No. Sheets'] ?? 'Not recorded  '}}</p>
-        </div>
 
-        @if(!empty($data['tags']))
-          <div class="ph3">
-            <tag-list
-            :tags='[
-            @foreach($data['tags'] as $tag)
-              {"url":"{{route('tag',$tag['id'])}}","text":"{{$tag['name']}}"},
-            @endforeach
-            ]'
-            />
-          </div>
-        @endif
-      </article>
-    </div>
-  </section>
+  <header class="tc ph4 mb3 w-100">
+    <h1 class="f3 f2-m f1-l fw4 black-90 mv3 helvetica">
+      {{ $data['Letter Title'] ?? 'A letter from the archive'}}
+    </h1>
+    <h2 class="f5 f4-m f3-l fw2 black-50 mt0 lh-copy">
+      {{$data['Title']}}
+    </h2>
+  </header>
+
+  <article class="ph7-ns pl4 pr4 mt3 mb3">
+     <p class="f5 lh-copy measure-wide">
+     Sender address: {{  $data['Sender Address']  ?? ' Not recorded'}}<br/>
+     Recipient address: {{  $data['Recipient Address'] ?? 'Not recorded'}}<br/>
+     Number of Sheets: {{  $data['No. Sheets'] ?? 'Not recorded  '}}
+     </p>
+     @if(!empty($data['tags']))
+       <div class="ph3">
+         <tag-list
+         :tags='[
+         @foreach($data['tags'] as $tag)
+           {"url":"{{route('tag',$tag['id'])}}","text":"{{$tag['name']}}"},
+         @endforeach
+         ]'
+         />
+       </div>
+     @endif
+  </article>
+
+
 
   @if(!empty($images) && array_key_exists('Transcription',$data))
     <section class="w-100 ph5-ns ph1">
