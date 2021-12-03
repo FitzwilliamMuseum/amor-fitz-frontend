@@ -23,7 +23,7 @@
 
 
 
-  <section class="mw5 mw7-ns center  pa3 ph5-ns">
+  <section class="mw7-ns center  pl2 pr2 ph1-ns">
 
       @foreach($records as $item)
         @php
