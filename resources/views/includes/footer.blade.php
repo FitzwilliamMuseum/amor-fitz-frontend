@@ -10,11 +10,18 @@
       <img src="/images/svg/leverhulme-logo.svg" alt="Leverhulme Trust Logo">
     </div>
   </section>
-<section class="fl w-100 bg-light-green h-100 flex items-center pv2">
-  <div class="mw5 mw7-ns center bg-light-green pa3 ph5-ns pv3 flex items-center">
-    <img src="/images/svg/Fitz_logo.svg" alt="Fitzwilliam Museum Logo" width="150"  class='tc'/>
-  </div>
-</section>
+
+  <section class="cf bg-light-green  h-100 flex items-center">
+    <div class="fl w-100 w-50-m w-25-l tc pv4"></div>
+    <div class="fl w-100 w-50-m w-25-l tc pv4 flex items-center">
+      <img src="/images/svg/Fitz_logo.svg" alt="Fitzwilliam Museum Logo" width="150"  class="ml2 mr2 pl2 pr2 center"/>
+    </div>
+    <div class="fl w-100 w-50-m w-25-l tc pv4 flex items-center">
+      <img src="/images/svg/micropasts-logo.svg" alt="micropasts citizen science Logo" width="150"  class="ml2 mr2 pl2 pr2 center"/>
+    </div>
+    <div class="fl w-100 w-50-m w-25-l tc pv4"></div>
+  </section>
+
 
 
   <section class="w-100 tc bg-creme pa3 center">
