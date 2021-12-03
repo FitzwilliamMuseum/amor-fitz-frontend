@@ -20,7 +20,7 @@
     </h2>
   </header>
 
-<article class="mw9 mw9-ns bg-white pa3 ph5-ns tc">
+<article class="bg-white pa3 tc">
   @if(!empty($tags))
     <div class="ph3">
       <tag-list
