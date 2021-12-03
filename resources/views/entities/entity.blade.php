@@ -14,8 +14,15 @@
 @section('title', 'A list of entities associated with ' . Request::segment(2))
 @section('description', 'A list of entities associated with ' . Request::segment(2))
 @section('content')
+  <header class="tc ph4 mb3">
+    <h1 class="f3 f2-m f1-l fw4 black-90 mv3 helvetica">
+    All records attributed to {{Request::segment(2)}}
+    </h1>
+    <h2 class="f5 f4-m f3-l fw2 purple mt0 lh-copy">
+      Discover more about this entity type
+    </h2>
+  </header>
   <section class="cf ph3 ph5-ns pb5 bg-light-white black-70">
-    <h1 class="f1 helvetica fw4 tc">All records attributed to {{Request::segment(2)}}</h1>
     <div class="mw9 center">
       @foreach($items as $item)
         <div class="cf">

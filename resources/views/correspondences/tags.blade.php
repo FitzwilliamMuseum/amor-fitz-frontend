@@ -11,11 +11,16 @@
 @section('title', 'Hayley\'s correspondence - tags used')
 @section('description', 'An index of tags used in Hayley\'s correspondence analysis')
 @section('content')
-  <section class="mw9 mw9-ns bg-white pa3 ph5-ns">
-    <h1 class="f1 helvetica fw4 tc">Tags</h1>
+  <header class="tc ph4 mb3">
+    <h1 class="f3 f2-m f1-l fw4 black-90 mv3 helvetica">
+    Tags used
+    </h1>
+    <h2 class="f5 f4-m f3-l fw2 purple mt0 lh-copy">
+      Discover content via tag
+    </h2>
+  </header>
 
-  </section>
-<article class="mw9 mw9-ns bg-white pa3 ph5-ns">
+<article class="mw9 mw9-ns bg-white pa3 ph5-ns tc">
   @if(!empty($tags))
     <div class="ph3">
       <tag-list

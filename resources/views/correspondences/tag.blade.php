@@ -8,61 +8,24 @@
   ]'
   />
 @endsection
-@section('title', 'Hayley\'s correspondence')
-@section('description', 'An index of Hayley\'s correspondence')
+@section('title', 'Hayley\'s ' . implode(' / ', $tag))
+@section('description', 'An index of Hayley\'s correspondence tagged with: ' .  implode(' / ', $tag) )
 @section('content')
-  <section class="mw9 mw9-ns bg-white pa3 ph5-ns">
-    <h1 class="f1 helvetica fw4 tc">{{ $page['title']}} tagged:<br/> <span class="purple">{{ implode(' / ', $tag) }}</span></h1>
 
-  </section>
+  <header class="tc ph4 mb3">
+    <h1 class="f3 f2-m f1-l fw4 black-90 mv3 helvetica">
+    {{ $page['title']}} tagged with
+    </h1>
+    <h2 class="f5 f4-m f3-l fw2 purple mt0 lh-copy">
+      {{ implode(' / ', $tag) }}
+    </h2>
+  </header>
 
-  {{-- <section class="pv3 cf bg-white ph5-ns">
-    <h2 class="fw3 tc f4">Who was corresponding with whom for this tag?</h2>
-    <article>
-      <correspondence-list
-      :correspondences='[
-      @foreach($convos as $con)
-        @php
-        $names = '"'. str_replace('/', '","',$con[0]['names']) . '"';
-        $count = count($con);
-        $tags = array();
-        $ids = array();
-        foreach ($con as $c) {
-          $ids =  $c['tags'];
-        }
-        $idList =  implode(',', array_unique($ids));
-        $bgs = array();
-        $bg = explode('/', $con[0]['names']);
-        foreach($bg as $b){
-          if($b != 'William Hayley'){
-            $bgs[] = Str::slug($b);
-          }
-        }
-        $backgrounds = '"'.  implode('","',$bgs) . '"';
-        @endphp
-        {"names":[{!! $names !!}],"backgrounds":[{{$backgrounds}}],"numberletters":{!! $count !!},"curatorial-statement":"", "buttonLink": "{{ route('tag', $idList) }}"},
-      @endforeach
-      ]'
-      />
 
-    </article>
-
-  </section> --}}
 
   <section class="pv3 bg-white ph7-ns">
     <div class="ph3 ph5-ns">
-      {{-- <h2 class="fw4">Letters tagged with</h2>
-       <span class="purple">
-        <p>
-          @foreach($tag as $t)
-           @if (!$loop->last)
-             {{ $t }}<br>
-          @else
-            {{  $t }}
-          @endif
-         @endforeach
-        </p>
-       </span> --}}
+    
       @foreach($records as $item)
         @php
         $people = count(array_filter($item['expanded'], function($arr)
@@ -153,6 +116,4 @@
       {{ $paginate->links('paginator.default') }}
     </section>
   </section>
-
-
 @endsection
