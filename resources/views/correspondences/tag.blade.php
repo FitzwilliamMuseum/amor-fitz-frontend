@@ -23,9 +23,8 @@
 
 
 
-  <section class="pv3 bg-white ph7-ns">
-    <div class="ph3 ph5-ns">
-    
+  <section class="ph7-ns pl4 pr4 mt3">
+
       @foreach($records as $item)
         @php
         $people = count(array_filter($item['expanded'], function($arr)
@@ -91,7 +90,7 @@
           }
         }
         @endphp
-        <section class="mw9 mv3 ">
+        <section class="mt3 mb3">
           <letter-preview-card
           title="{{ $item['Letter Title']}}"
           @if(array_key_exists('Date 1', $item))
@@ -111,9 +110,12 @@
           />
         </section>
       @endforeach
-    </div>
-    <section class="mw8-ns center tc bg-white pa3 ph5-ns">
-      {{ $paginate->links('paginator.default') }}
-    </section>
+
+
+  </section>
+  <section class="fl w-100 bg-light-green h-100 flex items-center pv2 mv3">
+
+  <section class="mw8-ns center tc pa3 ph5-ns">
+    {{ $paginate->links('paginator.default') }}
   </section>
 @endsection
