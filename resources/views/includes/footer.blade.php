@@ -1,23 +1,33 @@
 <footer>
   <section class="cf center">
     <div class="fl w-100 w-50-m w-33-l bg-white tc pv4 ph6">
-      <img src="/images/svg/ba-logo.svg" alt="British Academy Logo">
+      <a href="https://www.thebritishacademy.ac.uk/" title="The British Academy">
+        <img src="/images/svg/ba-logo.svg" alt="British Academy Logo">
+      </a>
     </div>
     <div class="fl w-100 w-50-m w-33-l bg-white tc pv4 ph6">
-      <img src="/images/svg/cambridge-logo.svg" alt="Cambridge University Logo">
+      <a href="https://cam.ac.uk" title="The Leverhulme Trust">
+        <img src="/images/svg/cambridge-logo.svg" alt="Cambridge University Logo">
+      </a>
     </div>
     <div class="fl w-100 w-50-m w-33-l bg-white tc pv4 ph6">
-      <img src="/images/svg/leverhulme-logo.svg" alt="Leverhulme Trust Logo">
+      <a href="https://www.leverhulme.ac.uk/" title="The Leverhulme Trust">
+        <img src="/images/svg/leverhulme-logo.svg" alt="Leverhulme Trust Logo">
+      </a>
     </div>
   </section>
 
   <section class="cf bg-light-green  h-100 flex items-center">
     <div class="fl w-100 w-50-m w-25-l tc pv4"></div>
     <div class="fl w-100 w-50-m w-25-l tc pv4 flex items-center">
-      <img src="/images/svg/Fitz_logo.svg" alt="Fitzwilliam Museum Logo" width="150"  class="ml2 mr2 pl2 pr2 center"/>
+      <a href="https://fitzmuseum.cam.ac.uk" title="The Fitzwilliam Museum">
+        <img src="/images/svg/Fitz_logo.svg" alt="Fitzwilliam Museum Logo" width="150"  class="ml2 mr2 pl2 pr2 center"/>
+      </a>
     </div>
     <div class="fl w-100 w-50-m w-25-l tc pv4 flex items-center">
-      <img src="/images/svg/micropasts-logo.svg" alt="micropasts citizen science Logo" width="150"  class="ml2 mr2 pl2 pr2 center"/>
+      <a href="https://crowdsourced.micropasts.org" title="MicroPasts Citizen Science">
+        <img src="/images/svg/micropasts-logo.svg" alt="micropasts citizen science Logo" width="150"  class="ml2 mr2 pl2 pr2 center"/>
+      </a>
     </div>
     <div class="fl w-100 w-50-m w-25-l tc pv4"></div>
   </section>
