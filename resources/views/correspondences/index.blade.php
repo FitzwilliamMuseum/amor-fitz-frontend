@@ -7,10 +7,22 @@
 @section('title', 'Hayley\'s correspondence')
 @section('description', 'An index of Hayley\'s correspondence')
 @section('content')
-  <section class="mw9 mw9-ns bg-white pa3 ph5-ns">
-    <h1 class="f1 helvetica tc fw4">{{ $page['title']}}</h1>
-      {!! $page['text'] !!}
-  </section>
+  
+
+  <header class="tc ph4 mb3">
+    <h1 class="f3 f2-m f1-l fw4 black-90 mv3 helvetica">
+    {{ $page['title']}}
+    </h1>
+    <h2 class="f5 f4-m f3-l fw2 black-50 mt0 lh-copy">
+      What can you learn from Most Sacred Things?
+    </h2>
+  </header>
+
+  <article class="ph7-ns pl4 pr4 mt3 mb3">
+    <p class="f5 lh-copy measure-wide"></p>
+    {!! $page['text'] !!}
+  </article>
+
   <section class="pv3 w-80 center tc bg-white ph5-ns">
     <correspondence-list
     :correspondences='[
