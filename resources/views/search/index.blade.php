@@ -5,9 +5,16 @@
 @section('hero_image_title', "The inside of our Founder's entrance")
 @section('meta_description', 'An introductory page to the Museum\'s collection')
 @section('meta_keywords', 'collection,museum,objects, art works')
-
+@section('breadcrumbs')
+  <breadcrumbs
+  :path-list='[
+  {"text":"Search","path":"{{ route('search')}}"},
+  ]'
+  />
+@endsection
 @section('content')
+
 <div class="col-12 shadow-sm p-3 mx-auto mb-3">
-  
+
 </div>
 @endsection

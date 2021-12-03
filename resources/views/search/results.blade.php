@@ -2,7 +2,15 @@
 @section('title','Search results')
 @section('meta_description', "Search results for your query" )
 @section('meta_keywords', 'search,results,fitzwilliam,museum')
+@section('breadcrumbs')
+  <breadcrumbs
+  :path-list='[
+  {"text":"Search","path":"{{ route('search')}}"},
+  {"text":"Results","path":"{{ route('search.results')}}"},
 
+  ]'
+  />
+@endsection
 @section('content')
   <section class="mw9 mw9-ns center bg-white pa3 ph5-ns">
   @foreach($records as $record)
