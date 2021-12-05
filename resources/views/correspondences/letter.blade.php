@@ -147,7 +147,7 @@ foreach($data['images'] as $image){
         </article>
         <article class="pv2 fl w-100 w-50-l pl0 pl2-l">
           <h3 class="helvetica fw4 f3">Places</h3>
-          @dd($places)
+          @include('includes.lettermap')
           @foreach($places as $place)
 
             @php

@@ -60,6 +60,7 @@
     @endif
     <main class="w-100 ">
       @yield('content')
+      @yield('lettermap')
     </main>
   </div>
   @include('includes.footer')

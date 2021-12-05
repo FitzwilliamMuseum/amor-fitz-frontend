@@ -1,30 +1,30 @@
 <template>
-<div>
+  <div>
 
-<l-map :options="{scrollWheelZoom: false}"
-:center="
- [
-   lat || defaultLocation.lat,
-   lng || defaultLocation.lng
- ]"
-:zoom="zoom"
-class="map"
-ref="map"
-@update:Zoom="zoomUpdated"
-@update:Center="centerUpdated"
->
-<l-tile-layer
-:url="url"
-:attribution="attribution"
-/>
-<l-geo-json
-:geojson="geojson"
-:options="options"
-/>
+    <l-map :options="{scrollWheelZoom: false}"
+    :center="
+     [
+       lat || defaultLocation.lat,
+       lng || defaultLocation.lng
+     ]"
+    :zoom="zoom"
+    class="map"
+    ref="map"
+    @update:Zoom="zoomUpdated"
+    @update:Center="centerUpdated"
+    >
+    <l-tile-layer
+    :url="url"
+    :attribution="attribution"
+    />
+    <l-geo-json
+    :geojson="geojson"
+    :options="options"
+    />
 
 
-</l-map>
-</div>
+    </l-map>
+  </div>
 </template>
 
 <script>
@@ -42,6 +42,7 @@ export default {
   props: {
     lat: { type: String },
     lng: { type: String },
+    path: { type: String },
     defaultLocation: {
      type: Object,
      default: () => ({
@@ -57,12 +58,9 @@ export default {
       attribution: '&copy; OSM',
       zoom: 6,
       center: [52.92277, -1.47663],
-      geojson: null,
-      circle: {
-         radius: 9,
-         color: 'black'
-       },
+      geojson: null
     };
+
   },
   computed: {
     options() {
@@ -101,14 +99,16 @@ export default {
   methods: {
     zoomUpdated (Zoom) {
       this.Zoom = Zoom;
-      console.log(this.markers)
     },
     centerUpdated (Center) {
       this.center = Center;
-    }
+    },
+    jsonPath : function() {
+      return this.path;
+    },
   },
   async created () {
-    const response = await fetch('http://localhost:8001/maps/places');
+    const response = await fetch(this.path);
     this.geojson = await response.json();
   }
 }

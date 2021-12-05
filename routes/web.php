@@ -37,6 +37,7 @@ Route::match(array('GET', 'POST'), '/search/results', [
     'as' => 'search.results'
 ]);
 Route::get('/maps/places', 'App\Http\Controllers\mapsController@placesGeoJson')->name('places.geosjon');
+Route::get('/maps/letter/{id}', 'App\Http\Controllers\mapsController@letterplaces')->name('letters.geosjon');
 
 /*
  * Route for checking solr up and running

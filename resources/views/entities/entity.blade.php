@@ -24,7 +24,11 @@
   </header>
   @if ($paginate->onFirstPage())
   @if(Request::segment(2) == 'place')
-  <section class="w-100 mb3"><leaflet-geojson/></section>
+  <section class="w-100 mb3">
+    <leaflet-geojson
+    :path='"/maps/places"'
+    />
+  </section>
   @endif
 @endif
   <section class="cf ph3 ph5-ns pb5 bg-light-white black-70">
