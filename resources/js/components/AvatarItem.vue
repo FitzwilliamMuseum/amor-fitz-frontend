@@ -40,15 +40,19 @@ export default {
 
 <style scoped>
 .avatar-item {
-  width: 150px;
-  height: 150px;
+  max-width: 150px;
   background-size: cover;
   background-position: center center;
 }
+/* ensure  responsive square aspect ratio */
+.avatar-item::before {
+  content: '';
+  padding-top: 100%;
+  display: block;
+}
 
 .avatar-item--small {
-  width: 64px;
-  height: 64px;
+  max-width: 64px;
 }
 
 /* background classes for different entity types */
