@@ -18,7 +18,13 @@
         <div class="fl w-100 w-50-ns pa2">
           <article class="mw6 center bg-white br3 pa3 pa4-ns mv3 ba b--black-10">
             <div class="tc">
+              @if(!empty($datum['images']))
+
+              <img src="{{$datum['images'][0]['file_urls']['square_thumbnail']}}" class="dib" title="Profile image of {{ $datum['Title']}}">
+
+              @else
               <img src="http://tachyons.io/img/avatar_1.jpg" class="br-100 h3 w3 dib" title="Photo of a kitty staring at you">
+              @endif
               <h1 class="f4">
                 {{ $datum['Title']}}
               </h1>
