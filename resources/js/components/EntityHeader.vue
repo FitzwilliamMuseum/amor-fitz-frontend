@@ -4,7 +4,7 @@
       <AvatarItem :type="type" :bgImageSrc="bgImageSrc" class="w4" />
     </div>
     <div>
-      <h2 class="helvetica f2 mb2">
+      <h2 class="helvetica f2 mb2 fw3">
         {{ title }}
       </h2>
       <div v-if="type === 'Person'">

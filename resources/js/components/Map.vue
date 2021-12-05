@@ -1,4 +1,3 @@
-
 <template>
  <l-map
    :options="{scrollWheelZoom: false}"
@@ -32,9 +31,9 @@
 
 <script>
 import { LMap, LTileLayer, LCircleMarker} from 'vue2-leaflet';
-import 'leaflet/dist/leaflet.css';
 
 export default {
+name: "Map",
  components: {
    LMap,
    LTileLayer,
@@ -82,4 +81,6 @@ export default {
    height: 500px !important;
    overflow :hidden
  }
+
+  @import "https://unpkg.com/leaflet@1.7.1/dist/leaflet.css";
 </style>

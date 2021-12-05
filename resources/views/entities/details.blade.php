@@ -11,14 +11,14 @@
 @section('description', 'An overview of information from Hayley\'s correspondence about ' . $data['Title'] )
 @section('content')
   <header class="tc ph4 mb3">
-    <h1 class="f3 f2-m f1-l fw4 black-90 mv3 helvetica">
+    <h1 class="f3 f2-m f1-l fw2 black-90 mv3 helvetica">
       @if(array_key_exists('First Name', $data))
       {{ $data['First Name']  }} {{ $data['Last Name']  }}
       @else
         {{ $data['Title'] }}
       @endif
      </h1>
-     <h2 class="f5 f4-m f3-l fw2 black-50 mt0 lh-copy">
+     <h2 class="f5 f4-m fw2 f3-l purple mt0 lh-copy">
        How does this entity fit into Hayley's correspondence?
      </h2>
   </header>

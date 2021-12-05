@@ -46,7 +46,7 @@ Vue.component('the-header', require('./components/TheHeader.vue').default);
 Vue.component('leaflet-map', require('./components/Map.vue').default);
 Vue.component('tag', require('./components/Tag.vue').default);
 Vue.component('tag-list', require('./components/TagList.vue').default);
-
+Vue.component('leaflet-geojson', require('./components/GeoJsonMap.vue').default)
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

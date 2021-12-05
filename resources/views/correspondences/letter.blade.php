@@ -47,12 +47,12 @@ foreach($data['images'] as $image){
     <h1 class="f3 f2-m f1-l fw4 black-90 mv3 helvetica">
       {{ $data['Letter Title'] ?? 'A letter from the archive'}}
     </h1>
-    <h2 class="f5 f4-m f3-l fw2 black-50 mt0 lh-copy">
+    <h2 class="f f4-m f3-l purple mt0 lh-copy fw3">
       {{$data['Title']}}
     </h2>
   </header>
 
-  <article class="ph7-ns pl4 pr4 mt3 mb3">
+  <article class="ph6-ns ph4 mb3 w-100">
      <p class="f5 lh-copy measure-wide">
      Sender address: {{  $data['Sender Address']  ?? ' Not recorded'}}<br/>
      Recipient address: {{  $data['Recipient Address'] ?? 'Not recorded'}}<br/>
@@ -147,7 +147,9 @@ foreach($data['images'] as $image){
         </article>
         <article class="pv2 fl w-100 w-50-l pl0 pl2-l">
           <h3 class="helvetica fw4 f3">Places</h3>
+          @dd($places)
           @foreach($places as $place)
+
             @php
             if(!empty($place['images'])){
               $bgImageSrc = $place['images'][0]['file_urls']['square_thumbnail'];

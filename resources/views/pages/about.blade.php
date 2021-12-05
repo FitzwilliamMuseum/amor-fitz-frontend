@@ -16,7 +16,7 @@
     <h1 class="f3 f2-m f1-l fw4 black-90 mv3 helvetica">
       About the project
     </h1>
-    <h2 class="f5 f4-m f3-l fw2 black-50 mt0 lh-copy">
+    <h2 class="f5 f4-m f3-l fw2 purple mt0 lh-copy">
       Who made this? Who do we need to thank?
     </h2>
   </header>

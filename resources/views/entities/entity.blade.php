@@ -22,6 +22,11 @@
       Discover more about this entity type
     </h2>
   </header>
+  @if ($paginate->onFirstPage())
+  @if(Request::segment(2) == 'place')
+  <section class="w-100 mb3"><leaflet-geojson/></section>
+  @endif
+@endif
   <section class="cf ph3 ph5-ns pb5 bg-light-white black-70">
     <div class="mw9 center">
       @foreach($items as $item)
