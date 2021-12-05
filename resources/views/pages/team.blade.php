@@ -9,14 +9,19 @@
   />
 @endsection
 @section('content')
-  <div class="mw9 center ph3-ns bg-white">
-    <section class="mw9 mw9-ns center bg-white pa3 ph5-ns">
-      <h1 class="f3 f1-l helvetica fw4 tc">Our Project Team</h1>
-    </section>
+  <header class="tc ph4 mb3">
+    <h1 class="f3 f2-m f1-l fw4 black-90 mv3 helvetica">
+      About the project's team
+    </h1>
+    <h2 class="f5 f4-m f3-l fw2 purple mt0 lh-copy">
+      Who made this?
+    </h2>
+  </header>
+
     <div class="cf ph2-ns">
       @foreach($data as $datum)
         <div class="fl w-100 w-50-ns pa2">
-          <article class="mw6 center bg-white br3 pa3 pa4-ns mv3 ba b--black-10">
+          <article class="mw6 center bg-white br3 pa3 pa4-ns mv3 ">
             <div class="tc">
               @if(!empty($datum['images']))
 
