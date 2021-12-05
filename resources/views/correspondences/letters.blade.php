@@ -10,7 +10,14 @@
   <section class="mw9 mw9-ns bg-white pa3 ph5-ns">
     <h1 class="f1 helvetica tc fw4">Browse the letters</h1>
   </section>
-
+  <header class="tc ph4 mb3">
+    <h1 class="f3 f2-m f1-l fw4 black-90 mv3 helvetica">
+    Browse the letters
+    </h1>
+    <h2 class="f5 f4-m f3-l fw2 purple mt0 lh-copy">
+      Page through all the correspondence in this pilot
+    </h2>
+  </header>
   <section class="pv3 bg-white ph7-ns">
     <div class="ph3 ph5-ns">
       @foreach($records as $item)
