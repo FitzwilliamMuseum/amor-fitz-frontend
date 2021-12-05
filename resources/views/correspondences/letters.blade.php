@@ -7,9 +7,6 @@
 @section('title', 'Hayley\'s correspondence')
 @section('description', 'An index of Hayley\'s correspondence')
 @section('content')
-  <section class="mw9 mw9-ns bg-white pa3 ph5-ns">
-    <h1 class="f1 helvetica tc fw4">Browse the letters</h1>
-  </section>
   <header class="tc ph4 mb3">
     <h1 class="f3 f2-m f1-l fw4 black-90 mv3 helvetica">
     Browse the letters
