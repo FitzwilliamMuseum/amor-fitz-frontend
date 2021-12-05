@@ -26,7 +26,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         // # Sitemap generation
-        $schedule->command('sitemap:generate')->monthly();
+        $schedule->command('sitemap:generate')->hourly();
     }
 
     /**
