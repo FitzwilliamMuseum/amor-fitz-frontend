@@ -8,7 +8,7 @@
       class="db v-mid link w-100 tc mb2 helvetica f3"
     >
     <a class="link dim creme fw3" href="/" title="Home"
-      >Most Sacred Things</a>
+      >'Most Sacred Things'</a>
     </h1>
     <div
       :class="wide ? '' : 'dtc-l w-60-l tr-l'"

@@ -18,17 +18,8 @@ export default {
   },
   computed: {
     crumbs() {
-      return [{ text: "Home", path: "./" }].concat(
-        this.pathList ||
-          window.location.pathname
-            .split("/")
-            .slice(1)
-            .map((path, index, paths) => {
-              return {
-                text: this.capitalise(path.split(".")[0]),
-                path: paths.slice(0, index + 1).join("/")
-              };
-            })
+      return [{ text: "Home", path: "/" }].concat(
+        this.pathList 
       );
     }
   },

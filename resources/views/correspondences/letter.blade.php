@@ -82,7 +82,6 @@ foreach($data['images'] as $image){
       @endforeach
       ]'
       transcription="{{$data['Transcription']}}"
-      transcriptPageComponents='["TranscriptPage1","TranscriptPage2","TranscriptPage3","TranscriptPage4"]'
       />
     </section>
     @include('includes.annotations')
