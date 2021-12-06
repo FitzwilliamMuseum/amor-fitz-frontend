@@ -13,7 +13,7 @@
     <h1 class="f3 f2-m f1-l fw4 black-90 mv3 helvetica">
       About the project's team
     </h1>
-    <h2 class="f5 f4-m f3-l fw2 purple mt0 lh-copy">
+    <h2 class="f5 f4-m f3-l fw2 berry mt0 lh-copy">
       Who made this?
     </h2>
   </header>
@@ -43,7 +43,7 @@
             {!! $datum['Biographical Text'] !!}
           </accordion-link>
           @if(array_key_exists('Job title', $datum))
-            <p class="lh-copy measure f6 purple">
+            <p class="lh-copy measure f6 berry">
               {{ $datum['Job title']}}
             </p>
           @endif
