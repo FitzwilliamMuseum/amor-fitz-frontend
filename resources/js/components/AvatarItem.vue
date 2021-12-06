@@ -40,6 +40,7 @@ export default {
 
 <style scoped>
 .avatar-item {
+  min-width: 150px;
   max-width: 150px;
   background-size: cover;
   background-position: center center;
@@ -52,6 +53,7 @@ export default {
 }
 
 .avatar-item--small {
+  min-width: 64px;
   max-width: 64px;
 }
 

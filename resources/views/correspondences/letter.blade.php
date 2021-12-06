@@ -145,11 +145,10 @@ foreach($data['images'] as $image){
             </div>
           @endforeach
         </article>
-        <article class="pv2 fl w-100 w-50-l pl0 pl2-l">
+        <article class="pv2 fl w-100 w-50-l pl0 pl2-l mt3">
           <h3 class="helvetica fw4 f3">Places</h3>
           @include('includes.lettermap')
           @foreach($places as $place)
-
             @php
             if(!empty($place['images'])){
               $bgImageSrc = $place['images'][0]['file_urls']['square_thumbnail'];
@@ -300,8 +299,6 @@ foreach($data['images'] as $image){
       </div>
     </div>
   </section>
-
-
 @endsection
 
 @section('scripts')
