@@ -20,7 +20,7 @@
       <a
         class="link dim creme f6 f5-ns dib mr3 mr4-l"
         href="/correspondences"
-        title="Correspondences"
+        title="Correspondences and letters"
         >Correspondences</a
       >
       <a
