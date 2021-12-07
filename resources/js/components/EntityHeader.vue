@@ -25,6 +25,9 @@
           {{ metadataHead["Occupation"] }}
           {{ metadataHead["Relation To Hayley"] }}
         </div>
+        <div v-if="metadataHead['Relation To Hayley'] != ''" class="mb2">
+          {{ metadataHead["Relation To Hayley"] }}
+        </div>
       </div>
       <div v-else>
         <div v-for="(value, key) in metadataHead" class="mb2">
