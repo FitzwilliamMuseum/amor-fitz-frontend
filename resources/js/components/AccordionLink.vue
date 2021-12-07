@@ -13,7 +13,22 @@ export default {
   props: {
     showText: { type: String },
     hideText: { type: String },
-    isExpanded: { type: Boolean }
+  },
+  data() {
+    return {
+      isExpanded: false,
+    };
+  },
+  computed: {
+    reversedList() {
+      // Check if we need to reverse the list
+      if (this.isExpanded) {
+        return true;
+      } else {
+        // If not, return the plain list passed in
+        return this.isExpanded;
+      }
+    }
   }
 };
 </script>

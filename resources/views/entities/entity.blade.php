@@ -18,7 +18,7 @@
     <h1 class="f3 f2-m f1-l fw4 black-90 mv3 helvetica">
     All records attributed to {{Request::segment(2)}}
     </h1>
-    <h2 class="f5 f4-m f3-l fw2 purple mt0 lh-copy">
+    <h2 class="f5 f4-m f3-l fw2 berry mt0 lh-copy">
       Discover more about this entity type
     </h2>
   </header>

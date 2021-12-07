@@ -18,7 +18,7 @@
         {{ $data['Title'] }}
       @endif
      </h1>
-     <h2 class="f5 f4-m fw2 f3-l purple mt0 lh-copy">
+     <h2 class="f5 f4-m fw2 f3-l berry mt0 lh-copy">
        How does this entity fit into Hayley's correspondence?
      </h2>
   </header>

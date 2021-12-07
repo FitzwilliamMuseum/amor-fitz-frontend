@@ -9,7 +9,7 @@
     @foreach ($annotations['rows'] as $annotation)
       <article>
         <p class="f6 lh-copy measure">
-            <p class="fw9 lh-copy lh-title-ns purple">
+            <p class="fw9 lh-copy lh-title-ns berry">
               {!! nl2br($annotation['target'][0]['selector'][2]['exact']) !!} @markdown($annotation['text'])
             </p>
         </article>

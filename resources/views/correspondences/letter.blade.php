@@ -47,7 +47,7 @@ foreach($data['images'] as $image){
     <h1 class="f3 f2-m f1-l fw4 black-90 mv3 helvetica">
       {{ $data['Letter Title'] ?? 'A letter from the archive'}}
     </h1>
-    <h2 class="f f4-m f3-l purple mt0 lh-copy fw3">
+    <h2 class="f f4-m f3-l berry mt0 lh-copy fw3">
       {{$data['Title']}}
     </h2>
   </header>

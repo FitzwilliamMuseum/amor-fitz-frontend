@@ -80,7 +80,7 @@ export default {
     onEachFeatureFunction() {
       return (feature, layer) => {
         layer.bindPopup(
-          '<div><a href="' +  feature.geometry.properties.url + '" class="link dim purple"><h2 class="f4 helvetica fw3 purple">' +
+          '<div><a href="' +  feature.geometry.properties.url + '" class="link dim berry"><h2 class="f4 helvetica fw3 berry">' +
             feature.geometry.properties.title +
             '</h2></a><p>' + feature.geometry.properties.description + '</p></div>',
           { permanent: false, sticky: false }
