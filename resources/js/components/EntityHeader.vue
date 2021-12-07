@@ -13,11 +13,11 @@
         </div>
         <div class="mb2" >
           <span v-if="metadataHead['Birth Date'] != ''" class="mr3">
-            ✶ {{ metadataHead["Birth Date"] }} 
+            ✶ {{ metadataHead["Birth Date"] | moment }}
             {{ metadataHead["Birth Place"] }}
           </span>
           <span v-if="metadataHead['Death Date'] != ''" class="mr3">
-            † {{ metadataHead["Death Date"] }}
+            † {{ metadataHead["Death Date"] | moment }}
             {{ metadataHead["Death Place"] }}
           </span>
         </div>
@@ -59,6 +59,7 @@
 import NumberBullet from "./NumberBullet";
 import AccordionLink from "./AccordionLink";
 import AvatarItem from "./AvatarItem";
+import moment from 'moment';
 
 export default {
   name: "EntityHeader",
@@ -80,6 +81,11 @@ export default {
     NumberBullet,
     AccordionLink,
     AvatarItem
+  },
+  filters: {
+    moment: function (date) {
+      return moment(date).format('MMMM Do YYYY');
+    }
   }
 };
 </script>
