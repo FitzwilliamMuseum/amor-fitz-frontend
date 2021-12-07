@@ -1,4 +1,5 @@
 @extends('layouts.default')
+{{-- @dd($data) --}}
 @section('breadcrumbs')
   <breadcrumbs
   :path-list='[
@@ -32,9 +33,28 @@
         :metadata-head='{"Latitude":"{{ $data['Latitude'] }}","Longitude":"{{ $data['Longitude'] }}","Address Today":"{{  $data['Address today'] }}"}'
       @endif
       @if($data['type'] === 'Person')
-        :metadata-head='{"Birth Date":"{{ $data['Birth Date'] ?? ''}}","Death Date":"{{ $data['Death Date'] ?? ''}}","Birth Place":"{{$data['Birthplace'] ?? '' }}","Death Place":"{{$data['Deathplace'] ?? '' }}","Occupation":"{{$data['Occupation'] ?? '' }}","Nickname":"{{ $data['Nickname'] ?? ''}}","Relation To Hayley":"{{$data['Relation to Hayley'] ?? ''}}"}'
+        :metadata-head='{
+          "Birth Date":"{{ $data['Birth Date'] ?? ''}}",
+          "Death Date":"{{ $data['Death Date'] ?? ''}}",
+          "Birth Place":"{{$data['Birthplace'] ?? '' }}",
+          "Death Place":"{{$data['Deathplace'] ?? '' }}",
+          "Occupation":"{{$data['Occupation'] ?? '' }}",
+          "Nickname":"{{ $data['Nickname'] ?? ''}}",
+          "Relation To Hayley":"{{$data['Relation to Hayley'] ?? ''}}"
+        }'
+        :metadata-tail='{
+          "First Name":"{{ $data['First Name'] ?? ''}}",
+          "Last Name":"{{ $data['Last Name'] ?? ''}}"
+          @if(array_key_exists('Title Aristocrats', $data))
+          "Title Aristocrats": {{ $data['Title Aristocrats'] ?? '' }}""
+          @endif
+        }'
       @endif
-      :metadata-tail="{}"
+
+
+      @if(array_key_exists('Biographical Text', $data))
+      biographical-text="{{ $data['Biographical Text'] }}"
+      @endif
       :number-letters="{{ count($data['linked_items']) }}"
       @if(Arr::exists( $data, 'Description'))
         body-text="{{ $data['Description'] }}"

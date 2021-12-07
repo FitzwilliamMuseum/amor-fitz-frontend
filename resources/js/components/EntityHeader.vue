@@ -13,11 +13,11 @@
         </div>
         <div class="mb2" >
           <span v-if="metadataHead['Birth Date'] != ''" class="mr3">
-            ✶ {{ metadataHead["Birth Date"] }},
+            ✶ {{ metadataHead["Birth Date"] }} 
             {{ metadataHead["Birth Place"] }}
           </span>
           <span v-if="metadataHead['Death Date'] != ''" class="mr3">
-            † {{ metadataHead["Death Date"] }},
+            † {{ metadataHead["Death Date"] }}
             {{ metadataHead["Death Place"] }}
           </span>
         </div>
@@ -35,6 +35,9 @@
       <div class="mb2">
           <span v-html="bodyText"></span>
       </div>
+      <div class="mb2">
+          <span v-html="biographicalText"></span>
+      </div>
       <NumberBullet v-if="numberLetters != 0" :number="numberLetters" class="mb2 mr2" /> <span v-if="numberLetters != 0">references</span>
       <AccordionLink
         v-if="Object.entries(metadataTail).length !== 0"
@@ -44,7 +47,7 @@
       >
         <div v-for="(value, key) in metadataTail" class="mb2">
           <span class="dib w4">{{ key }}</span>
-          <span class="fw6">{{ value }}</span>
+          <span class="fw4">{{ value }}</span>
         </div>
 
       </AccordionLink>
