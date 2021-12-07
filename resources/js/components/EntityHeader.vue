@@ -5,7 +5,7 @@
     </div>
     <div>
       <h2 class="helvetica f2 mb2 fw3">
-        {{ title }}
+        {{ title }}<span v-if="subtitle" class="f3">: {{ subtitle }}</span>
       </h2>
       <div v-if="type === 'Person'">
         <div v-if="metadataHead['Nickname'] != ''" class="f3 mb2">
@@ -41,8 +41,8 @@
       <NumberBullet v-if="numberLetters != 0" :number="numberLetters" class="mb2 mr2" /> <span v-if="numberLetters != 0">references</span>
       <AccordionLink
         v-if="Object.entries(metadataTail).length !== 0"
-        showText="show additional metadata ▾"
-        hideText="hide additional metadata ▴"
+        showText="Show additional metadata ▾"
+        hideText="Hide additional metadata ▴"
         :isExpanded="false"
       >
         <div v-for="(value, key) in metadataTail" class="mb2">
@@ -51,6 +51,9 @@
         </div>
 
       </AccordionLink>
+      <div class="mb2">
+          <span v-html="text"></span>
+      </div>
     </div>
   </div>
 </template>
@@ -66,6 +69,7 @@ export default {
   props: {
     type: { type: String, default: "" },
     title: { type: String, default: "" },
+    subtitle: { type: String, default: "" },
     metadataHead: { type: Object, default() {
             return {}
         }},
@@ -75,7 +79,8 @@ export default {
     numberLetters: { type: Number, default: 0 },
     biographicalText: { type: String, default: "" },
     bgImageSrc: { type: String },
-    bodyText: { type: String , default: ""}
+    bodyText: { type: String , default: ""},
+    text: { type: String , default: ""},
   },
   components: {
     NumberBullet,

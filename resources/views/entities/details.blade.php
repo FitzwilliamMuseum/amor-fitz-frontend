@@ -29,6 +29,9 @@
       <entity-header
       type="{{ $data['type']}}"
       title="{{ $data['Title']}}"
+      @if(Arr::exists( $data, 'Subtitle'))
+      subtitle="{{ $data['Subtitle'] }}"
+      @endif
       @if(Arr::exists( $data, 'Latitude'))
         :metadata-head='{"Latitude":"{{ $data['Latitude'] }}","Longitude":"{{ $data['Longitude'] }}","Address Today":"{{  $data['Address today'] }}"}'
       @endif
@@ -61,6 +64,9 @@
       @endif
       @if(Arr::exists($data, 'images') && !empty($data['images']))
         bg-image-src="{{ $data['images'][0]['file_urls']['fullsize'] }}"
+      @endif
+      @if(Arr::exists($data,'Text'))
+        text="{{ $data['Text'] }}"
       @endif
       />
     </div>
