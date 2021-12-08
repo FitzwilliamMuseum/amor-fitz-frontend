@@ -1,3 +1,8 @@
+@php
+$filtered = array_filter($data, function($arr){
+  return array_key_exists('Date 1', $arr);
+});
+@endphp
 {
   "title": {
     "media": {
@@ -15,7 +20,7 @@
     }
   },
   "events": [
-  @foreach ($data as $datum)
+  @foreach ($filtered as $datum)
     @if(Arr::exists($datum, 'Date 1'))
       @php
       $dates = explode('-',$datum['Date 1']);
