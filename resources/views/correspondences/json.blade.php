@@ -27,7 +27,7 @@ $filtered = array_filter($data, function($arr){
       @endphp
       {
         "media": {
-          "url": "{{ $datum['images']['file_urls']['fullsize']}}",
+          "url": "{{ $datum['images']['file_urls']['thumbnail']}}",
           "caption": "The front page of letter {{ $datum['Title'] }}",
           "credit": "The Fitzwilliam Museum",
           "link": "{{route('letter', [$datum['id']])}}",
