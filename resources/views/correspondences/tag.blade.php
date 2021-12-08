@@ -21,9 +21,14 @@
     </h2>
   </header>
 
+  <section class="mw7-ns center pl2 pr2 ph1-ns">
+    <simple-button
+    button-text="Explore on a timeline"
+    button-link="{{ route('timeline.tag', $param) }}"
+    />
+  </section>
 
-
-  <section class="mw7-ns center  pl2 pr2 ph1-ns">
+  <section class="mw7-ns center pl2 pr2 ph1-ns">
 
       @foreach($records as $item)
         @php
@@ -112,14 +117,7 @@
       @endforeach
   </section>
 
-  <section class="mw7-ns w-100 center ">
-    <cta-card
-    title="View as a timeline"
-    content=""
-    button-text="Explore"
-    button-link="{{ route('timeline.tag', $param) }}"
-    />
-  </section>
+
 
   <section class="fl w-100 bg-light-green h-100 flex items-center pv2 mv3">
 

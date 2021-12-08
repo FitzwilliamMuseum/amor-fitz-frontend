@@ -49,6 +49,8 @@ Vue.component('tag-list', require('./components/TagList.vue').default);
 Vue.component('leaflet-geojson', require('./components/GeoJsonMap.vue').default)
 Vue.component('team-profile-card', require('./components/TeamProfileCard.vue').default)
 Vue.component('timeline', require('./components/Timeline.vue').default)
+Vue.component('simple-button', require('./components/SimpleButton.vue').default)
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
