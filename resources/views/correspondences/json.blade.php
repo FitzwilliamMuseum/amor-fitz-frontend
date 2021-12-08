@@ -35,8 +35,8 @@ $filtered = array_filter($data, function($arr){
           "thumbnail": "{{ $datum['images']['file_urls']['square_thumbnail']}}"
         },
         "start_date": {
-          "month": "{{ $dates[2]}}",
-          "day": "{{ $dates[1]}}",
+          "month": "{{ $dates[1]}}",
+          "day": "{{ $dates[2]}}",
           "year": "{{ $dates[0]}}"
         },
         "background": {
