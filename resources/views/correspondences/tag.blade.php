@@ -20,13 +20,14 @@
       {{ implode(' / ', $tag) }}
     </h2>
   </header>
-
+  @if($paginate->onFirstPage())
   <section class="mw7-ns center pl2 pr2 ph1-ns">
     <simple-button
     button-text="Explore on a timeline"
     button-link="{{ route('timeline.tag', $param) }}"
     />
   </section>
+  @endif
 
   <section class="mw7-ns center pl2 pr2 ph1-ns">
 
