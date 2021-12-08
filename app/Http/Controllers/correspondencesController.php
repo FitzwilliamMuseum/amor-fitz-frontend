@@ -114,7 +114,8 @@ class correspondencesController extends Controller
       $paginate = new LengthAwarePaginator($records, count($counts), 4);
       $paginate->setPath($request->getBaseUrl());
       $tag = Tags::findByTags(request()->segment(4));
-      return view('correspondences.tag', compact('convos', 'records', 'page', 'paginate', 'tag'));
+      $param = request()->segment(4);
+      return view('correspondences.tag', compact('convos', 'records', 'page', 'paginate', 'tag', 'param'));
     }
 
     public function tags()
@@ -122,4 +123,56 @@ class correspondencesController extends Controller
       $tags = Tags::getTags();
       return view('correspondences.tags', compact('tags'));
     }
+
+    public function timelineByTag(Request $request){
+
+      if(!is_null(request()->segment(4))){
+        $args = array('item_type' => 'Letter', 'tags' => request()->segment(4));
+        $params = Tags::findByTags(request()->segment(4));
+        $args['tags'] = implode(',', $params);
+        $countArgs['tags'] = implode(',', $params);
+      }
+      $api = new OmekaApi;
+      $api->setEndpoint('items');
+      $api->setArguments($args);
+      $items = $api->getData();
+      $data = array();
+      foreach($items as $item){
+        $record = array();
+        foreach($item['element_texts'] as $element){
+          $record[$element['element']['name']] = str_replace(array("\r", "\n"), ' ', $element['text']);
+        }
+        $record['id'] = $item['id'];
+        $record['created'] = $item['added'];
+        $record['modified'] = $item['modified'];
+        $record['type'] = $item['item_type']['name'];
+        $record['tags'] = $item['tags'];
+        if(array_key_exists('url', $item['files'])){
+          $image = new OmekaApi;
+          $images = $image->getUrl($item['files']['url']);
+          self::array_sort_by_column($images, 'order');
+          $record['images'] = $images[0];
+        }
+        $data[] = $record;
+      }
+      $page =  view('correspondences.json', compact('data', 'params'));
+      return response($page)->header('Content-Type', 'application/json');
+
+    }
+
+    public function timeline(Request $request){
+      if(!is_null(request()->segment(4))){
+        $tags = Tags::findByTags(request()->segment(4));
+        $tag = request()->segment(4);
+      }
+      return view('correspondences.timeline', compact('tags', 'tag'));
+    }
+
+    public static function array_sort_by_column(&$arr, $col, $dir = SORT_ASC) {
+      $sort_col = array();
+      foreach ($arr as $key => $row) {
+          $sort_col[$key] = $row[$col];
+      }
+      array_multisort($sort_col, $dir, $arr);
+  }
 }

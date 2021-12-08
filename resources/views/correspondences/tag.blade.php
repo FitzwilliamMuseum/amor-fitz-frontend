@@ -110,9 +110,17 @@
           />
         </section>
       @endforeach
-
-
   </section>
+
+  <section class="mw7-ns w-100 center ">
+    <cta-card
+    title="View as a timeline"
+    content=""
+    button-text="Explore"
+    button-link="{{ route('timeline.tag', $param) }}"
+    />
+  </section>
+
   <section class="fl w-100 bg-light-green h-100 flex items-center pv2 mv3">
 
   <section class="mw8-ns center tc pa3 ph5-ns">
