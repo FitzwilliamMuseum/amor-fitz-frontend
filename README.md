@@ -31,18 +31,41 @@ This works with:
 We assume you have Git, Curl, Composer, PHP, node and npm installed on your machine of choice.
 Therefore to install this system follow these steps:
 
-``bash
+```bash
 git clone https://github.com/FitzwilliamMuseum/amor-fitz-frontend
 cd amor-fitz-frontend
 composer install
 cp .env.example .env
-php artisan generate key
+php artisan key:generate
 npm install
+```
+You now need to decide whether you will run in:
+
+#### Development (you can inspect the vue output)
+
+```bash
 npm run dev
 ```
 
-This should get the bare bones up and running. You will want to connect to our solr instance
-if you want to get the search module returning results.
+#### Production
+
+```bash
+npm run production
+```
+
+### Running the project
+
+This should get the bare bones up and running. Which will enable you to test the install:
+
+```bash
+php artisan serve
+```
+
+Or if you are running a vhost, you will need to point to the public folder.
+
+### Solr search 
+
+You will want to connect to our solr instance if you want to get the search module returning results.
 
 The config for solr connection is found in:
 
@@ -52,6 +75,11 @@ config/solarium.php
 
 And interfaces directly with the omeka core. If you want access, we can enable your IP address through our firewall.
 
+Caching is done at file level. To clear the caches:
+
+```bash
+php artisan cache:clear  
+```
 
 ### Front end UX/UI
 
