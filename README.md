@@ -4,14 +4,13 @@ A Laravel/Vue front end for the correspondence of William Hayley.
 
 This project interfaces with three apis that come from:
 
-* Omeka Classic
-* Hypothes.is
+* Omeka Classic located at https://hayleypapers.fitzmuseum.cam.ac.uk/ (uses a basic theme)
+* Hypothes.is (overlays can be found via https://via.hypothes.is/http://hayleypapers.fitzmuseum.cam.ac.uk/)
 * Mediawiki
 
 No API keys are needed to run this project, all data is openly licensed, images
 are more restricted due to University of Cambridge standpoint. The search engine will not
-work unless you have access to the Fitzwilliam solr cores (IP restricted, or you set up your own
-solr instance - see below.)
+work unless you have access to the Fitzwilliam solr cores (IP restricted.)
 
 ### Dependences
 
@@ -114,3 +113,8 @@ GPLV3
   <a href="https://www.leverhulme.ac.uk" title="The Leverhulme Trust">
     <img src="public/images/svg/leverhulme-logo.svg" alt="Leverhulme Trust Logo" width="200">
   </a>
+
+### Future development
+
+This project was a pilot, and only includes a very selected amount of Hayley's correspondence. If
+and when more funding is found, this project may develop further. 
