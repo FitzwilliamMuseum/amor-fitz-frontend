@@ -14,8 +14,6 @@
         class="mb4 w4 correspondence-card__avatar-item"
       />
     </div>
-
-    </div>
   </div>
 </template>
 
