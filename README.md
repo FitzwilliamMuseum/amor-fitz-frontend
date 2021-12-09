@@ -75,7 +75,11 @@ config/solarium.php
 
 And interfaces directly with the omeka core. If you want access, we can enable your IP address through our firewall.
 
-Caching is done at file level. To clear the caches:
+### Caching
+
+The calls to the omeka api are manifold, and so first load of pages can be very slow. We cache everything - api calls and page output. Caching can be set up to use any of the laravel adapters, at the moment caching is done at file level.
+
+To clear the caches:
 
 ```bash
 php artisan cache:clear  
