@@ -1,5 +1,5 @@
 <template>
-  <div class="correspondence-card w-100 pa3 tc helevtica">
+  <div class="correspondence-card w-100 pa3 tc helvetica">
     <div class="center flex flex-row-reverse justify-center">
       <AvatarItem
         type="Person"
