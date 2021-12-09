@@ -99,4 +99,14 @@ GPLV3
 
 ### Funders
 
-![The Leverhulme Trust](/public/images/svg/leverhulme-logo.svg) ![The British Academy](/public/images/svg/ba-logo.svg) ![Cambridge University](/public/images/svg/cambridge-logo.svg)
+  <a href="https://www.thebritishacademy.ac.uk/" title="The British Academy">
+    <img src="public/images/svg/ba-logo.svg" alt="British Academy Logo" width="200">
+  </a>
+
+  <a href="https://cam.ac.uk" title="The Leverhulme Trust">
+    <img src="public/images/svg/cambridge-logo.svg" alt="Cambridge University Logo" width="200">
+  </a>
+
+  <a href="https://www.leverhulme.ac.uk" title="The Leverhulme Trust">
+    <img src="public/images/svg/leverhulme-logo.svg" alt="Leverhulme Trust Logo" width="200">
+  </a>
