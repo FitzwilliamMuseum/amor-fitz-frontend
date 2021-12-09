@@ -63,7 +63,7 @@ php artisan serve
 
 Or if you are running a vhost, you will need to point to the public folder.
 
-### Solr search 
+### Solr search
 
 You will want to connect to our solr instance if you want to get the search module returning results.
 
@@ -93,8 +93,10 @@ As a story book at:
 
 https://phivk.com/fitz-hayley/?path=/story/example-introduction--page
 
-
-
 ### License
 
 GPLV3
+
+### Funders
+
+![The Leverhulme Trust](/public/images/svg/leverhulme-logo.svg) ![The British Academy](/public/images/svg/ba-logo.svg) ![Cambridge University](/public/images/svg/cambridge-logo.svg)
