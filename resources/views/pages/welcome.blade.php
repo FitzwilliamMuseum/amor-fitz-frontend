@@ -17,7 +17,7 @@
   </h2>
 </header>
 <section class="fl w-100 bg-light-green h-100 flex items-center pv2 mv3">
-  <div class="w-100 mw7-ns center bg-light-green pa3 ph5-ns pv3 flex items-center">
+  <div class="w-100 mw7-ns center bg-light-green ph5-ns pv3 flex items-center">
     <correspondence-card-front
     :backgrounds='["john-flaxman","anne-nancy-flaxman","thomas-alphonso-hayley","eliza-hayley"]'
     />

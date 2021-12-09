@@ -1,5 +1,5 @@
 <template>
-  <div class="correspondence-card w-100 pa3 tc helevtica">
+  <div class="correspondence-card w-100 pa3 tc helvetica overflow-x-hidde">
     <div class="center flex flex-row-reverse justify-center">
       <AvatarItem
         type="Person"
@@ -13,8 +13,6 @@
         :backgroundId="backgroundId"
         class="mb4 w4 correspondence-card__avatar-item"
       />
-    </div>
-
     </div>
   </div>
 </template>
