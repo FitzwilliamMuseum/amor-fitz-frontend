@@ -34,7 +34,10 @@ $texts = array_filter($data['expanded'], function($arr){
   return $arr['entityType'] == 'Text';
 });
 $works = array_filter($data['expanded'], function($arr){
-  return $arr['entityType'] == 'Still Image';
+  return $arr['entityType'] == 'Pictures';
+});
+$sculpture = array_filter($data['expanded'], function($arr){
+  return $arr['entityType'] == 'Sculpture';
 });
 $images = array();
 foreach($data['images'] as $image){
@@ -222,6 +225,31 @@ foreach($data['images'] as $image){
           @if(!empty($works))
             <h3 class="helvetica fw4 f3">Works of art</h3>
             @foreach($works as $work)
+              <div>
+                @php
+                if(!empty($work['images'])){
+                  $bgImageSrc = $work['images'][0]['file_urls']['square_thumbnail'];
+                } else {
+                  $bgImageSrc = NULL;
+                }
+                @endphp
+                <entity-card
+                type="{{$work['entityType']}}"
+                title="{{ $work['Title'] }}"
+                link-text="Read more"
+                @if(array_key_exists('property_label', $work))
+                  role="{{ $work['property_label'] }}"
+                @endif
+                link-path="{{ route('entity.detail', $work['object_item_id']) }}"
+                bg-image-src="{{ $bgImageSrc }}"
+                />
+              </div>
+            @endforeach
+          @endif
+
+          @if(!empty($sculpture))
+            <h3 class="helvetica fw4 f3">Sculptures</h3>
+            @foreach($sculpture as $work)
               <div>
                 @php
                 if(!empty($work['images'])){

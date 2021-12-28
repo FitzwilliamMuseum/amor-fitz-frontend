@@ -135,14 +135,16 @@ class Correspondences
               }
               $call =  new OmekaApi;
               $response = $call->getUrl($resource);
-              $expanded = array();
-              foreach($response['element_texts'] as $element){
-                $expanded[$element['element']['name']] = str_replace(array("\r", "\n"), ' ', $element['text']);
+              if(!empty($response['element_texts'])){
+                $expanded = array();
+                foreach($response['element_texts'] as $element){
+                  $expanded[$element['element']['name']] = str_replace(array("\r", "\n"), ' ', $element['text']);
+                }
+                $expanded['property_label'] = $relation['property_label'];
+                $expanded['object_item_id'] = $relation['object_item_id'];
+                $expanded['entityType'] = $response['item_type']['name'];
+                $data['expanded'][] = $expanded;
               }
-              $expanded['property_label'] = $relation['property_label'];
-              $expanded['object_item_id'] = $relation['object_item_id'];
-              $expanded['entityType'] = $response['item_type']['name'];
-              $data['expanded'][] = $expanded;
             }
           }
         }

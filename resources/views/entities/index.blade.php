@@ -25,7 +25,7 @@
    {
      "names":["People"],
      "backgroundIds":["blake"],
-     "curatorialStatement":"Discover the people in Hayley&apos;s life who influenced him.",
+     "curatorialStatement":"Find out about the people in Hayley’s life.",
      "buttonLink": "{{ route('entity', ['person']) }}"
    },
    {
@@ -43,14 +43,26 @@
    {
      "names":["Events"],
      "backgroundIds":["flaxman"],
-     "curatorialStatement":"His letters mention events that affected the correspondents. ",
+     "curatorialStatement":"Events mentioned in the letters.",
      "buttonLink": "{{ route('entity', ['event']) }}"
    },
    {
      "names":["Texts"],
      "backgroundIds":["flaxman"],
-     "curatorialStatement":"Hayley mentions texts within his writing, written by others.",
+     "curatorialStatement":"Texts discussed in Hayley’s correspondence.",
      "buttonLink": "{{ route('entity', ['text']) }}"
+   },
+   {
+     "names":["Sculptures"],
+     "backgroundIds":["flaxman"],
+     "curatorialStatement":"Memorials and other sculptures discussed.",
+     "buttonLink": "{{ route('entity', ['sculpture']) }}"
+   },
+   {
+     "names":["Pictures"],
+     "backgroundIds":["flaxman"],
+     "curatorialStatement":"Paintings, drawings and prints mentioned.",
+     "buttonLink": "{{ route('entity', ['pictures']) }}"
    }
    ]'
  />
