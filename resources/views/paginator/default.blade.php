@@ -1,7 +1,7 @@
 @if ($paginator->hasPages())
 <div class="dib">
   @if (!$paginator->onFirstPage())
-    <a href="{{ \Request::url() }}">
+    <a href="{{ $paginator->path() }}">
       <span class="green dib mr3 underline pointer">first</span>
     </a>
   @endif
@@ -26,7 +26,7 @@
       <div data-v-e0422746="" class="button--square hel flex justify-center items-center bg-green creme f4 fw7 pa2 button dim">➻</div>
     </a>
   </div>
-  <a href="{{ \Request::url() .'?page='.$paginator->lastPage() }}">
+  <a href="{{ $paginator->path() .'&page=' . $paginator->lastPage() }}">
     <span class="green dib underline pointer" >last</span>
   </a>
 </div>
