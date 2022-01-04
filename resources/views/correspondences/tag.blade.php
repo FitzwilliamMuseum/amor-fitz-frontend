@@ -35,30 +35,31 @@
         @php
         $people = count(array_filter($item['expanded'], function($arr)
         {
-          return $arr['entityType'] == 'Person';
+          return $arr['entityType'] == 'Person' ?? NULL;
         }));
 
         $places = count(array_filter($item['expanded'], function($arr)
         {
-          return $arr['entityType'] == 'Place';
+          return $arr['entityType'] == 'Place' ?? NULL;
         }));
         $objects = count(array_filter($item['expanded'], function($arr)
         {
-          return $arr['entityType'] == 'Physical Object';
+          return $arr['entityType'] == 'Sculpture' ?? NULL;
         }));
         $events = count(array_filter($item['expanded'], function($arr)
         {
-          return $arr['entityType'] == 'Event';
+          return $arr['entityType'] == 'Event' ?? NULL;
         }));
         $texts = count(array_filter($item['expanded'], function($arr)
         {
-          return $arr['entityType'] == 'Text';
+          return $arr['entityType'] == 'Text' ?? NULL;
         }));
 
         $works = count(array_filter($item['expanded'], function($arr)
         {
-          return $arr['entityType'] == 'Still Image';
+          return $arr['entityType'] == 'Pictures' ?? NULL;
         }));
+
         $images = array();
         foreach($item['images'] as $image){
           $images[] = $image['filename'];

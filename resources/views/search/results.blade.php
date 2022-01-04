@@ -7,7 +7,6 @@
   :path-list='[
   {"text":"Search","path":"{{ route('search')}}"},
   {"text":"Results","path":"{{ route('search.results')}}"},
-
   ]'
   />
 @endsection
@@ -18,13 +17,14 @@
     switch($record['itemtype']){
       case 'Letter':
         $route = 'letter';
-        break;
+      break;
       case 'Person':
       case 'Place':
       case 'Family':
       case 'Event':
       case 'Text':
-      case 'Still Image':
+      case 'Pictures':
+      case 'Sculpture':
         $route = 'entity.detail';
         break;
       case 'Team':
@@ -35,7 +35,7 @@
         break;
     }
     if($record['model'] == 'SimplePagesPage'){
-      $route = strtolower($record['title'][0]);
+      $route = 'pages';
     }
     @endphp
     @if($loop->even)
@@ -44,10 +44,10 @@
         type="{{ $record['itemtype'] }}"
         title="{{ $record['title'][0]}}"
         link-text="Discover more"
-        @if(!in_array($route, array('team','acknowledgements','about')))
+        @if(!in_array($route, array('pages')))
           link-path="{{ route($route, $record['modelid'] ) }}"
         @else
-          link-path="{{ route($route) }}"
+          link-path="{{ route($route, $record['simple_pages_slug_t'][0]) }}"
         @endif        />
       </article>
     @endif
@@ -57,10 +57,10 @@
         type="{{ $record['itemtype']  }}"
         title="{{ $record['title'][0]}}"
         link-text="Discover more"
-        @if(!in_array($route, array('team','acknowledgements','about')))
+        @if(!in_array($route, array('pages')))
           link-path="{{ route($route, $record['modelid'] ) }}"
         @else
-          link-path="{{ route($route) }}"
+          link-path="{{ route($route, $record['simple_pages_slug_t'][0]) }}"
         @endif
         />
       </article>

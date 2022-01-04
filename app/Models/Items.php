@@ -87,6 +87,7 @@ class Items
         $entities->setEndpoint('items');
         $entities->setid($rel['object_item_id']);
         $entity = $entities->getData();
+        if(array_key_exists('id', $entity)){;
         $related['object_item_id'] = $rel['object_item_id'];
         $related['entityType'] = $entity['item_type']['name'];
         foreach($entity['element_texts'] as $element){
@@ -98,6 +99,8 @@ class Items
           self::array_sort_by_column($images, 'order');
           $related['images'] = $images;
         }
+
+      }
         $fullData[] = $related;
       }
       $data['expanded'] = $fullData;

@@ -31,10 +31,9 @@ Route::get('/entities', 'App\Http\Controllers\entitiesController@index')->name('
 Route::get('/entities/{slug}', 'App\Http\Controllers\entitiesController@entity')->name('entity');
 Route::get('/entities/details/{slug}', 'App\Http\Controllers\entitiesController@details')->name('entity.detail');
 
-Route::get('/about', 'App\Http\Controllers\aboutController@index')->name('about');
-Route::get('/about/team', 'App\Http\Controllers\aboutController@team')->name('team');
-Route::get('/about/acknowledgements', 'App\Http\Controllers\aboutController@acknowledgements')->name('acknowledgements');
+Route::get('/about/{slug?}', 'App\Http\Controllers\aboutController@index')->name('pages');
 Route::get('/search', 'App\Http\Controllers\searchController@index')->name('search');
+
 Route::match(array('GET', 'POST'), '/search/results', [
     'uses' => 'App\Http\Controllers\searchController@results',
     'as' => 'search.results'

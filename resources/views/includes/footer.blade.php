@@ -54,11 +54,11 @@
     © {{ now()->year }} The Fitzwilliam Museum<br/>The University of Cambridge
   </small>
   <div class="tc mt3">
-    <a href="https://github.com/FitzwilliamMuseum/amor-fitz-frontend" class="f6 dib ph2 link mid-gray dim">Code GPLv3</a>
-    <a href="https://github.com/FitzwilliamMuseum/amor-fitz-frontend/blob/main/LICENSE" class="f6 dib ph2 link mid-gray dim">Content CC BY</a>
+    <a href="https://github.com/FitzwilliamMuseum/amor-fitz-frontend" class="f6 dib ph2 link cherry dim">Code GPLv3</a>
+    <a href="https://github.com/FitzwilliamMuseum/amor-fitz-frontend/blob/main/LICENSE" class="f6 dib ph2 link cherry dim">Content CC BY</a>
     <a href="https://fitzmuseum.cam.ac.uk/about-us/terms-of-use-of-our-website" class="f6 dib ph2 link cherry dim">Images CC BY-SA-NC-ND</a>
-    <a href="https://www.fitzmuseum.cam.ac.uk/about-us/terms-of-use-of-our-website" title="Terms" class="f6 dib ph2 link mid-gray dim">Terms of Use</a>
-    <a href="https://www.fitzmuseum.cam.ac.uk/about-us/privacy-and-cookies"  title="Privacy" class="f6 dib ph2 link mid-gray dim">Privacy</a>
+    <a href="https://www.fitzmuseum.cam.ac.uk/about-us/terms-of-use-of-our-website" title="Terms" class="f6 dib ph2 link cherry dim">Terms of Use</a>
+    <a href="https://www.fitzmuseum.cam.ac.uk/about-us/privacy-and-cookies"  title="Privacy" class="f6 dib ph2 link cherry dim">Privacy</a>
   </div>
 </section>
 </footer>

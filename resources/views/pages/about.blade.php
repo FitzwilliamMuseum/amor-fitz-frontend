@@ -4,7 +4,7 @@
 @section('breadcrumbs')
   <breadcrumbs
   :path-list='[
-  {"text":"About","path":"{{ route('about')}}"},
+  {"text":"About","path":"{{ route('pages')}}"},
   ]'
   />
 @endsection
@@ -22,32 +22,44 @@
   </header>
 
   <article class="ph7-ns pl4 pr4 mt3 mb3">
-     <p class="f5 lh-copy measure-wide">
-       {!! $data['text'] !!}
-     </p>
+    <p class="f5 lh-copy measure-wide">
+      {!! $data['text'] !!}
+    </p>
   </article>
 
-  <section class="cf ph3 ph5-ns pb2 bg-light-green black-70 pa3">
-    <div class="mw9 center">
-
-      <div class="cf">
-        <article class="pv2 fl w-100 w-50-l pr0 pr2-l">
+  <section class="cf ph3 ph5-ns pb2 bg-light-green pa3">
+    <div class="dt-ns dt--fixed-ns">
+      <div class="dtc-ns tc pv4 ">
+        <article>
           <cta-card
           title="Our team"
           content="Who made this project?"
           button-text="Meet the people"
-          button-link="{{ route('team') }}"
+          button-link="{{ route('pages', 'team') }}"
           />
         </article>
-        <article class="pv2 fl w-100 w-50-l pl0 pl2-l">
+      </div>
+      <div class="dtc-ns tc pv4">
+        <article>
           <cta-card
           title="Acknowledgements"
           content="Who are we grateful to for making this project work"
           button-text="Start reading"
-          button-link="{{ route('acknowledgements') }}"
+          button-link="{{ route('pages', 'acknowledgements') }}"
+          />
+        </article>
+      </div>
+      <div class="dtc-ns tc pv4">
+        <article>
+          <cta-card
+          title="User guide"
+          content="How to use this resource"
+          button-text="Learn more"
+          button-link="{{ route('pages', 'user-guide') }}"
           />
         </article>
       </div>
     </div>
+
   </section>
 @endsection
