@@ -4,7 +4,7 @@
 @section('breadcrumbs')
   <breadcrumbs
   :path-list='[
-  {"text":"About","path":"{{ route('about')}}"},
+  {"text":"About","path":"{{ route('pages')}}"},
   ]'
   />
 @endsection

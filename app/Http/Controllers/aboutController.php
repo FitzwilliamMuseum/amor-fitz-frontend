@@ -32,4 +32,10 @@ class aboutController extends Controller
     $data = Items::findByType(array('item_type' => 'team'));
     return view('pages.team', compact('data'));
   }
+
+  public function userGuide()
+  {
+    $data = Pages::find(6);
+    return view('pages.user-guide', compact('data'));
+  }
 }

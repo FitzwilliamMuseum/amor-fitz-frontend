@@ -31,7 +31,11 @@ Route::get('/entities', 'App\Http\Controllers\entitiesController@index')->name('
 Route::get('/entities/{slug}', 'App\Http\Controllers\entitiesController@entity')->name('entity');
 Route::get('/entities/details/{slug}', 'App\Http\Controllers\entitiesController@details')->name('entity.detail');
 
-Route::get('/about/{slug?}', 'App\Http\Controllers\aboutController@index')->name('pages');
+Route::get('/about/', 'App\Http\Controllers\aboutController@index')->name('pages');
+Route::get('/about/acknowledgements', 'App\Http\Controllers\aboutController@acknowledgements')->name('pages.acknowledgements');
+Route::get('/about/team', 'App\Http\Controllers\aboutController@team')->name('pages.team');
+Route::get('/about/user-guide', 'App\Http\Controllers\aboutController@userGuide')->name('pages.user-guide');
+
 Route::get('/search', 'App\Http\Controllers\searchController@index')->name('search');
 
 Route::match(array('GET', 'POST'), '/search/results', [

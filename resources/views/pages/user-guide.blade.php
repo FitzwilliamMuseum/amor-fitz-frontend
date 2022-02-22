@@ -14,11 +14,9 @@
 
   <header class="tc ph4 mb3">
     <h1 class="f3 f2-m f1-l fw4 black-90 mv3 helvetica">
-      About the project
+      How to use this resource
     </h1>
-    <h2 class="f5 f4-m f3-l fw2 berry mt0 lh-copy">
-      Who made this? Who do we need to thank?
-    </h2>
+  
   </header>
 
   <article class="ph7-ns pl4 pr4 mt3 mb3">
