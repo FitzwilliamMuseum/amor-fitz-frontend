@@ -1,5 +1,7 @@
 ## Most Sacred Things: A Museum of Relationships
 
+[![DOI](https://zenodo.org/badge/430801589.svg)](https://zenodo.org/badge/latestdoi/430801589)
+
 A Laravel/Vue front end for the correspondence of William Hayley.
 
 ![amor](https://user-images.githubusercontent.com/286552/163792624-f6ae078e-9a99-4bf6-9406-705cf9f1d03b.jpg)
