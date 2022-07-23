@@ -23,7 +23,7 @@
     },
     "dependencies": {
         "@knight-lab/timelinejs": "^3.8.18",
-        "leaflet": "^1.7.1",
+        "leaflet": "^1.8.0",
         "less-loader": "^10.2.0",
         "moment": "^2.29.4",
         "puppeteer": "^13.5.2",
