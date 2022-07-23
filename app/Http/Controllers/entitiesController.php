@@ -2,19 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
 use App\Models\Pages;
 use App\Models\Entities;
 use App\Models\Items;
-use App\Models\Relations;
-use Illuminate\Pagination\Paginator;
-use Illuminate\Support\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class entitiesController extends Controller
 {
-    public function index()
+    /**
+     * @return Application|Factory|View
+     */
+    public function index(): Application|Factory|View
     {
       $page    = Pages::find(3);
       $places  = Entities::findEntities(array('name' => 'place'));
@@ -25,10 +27,15 @@ class entitiesController extends Controller
       return view('entities.index', compact('places', 'people',  'texts', 'events','family', 'page'));
     }
 
-    public function entity(string $slug, Request $request)
+    /**
+     * @param string $slug
+     * @param Request $request
+     * @return Application|Factory|View
+     */
+    public function entity(string $slug, Request $request): Application|Factory|View
     {
       $perPage = 12;
-      $from = ($request->get('page', 1) - 1) * $perPage;
+      ($request->get('page', 1) - 1) * $perPage;
       $overview  = Entities::findEntities(array('name' => $slug));
       $items = Items::findByType(array('item_type' => $slug, 'per_page' => $perPage, 'page' => $request->get('page', 1) ));
       $paginate = new LengthAwarePaginator($items, $overview[0]['items']['count'], 12);
@@ -36,7 +43,11 @@ class entitiesController extends Controller
       return view('entities.entity', compact('overview','items', 'paginate'));
     }
 
-    public function details(int $id)
+    /**
+     * @param int $id
+     * @return Application|Factory|View
+     */
+    public function details(int $id): Application|Factory|View
     {
       $data = Items::find($id);
       return view('entities.details', compact('data'));

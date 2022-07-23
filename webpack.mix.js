@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+require('laravel-mix-purgecss');
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +22,4 @@ mix.styles([
   'resources/css/number.css',
   'node_modules/tachyons/css/tachyons.css',
 ], 'public/css/fitzwilliam.css');
-mix.sass('resources/css/global-styles.scss', 'public/css');
+mix.sass('resources/css/global-styles.scss', 'public/css').version();
