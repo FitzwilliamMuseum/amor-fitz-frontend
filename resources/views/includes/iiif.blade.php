@@ -3,5 +3,4 @@
 </section>
 @section('scripts')
   <script type="text/javascript" id="embedUV" src="https://hayleypapers.fitzmuseum.cam.ac.uk/plugins/UniversalViewer/views/shared/javascripts/uv/lib/embed.js"></script>
-  <script type="text/javascript">/* wordpress fix */</script>
 @endsection

@@ -3,16 +3,13 @@
 namespace App\Models;
 
 use App\OmekaApi;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Http;
 
 class Items
 {
     /**
-     * [getTags description]
-     * @return [type] [description]
+     * @return array
      */
-    public static function getTags()
+    public static function getTags(): array
     {
         $api = new OmekaApi;
         $api->setEndpoint('tags');
@@ -20,11 +17,10 @@ class Items
     }
 
     /**
-     * [counts description]
-     * @param array $args [description]
-     * @return [type]       [description]
+     * @param array $args
+     * @return array
      */
-    public static function counts(array $args)
+    public static function counts(array $args): array
     {
         $api = new OmekaApi;
         $api->setEndpoint('items');
@@ -41,11 +37,10 @@ class Items
     }
 
     /**
-     * [findByType description]
-     * @param array $args [description]
-     * @return [type]       [description]
+     * @param array $args
+     * @return array
      */
-    public static function findByType(array $args)
+    public static function findByType(array $args): array
     {
         $api = new OmekaApi;
         $api->setEndpoint('items');
@@ -88,7 +83,6 @@ class Items
                 $entities->setid($rel['object_item_id']);
                 $entity = $entities->getData();
                 if (array_key_exists('id', $entity)) {
-                    ;
                     $related['object_item_id'] = $rel['object_item_id'];
                     $related['entityType'] = $entity['item_type']['name'];
                     foreach ($entity['element_texts'] as $element) {
@@ -112,11 +106,10 @@ class Items
     }
 
     /**
-     * [find description]
-     * @param int $id [description]
-     * @return [type]     [description]
+     * @param int $id
+     * @return array
      */
-    public static function find(int $id)
+    public static function find(int $id): array
     {
         $api = new OmekaApi;
         $api->setEndpoint('items');
@@ -192,7 +185,7 @@ class Items
                 self::array_sort_by_column($images, 'order');
                 $object['images'] = $images;
             }
-            $objects[] = $object;;
+            $objects[] = $object;
         }
 
 
@@ -220,7 +213,7 @@ class Items
                 self::array_sort_by_column($images, 'order');
                 $object['images'] = $images;
             }
-            $domus[] = $object;;
+            $domus[] = $object;
         }
 
         $data['linked_items'] = $objects;
@@ -228,8 +221,13 @@ class Items
         return $data;
     }
 
-
-    public static function array_sort_by_column(&$arr, $col, $dir = SORT_ASC)
+    /**
+     * @param $arr
+     * @param $col
+     * @param int $dir
+     * @return void
+     */
+    public static function array_sort_by_column(&$arr, $col, int $dir = SORT_ASC): void
     {
         $sort_col = array();
         foreach ($arr as $key => $row) {
@@ -238,9 +236,12 @@ class Items
         array_multisort($sort_col, $dir, $arr);
     }
 
-    public static function letter(int $id)
+    /**
+     * @param int $id
+     * @return array
+     */
+    public static function letter(int $id): array
     {
-        $data = array();
         $api = new OmekaApi;
         $api->setEndpoint('items');
         $api->setid($id);
@@ -297,8 +298,11 @@ class Items
         return $data;
     }
 
-
-    public static function letterExpand(array $items)
+    /**
+     * @param array $items
+     * @return array
+     */
+    public static function letterExpand(array $items): array
     {
         $records = array();
         foreach ($items as $item) {
@@ -324,11 +328,7 @@ class Items
                 if (!empty($data['relations'])) {
                     if (array_key_exists(0, $data['relations'])) {
                         foreach ($data['relations'] as $relation) {
-                            if (isset($relation['object_item_url'])) {
-                                $resource = $relation['object_item_url'];
-                            } else {
-                                $resource = $relation['subject_item_url'];
-                            }
+                            $resource = $relation['object_item_url'] ?? $relation['subject_item_url'];
                             $call = new OmekaApi;
                             $response = $call->getUrl($resource);
                             $expanded = array();
